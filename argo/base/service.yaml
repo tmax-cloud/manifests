@@ -16,7 +16,7 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 8001
+    targetPort: 2746
   selector:
     app: argo-ui
   sessionAffinity: None

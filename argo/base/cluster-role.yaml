@@ -18,6 +18,7 @@ rules:
   - watch
   - update
   - patch
+  - delete
 - apiGroups:
   - ""
   resources:
@@ -44,6 +45,52 @@ rules:
   - watch
   - update
   - patch
+  - delete
+  - create
+- apiGroups:
+  - argoproj.io
+  resources:
+  - workflowtemplates
+  - workflowtemplates/finalizers
+  - clusterworkflowtemplates
+  - clusterworkflowtemplates/finalizers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - serviceaccounts
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - argoproj.io
+  resources:
+  - cronworkflows
+  - cronworkflows/finalizers
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+- apiGroups:
+  - policy
+  resources:
+  - poddisruptionbudgets
+  verbs:
+  - create
+  - get
+  - delete
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
@@ -55,6 +102,20 @@ rules:
 - apiGroups:
   - ""
   resources:
+  - configmaps
+  verbs:
+  - get
+  - watch
+  - list
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
   - pods
   - pods/exec
   - pods/log
@@ -62,6 +123,7 @@ rules:
   - get
   - list
   - watch
+  - delete
 - apiGroups:
   - ""
   resources:
@@ -72,8 +134,14 @@ rules:
   - argoproj.io
   resources:
   - workflows
-  - workflows/finalizers
+  - workflowtemplates
+  - cronworkflows
+  - clusterworkflowtemplates
   verbs:
+  - create
   - get
   - list
   - watch
+  - update
+  - patch
+  - delete
