@@ -1,4 +1,5 @@
 # Manifests
+kubeflow-manifests for HyperCloud-Kubeflow
 This repo is a [bespoke configuration](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/glossary.md#bespoke-configuration) of kustomize targets used by kubeflow. These targets are traversed by kubeflow's CLI `kfctl`. Each target is compatible with the kustomize CLI and can be processed indendently by kubectl or the kustomize command.
 
 ## Organization
