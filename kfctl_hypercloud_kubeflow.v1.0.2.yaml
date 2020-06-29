@@ -353,5 +353,5 @@ spec:
     name: seldon-core-operator
   repos:
   - name: manifests
-    uri: https://github.com/tmax-cloud/kubeflow-manifests/archive/v1.0.2.tar.gz
+    uri: https://github.com/tmax-cloud/kubeflow-manifests/archive/kubeflow-manifests-v1.0.2.tar.gz
   version: v1.0.2
