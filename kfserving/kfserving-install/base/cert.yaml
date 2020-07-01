@@ -2,6 +2,7 @@ apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: serving-cert
+  namespace: kubeflow
 spec:
   commonName: kfserving-webhook-server-service.kubeflow.svc
   dnsNames:
@@ -10,3 +11,11 @@ spec:
     kind: Issuer
     name: selfsigned-issuer
   secretName: kfserving-webhook-server-cert
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: selfsigned-issuer
+  namespace: kubeflow
+spec:
+  selfSigned: {}

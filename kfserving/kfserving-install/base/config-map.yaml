@@ -1,8 +1,38 @@
 apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: inferenceservice-config
 data:
+  credentials: |-
+    {
+       "gcs": {
+           "gcsCredentialFileName": "gcloud-application-credentials.json"
+       },
+       "s3": {
+           "s3AccessKeyIDName": "awsAccessKeyID",
+           "s3SecretAccessKeyName": "awsSecretAccessKey"
+       }
+    }
+  explainers: |-
+    {
+        "alibi": {
+            "image" : "docker.io/seldonio/kfserving-alibiexplainer",
+            "defaultImageVersion": "v0.3.0",
+            "allowedImageVersions": [
+               "v0.3.0"
+            ]
+        }
+    }
+  ingress: |-
+    {
+        "ingressGateway" : "kubeflow-gateway.kubeflow",
+        "ingressService" : "istio-ingressgateway.istio-system.svc.cluster.local"
+    }
+  logger: |-
+    {
+        "image" : "gcr.io/kfserving/logger:v0.3.0",
+        "memoryRequest": "100Mi",
+        "memoryLimit": "1Gi",
+        "cpuRequest": "100m",
+        "cpuLimit": "1"
+    }
   predictors: |-
     {
         "tensorflow": {
@@ -46,8 +76,8 @@ data:
             "defaultImageVersion": "v0.3.0",
             "defaultGpuImageVersion": "v0.3.0-gpu",
             "allowedImageVersions": [
-              "v0.3.0",
-              "v0.3.0-gpu"
+               "v0.3.0",
+               "v0.3.0-gpu"
             ]
         },
         "tensorrt": {
@@ -55,19 +85,6 @@ data:
             "defaultImageVersion": "19.05-py3",
             "allowedImageVersions": [
                "19.05-py3"
-            ]
-        }
-    }
-  transformers: |-
-    {
-    }
-  explainers: |-
-    {
-        "alibi": {
-            "image" : "docker.io/seldonio/kfserving-alibiexplainer",
-            "defaultImageVersion": "v0.3.0",
-            "allowedImageVersions": [
-               "v0.3.0"
             ]
         }
     }
@@ -79,26 +96,9 @@ data:
         "cpuRequest": "100m",
         "cpuLimit": "1"
     }
-  credentials: |-
+  transformers: |-
     {
-       "gcs": {
-           "gcsCredentialFileName": "gcloud-application-credentials.json"
-       },
-       "s3": {
-           "s3AccessKeyIDName": "awsAccessKeyID",
-           "s3SecretAccessKeyName": "awsSecretAccessKey"
-       }
     }
-  ingress: |-
-    {
-        "ingressGateway" : "knative-ingress-gateway.knative-serving",
-        "ingressService" : "kfserving-ingressgateway.istio-system.svc.cluster.local"
-    }
-  logger: |-
-    {
-        "image" : "gcr.io/kfserving/logger:v0.3.0",
-        "memoryRequest": "100Mi",
-        "memoryLimit": "1Gi",
-        "cpuRequest": "100m",
-        "cpuLimit": "1"
-    }
+kind: ConfigMap
+metadata:
+  name: inferenceservice-config
