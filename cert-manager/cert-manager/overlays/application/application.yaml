@@ -6,11 +6,10 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: cert-manager
-      app.kubernetes.io/instance: cert-manager-v1.0.0
+      app.kubernetes.io/instance: cert-manager
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/component: cert-manager
-      app.kubernetes.io/part-of: kubeflow
-      app.kubernetes.io/version: v1.0.0
+      app.kubernetes.io/part-of: kubeflow      
   componentKinds:
   - group: rbac
     kind: ClusterRole

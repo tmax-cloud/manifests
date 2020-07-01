@@ -5,9 +5,12 @@ resources:
 - cluster-role-binding.yaml
 - cluster-role.yaml
 - config-map.yaml
+- issuer.yaml
+- certificate.yaml
 - secret.yaml
 - statefulset.yaml
 - service.yaml
+
 commonLabels:
   kustomize.component: kfserving
 configMapGenerator:
@@ -29,4 +32,4 @@ images:
   newTag: v0.4.0
 - name: $(registry)/kfserving-controller
   newName: $(registry)/kfserving-controller
-  newTag: 0.2.2
+  newTag: 0.3.0
