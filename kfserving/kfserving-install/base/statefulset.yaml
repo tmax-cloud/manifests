@@ -40,14 +40,12 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         - name: SECRET_NAME
-          value: kfserving-webhook-server-secret
-        - name: ENABLE_WEBHOOK_NAMESPACE_SELECTOR
-          value: enabled
-        image: tmaxcloudck/hypercloud-kfserving:0.2.2
+          value: kfserving-webhook-server-cert
+        image: $(registry)/kfserving-controller:v0.4.0
         imagePullPolicy: Always
         name: manager
         ports:
-        - containerPort: 9876
+        - containerPort: 443
           name: webhook-server
           protocol: TCP
         resources:
@@ -58,7 +56,7 @@ spec:
             cpu: 100m
             memory: 200Mi
         volumeMounts:
-        - mountPath: /tmp/cert
+        - mountPath: /tmp/k8s-webhook-server/serving-certs
           name: cert
           readOnly: true
       terminationGracePeriodSeconds: 10
@@ -66,5 +64,4 @@ spec:
       - name: cert
         secret:
           defaultMode: 420
-          secretName: kfserving-webhook-server-secret
-  volumeClaimTemplates: []
+          secretName: kfserving-webhook-server-cert
