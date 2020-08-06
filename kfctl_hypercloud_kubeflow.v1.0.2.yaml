@@ -163,6 +163,7 @@ spec:
       overlays:
       - istio
       - application
+      - hypercloud
       repoRef:
         name: manifests
         path: jupyter/notebook-controller
