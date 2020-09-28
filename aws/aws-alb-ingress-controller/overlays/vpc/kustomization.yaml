@@ -1,12 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-bases:
-- ../../base
 resources:
+- ../../base
+patchesStrategicMerge:
 - vpc.yaml
 configMapGenerator:
 - name: alb-ingress-controller-vpc-parameters
-  env: params.env
+  envs:
+  - params.env
 vars:
 - name: VPC_ID
   objref:

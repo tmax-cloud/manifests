@@ -11,14 +11,17 @@ spec:
     metadata:
       labels:
         app: mpi-operator
+      annotations:
+        sidecar.istio.io/inject: "false"
     spec:
       containers:
       - args:
-        - --gpus-per-node
-        - "8"
+        - -alsologtostderr
+        - --lock-namespace
+        - $(lock-namespace)
         - --kubectl-delivery-image
         - $(kubectl-delivery-image)
-        image: mpioperator/mpi-operator:0.1.0
+        image: mpioperator/mpi-operator:latest
         imagePullPolicy: Always
         name: mpi-operator
       serviceAccountName: mpi-operator
