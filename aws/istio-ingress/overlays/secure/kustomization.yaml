@@ -5,7 +5,12 @@ patchesStrategicMerge:
 configMapGenerator:
 - name: istio-ingress-parameters
   behavior: merge
+<<<<<<< HEAD
   env: params.env
+=======
+  envs:
+  - params.env
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 generatorOptions:
   disableNameSuffixHash: true
 vars:

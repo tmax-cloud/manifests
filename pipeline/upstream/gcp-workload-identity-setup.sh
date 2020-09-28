@@ -16,6 +16,7 @@
 
 set -e
 
+<<<<<<< HEAD
 # Kubernetes Namespace
 NAMESPACE=${NAMESPACE:-kubeflow}
 
@@ -57,10 +58,41 @@ Note, this script is designed to be idempotent. If something went wrong, you can
 
 EOF
 
+=======
+# Google service Account (GSA)
+SYSTEM_GSA=${SYSTEM_GSA:-$CLUSTER_NAME-kfp-system}
+USER_GSA=${USER_GSA:-$CLUSTER_NAME-kfp-user}
+
+# Kubernetes Service Account (KSA)
+SYSTEM_KSA=(ml-pipeline-ui ml-pipeline-visualizationserver)
+USER_KSA=(pipeline-runner kubeflow-pipelines-container-builder)
+
+cat <<EOF
+
+It is recommended to first review introduction to workload identity: https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity.
+
+This script sets up Google service accounts and workload identity bindings for a Kubeflow Pipelines (KFP) standalone deployment.
+You can also choose to manually set these up based on documentation: https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity.
+
+Before you begin, please check the following list:
+* gcloud is configured following steps: https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity#before_you_begin.
+* KFP is already deployed by standalone deployment: https://www.kubeflow.org/docs/pipelines/standalone-deployment-gcp/.
+* kubectl talks to the cluster KFP is deployed to: https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl.
+
+The following resources will be created to bind workload identity between GSAs and KSAs:
+* Google service accounts (GSAs): $SYSTEM_GSA and $USER_GSA.
+* Service account IAM policy bindings.
+* Kubernetes service account annotations.
+
+EOF
+
+NAMESPACE=${NAMESPACE:-kubeflow}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 function usage {
 cat <<\EOF
 Usage:
 ```
+<<<<<<< HEAD
 PROJECT_ID=<your-gcp-project-id> RESOURCE_PREFIX=<your-chosen-prefix> NAMESPACE=<your-k8s-namespace> ./gcp-workload-identity-setup.sh
 ```
 
@@ -69,6 +101,14 @@ RESOURCE_PREFIX: Your preferred resource prefix for GCP resources this script cr
 NAMESPACE: Optional. Kubernetes namespace your Kubeflow Pipelines standalone deployment belongs to. (Defaults to kubeflow)
 USE_GCP_MANAGED_STORAGE: Optional. Defaults to "false", specify "true" if you intend to use GCP managed storage (Google Cloud Storage and Cloud SQL) following instructions in:
 https://github.com/kubeflow/pipelines/tree/master/manifests/kustomize/sample
+=======
+PROJECT_ID=<your-gcp-project-id> CLUSTER_NAME=<your-gke-cluster-name> NAMESPACE=<your-k8s-namespace> ./gcp-workload-identity-setup.sh
+```
+
+PROJECT_ID: GCP project ID your cluster belongs to.
+CLUSTER_NAME: your GKE cluster's name.
+NAMESPACE: Kubernetes namespace your Kubeflow Pipelines standalone deployment belongs to (default is kubeflow).
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 EOF
 }
 if [ -z "$PROJECT_ID" ]; then
@@ -77,14 +117,22 @@ if [ -z "$PROJECT_ID" ]; then
   echo "Error: PROJECT_ID env variable is empty!"
   exit 1
 fi
+<<<<<<< HEAD
 if [ -z "$RESOURCE_PREFIX" ]; then
   usage
   echo
   echo "Error: RESOURCE_PREFIX env variable is empty!"
+=======
+if [ -z "$CLUSTER_NAME" ]; then
+  usage
+  echo
+  echo "Error: CLUSTER_NAME env variable is empty!"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   exit 1
 fi
 echo "Env variables set:"
 echo "* PROJECT_ID=$PROJECT_ID"
+<<<<<<< HEAD
 echo "* RESOURCE_PREFIX=$RESOURCE_PREFIX"
 echo "* NAMESPACE=$NAMESPACE"
 echo "* USE_GCP_MANAGED_STORAGE=${USE_GCP_MANAGED_STORAGE:-false}"
@@ -110,6 +158,12 @@ Note: if you prefer more granular workload identity bindings, you can modify thi
 
 EOF
 
+=======
+echo "* CLUSTER_NAME=$CLUSTER_NAME"
+echo "* NAMESPACE=$NAMESPACE"
+echo
+
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 read -p "Continue? (Y/n) " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -129,6 +183,7 @@ function create_gsa_if_not_present {
 create_gsa_if_not_present $SYSTEM_GSA
 create_gsa_if_not_present $USER_GSA
 
+<<<<<<< HEAD
 function create_ksa_if_not_present {
   local name=${1}
   if kubectl get serviceaccount $name -n $NAMESPACE >/dev/null; then
@@ -138,6 +193,16 @@ function create_ksa_if_not_present {
     echo "KSA $name created"
   fi
 }
+=======
+# You can optionally choose to add iam policy bindings to grant project permissions to these GSAs.
+# You can also set these up later.
+# gcloud projects add-iam-policy-binding $PROJECT_ID \
+#   --member="serviceAccount:$SYSTEM_GSA@$PROJECT_ID.iam.gserviceaccount.com" \
+#   --role="roles/editor"
+# gcloud projects add-iam-policy-binding $PROJECT_ID \
+#   --member="serviceAccount:$USER_GSA@$PROJECT_ID.iam.gserviceaccount.com" \
+#   --role="roles/editor"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 
 # Bind KSA to GSA through workload identity.
 # Documentation: https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
@@ -149,8 +214,11 @@ function bind_gsa_and_ksa {
     --member="serviceAccount:$PROJECT_ID.svc.id.goog[$NAMESPACE/$ksa]" \
     --role="roles/iam.workloadIdentityUser" \
     > /dev/null # hide verbose output
+<<<<<<< HEAD
 
   create_ksa_if_not_present $ksa
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   kubectl annotate serviceaccount \
     --namespace $NAMESPACE \
     --overwrite \
@@ -168,6 +236,7 @@ echo "Binding each kfp user KSA to $USER_GSA"
 for ksa in ${USER_KSA[@]}; do
   bind_gsa_and_ksa $USER_GSA $ksa
 done
+<<<<<<< HEAD
 
 echo
 echo "All the workload identity bindings have succeeded!"
@@ -200,3 +269,5 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \\
   --member="serviceAccount:$SYSTEM_GSA_FULL" \\
   --role="roles/cloudsql.client"
 EOF
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

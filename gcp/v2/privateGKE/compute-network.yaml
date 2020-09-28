@@ -1,7 +1,11 @@
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeNetwork
 metadata:
+<<<<<<< HEAD
   name: name # {"$kpt-set":"name"}
+=======
+  name: name # {"type":"string","x-kustomize":{"setter":{"name":"name","value":"name"}}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 spec:
   routingMode: GLOBAL
   autoCreateSubnetworks: false
@@ -10,6 +14,7 @@ spec:
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeSubnetwork
 metadata:
+<<<<<<< HEAD
   name: name # {"$kpt-set":"name"}
 spec:
   ipCidrRange: 10.10.10.0/24
@@ -18,6 +23,16 @@ spec:
   privateIpGoogleAccess: true
   networkRef:
     name: name # {"$kpt-set":"name"}
+=======
+  name: name # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  ipCidrRange: 10.10.10.0/24
+  region: us-central1 # {"type":"string","x-kustomize":{"setter":{"name":"gcloud.compute.region","value":"us-central1"}}}
+  description: kubeflow private subnet
+  privateIpGoogleAccess: true
+  networkRef:
+    name: name # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   logConfig:
     aggregationInterval: INTERVAL_10_MIN
     flowSampling: 0.5
@@ -31,11 +46,19 @@ spec:
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeRoute
 metadata:
+<<<<<<< HEAD
   name: name-google-apis # {"$kpt-set":"name-google-apis"}
 spec:
   destRange: 199.36.153.4/30
   networkRef:
     name: name # {"$kpt-set":"name"}
+=======
+  name: name-google-apis # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  destRange: 199.36.153.4/30
+  networkRef:
+    name: name # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   nextHopGateway: default-internet-gateway
   priority: 1000
 ---
@@ -46,12 +69,20 @@ spec:
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeRoute
 metadata:
+<<<<<<< HEAD
   name: name-internet # {"$kpt-set":"name-internet"}
+=======
+  name: name-internet # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 spec:
   description: "internet-route for IAP JWKS"
   destRange: 0.0.0.0/0
   networkRef:
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
+=======
+    name: name # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   # Important this must be higher priority then the Google APIs route
   # because otherwise we will end up trying to route calls to google APIs over public internet and we will have problems.
   priority: 1100

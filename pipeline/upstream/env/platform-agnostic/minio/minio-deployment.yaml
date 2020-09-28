@@ -21,6 +21,7 @@ spec:
         - /data
         env:
         - name: MINIO_ACCESS_KEY
+<<<<<<< HEAD
           valueFrom:
             secretKeyRef:
               name: mlpipeline-minio-artifact
@@ -30,6 +31,11 @@ spec:
             secretKeyRef:
               name: mlpipeline-minio-artifact
               key: secretkey
+=======
+          value: minio
+        - name: MINIO_SECRET_KEY
+          value: minio123
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         image: gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance
         name: minio
         ports:
@@ -41,4 +47,8 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
+<<<<<<< HEAD
           claimName: minio-pvc
+=======
+          claimName: minio-pvc
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

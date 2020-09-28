@@ -1,17 +1,28 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
 bases:
 - ../../base
+commonLabels:
+  app: tekton-dashboard
+  app.kubernetes.io/component: tektoncd
+  app.kubernetes.io/name: tektoncd-dashboard
+configMapGenerator:
+- envs:
+  - params.env
+  name: tektoncd-dashboard-app-parameters
+configurations:
+- params.yaml
+kind: Kustomization
 resources:
 - application.yaml
-configMapGenerator:
-- name: tektoncd-dashboard-app-parameters
-  env: params.env
 vars:
-- name: generateName
+- fieldref:
+    fieldPath: data.generateName
+  name: generateName
   objref:
+    apiVersion: v1
     kind: ConfigMap
     name: tektoncd-dashboard-app-parameters
+<<<<<<< HEAD
     apiVersion: v1
   fieldref:
     fieldpath: data.generateName
@@ -25,3 +36,5 @@ commonLabels:
   app.kubernetes.io/component: tektoncd
   app.kubernetes.io/part-of: kubeflow
   app.kubernetes.io/version: v1.0.0
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

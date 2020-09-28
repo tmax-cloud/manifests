@@ -5,6 +5,9 @@ resources:
 - kf-admin-sa.yaml
 - kf-user-policy.yaml
 - kf-user-sa.yaml
+<<<<<<< HEAD
 - kf-admin-workload-identity-bindings.yaml
 - kf-user-workload-identity-bindings.yaml
 - admin-manages-user-policy.yaml
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

@@ -1,7 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+<<<<<<< HEAD
 bases:
 - metadata-writer
+=======
+
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 resources:
 - ml-pipeline-apiserver-deployment.yaml
 - ml-pipeline-apiserver-role.yaml
@@ -17,7 +21,10 @@ resources:
 - ml-pipeline-scheduledworkflow-rolebinding.yaml
 - ml-pipeline-scheduledworkflow-sa.yaml
 - ml-pipeline-ui-deployment.yaml
+<<<<<<< HEAD
 - ml-pipeline-ui-configmap.yaml
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 - ml-pipeline-ui-role.yaml
 - ml-pipeline-ui-rolebinding.yaml
 - ml-pipeline-ui-sa.yaml
@@ -33,6 +40,7 @@ resources:
 - pipeline-runner-rolebinding.yaml
 - pipeline-runner-sa.yaml
 - container-builder-sa.yaml
+<<<<<<< HEAD
 - viewer-sa.yaml
 images:
 - name: gcr.io/ml-pipeline/api-server
@@ -47,3 +55,5 @@ images:
   newTag: 1.0.0
 - name: gcr.io/ml-pipeline/visualization-server
   newTag: 1.0.0
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

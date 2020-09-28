@@ -14,7 +14,10 @@ spec:
       labels:
         app: cloudsqlproxy
     spec:
+<<<<<<< HEAD
       serviceAccountName: kubeflow-pipelines-cloudsql-proxy
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       containers:
         - image: gcr.io/cloudsql-docker/gce-proxy:1.14
           name: cloudsqlproxy

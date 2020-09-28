@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 apiVersion: extensions/v1beta1
+=======
+apiVersion: apps/v1
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 kind: Deployment
 metadata:
   labels:

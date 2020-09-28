@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AnthosCLI requires a nodepool object to describe the nodepool.
 apiVersion: container.cnrm.cloud.google.com/v1beta1
 kind: ContainerNodePool
@@ -7,6 +8,13 @@ metadata:
   annotations:
     # Annotation required by anthoscli
     gke.io/cluster: "bootstrap://"
+=======
+apiVersion: container.cnrm.cloud.google.com/v1alpha2
+kind: ContainerNodePool
+metadata:
+  clusterName: "project-id/us-central1-f/name" # {"type":"string","x-kustomize":{"partialSetters":[{"name":"gcloud.core.project","value":"project-id"},{"name":"name","value":"name"},{"name":"location","value":"us-central1-f"}]}}
+  name: name-pool # {"type":"string","x-kustomize":{"partialSetters":[{"name":"gcloud.core.project","value":"project-id"},{"name":"name","value":"name"},{"name":"location","value":"us-central1-f"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 spec:
   autoscaling:
     minNodeCount: 1
@@ -20,13 +28,25 @@ spec:
     - https://www.googleapis.com/auth/devstorage.read_only
     - https://www.googleapis.com/auth/logging.write
     - https://www.googleapis.com/auth/monitoring
+<<<<<<< HEAD
     - https://www.googleapis.com/auth/trace.append
     metadata:
       disable-legacy-endpoints: "true"
     workloadMetadataConfig:
       mode: GKE_METADATA
+=======
+    - https://www.googleapis.com/auth/servicecontrol
+    - https://www.googleapis.com/auth/service.management.readonly
+    - https://www.googleapis.com/auth/trace.append
+    metadata:
+      disable-legacy-endpoints: "true"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   management:
     autoRepair: true
     autoUpgrade: true
   clusterRef:
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
+=======
+    name: name # {"type":"string","x-kustomize":{"setter":{"name":"name","value":"name"}}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

@@ -3,11 +3,15 @@ bases:
 - ../../base
 commonLabels:
   app.kubernetes.io/component: pipelines-viewer
+<<<<<<< HEAD
   app.kubernetes.io/instance: pipelines-viewer-0.2.5
   app.kubernetes.io/managed-by: kfctl
   app.kubernetes.io/name: pipelines-viewer
   app.kubernetes.io/part-of: kubeflow
   app.kubernetes.io/version: 0.2.5
+=======
+  app.kubernetes.io/name: pipelines-viewer
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 kind: Kustomization
 resources:
 - application.yaml

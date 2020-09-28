@@ -38,8 +38,11 @@ spec:
         - $(CLUSTER_ADMIN) 
         - -userid-prefix 
         - $(USERID_PREFIX)
+<<<<<<< HEAD
         - -userid-header
         - $(USERID_HEADER)
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         args: []
         name: kfam
         env:

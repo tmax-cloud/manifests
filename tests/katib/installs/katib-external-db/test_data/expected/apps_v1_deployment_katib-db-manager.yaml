@@ -58,7 +58,11 @@ spec:
             secretKeyRef:
               key: KATIB_MYSQL_DB_PORT
               name: katib-mysql-secrets-kmcg6hfkfg
+<<<<<<< HEAD
         image: gcr.io/kubeflow-images-public/katib/v1alpha3/katib-db-manager:ce89cbf
+=======
+        image: gcr.io/kubeflow-images-public/katib/v1alpha3/katib-db-manager:917164a
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:

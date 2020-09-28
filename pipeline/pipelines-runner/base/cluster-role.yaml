@@ -84,4 +84,14 @@ rules:
   resources:
   - virtualservices
   verbs:
+<<<<<<< HEAD
   - '*'
+=======
+  - '*'
+- apiGroups:
+  - "sparkoperator.k8s.io"
+  resources:
+  - sparkapplications
+  verbs:
+  - '*'
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

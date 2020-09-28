@@ -3,20 +3,27 @@ kind: Deployment
 metadata:
   labels:
     app: ml-pipeline-viewer-crd
+<<<<<<< HEAD
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: ml-pipeline-viewer-crd
   namespace: kubeflow
 spec:
   selector:
     matchLabels:
       app: ml-pipeline-viewer-crd
+<<<<<<< HEAD
       app.kubernetes.io/component: ml-pipeline
       app.kubernetes.io/name: kubeflow-pipelines
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   template:
     metadata:
       labels:
         app: ml-pipeline-viewer-crd
+<<<<<<< HEAD
         app.kubernetes.io/component: ml-pipeline
         app.kubernetes.io/name: kubeflow-pipelines
     spec:
@@ -25,13 +32,22 @@ spec:
         - name: NAMESPACE
           value: ""
           valueFrom: null
+=======
+    spec:
+      containers:
+      - env:
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         - name: MAX_NUM_VIEWERS
           value: "50"
         - name: MINIO_NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+<<<<<<< HEAD
         image: gcr.io/ml-pipeline/viewer-crd-controller:1.0.0
+=======
+        image: gcr.io/ml-pipeline/viewer-crd-controller:1.0.0-rc.2
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         imagePullPolicy: Always
         name: ml-pipeline-viewer-crd
       serviceAccountName: ml-pipeline-viewer-crd-service-account

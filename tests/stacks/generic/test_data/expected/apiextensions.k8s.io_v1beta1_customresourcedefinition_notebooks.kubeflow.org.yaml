@@ -38,6 +38,7 @@ spec:
                 Important: Run "make" to regenerate code after modifying this file'
               properties:
                 spec:
+<<<<<<< HEAD
                   properties:
                     containers:
                       items:
@@ -65,6 +66,8 @@ spec:
                             type: object
                         type: object
                       type: array
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
                   type: object
               type: object
           type: object

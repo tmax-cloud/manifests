@@ -1,143 +1,279 @@
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-cloudbuild # {"$kpt-set":"name-user-cloudbuild"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-cloudbuild # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/cloudbuild.builds.editor
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-viewer # {"$kpt-set":"name-user-viewer"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-viewer # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/viewer
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-source # {"$kpt-set":"name-user-source"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-source # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/source.admin
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-storage # {"$kpt-set":"name-user-storage"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-storage # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/storage.admin
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-bigquery # {"$kpt-set":"name-user-bigquery"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-bigquery # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/bigquery.admin
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-dataflow # {"$kpt-set":"name-user-dataflow"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-dataflow # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/dataflow.admin
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-ml # {"$kpt-set":"name-user-ml"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-ml # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/ml.admin
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-dataproc # {"$kpt-set":"name-user-dataproc"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-dataproc # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/dataproc.editor
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-cloudsql # {"$kpt-set":"name-user-cloudsql"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-cloudsql # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/cloudsql.admin
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-logging # {"$kpt-set":"name-user-logging"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-logging # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/logging.logWriter
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-metricwriter # {"$kpt-set":"name-user-metricwriter"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-metricwriter # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/monitoring.metricWriter
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
+<<<<<<< HEAD
   name: name-user-monitoringviewer # {"$kpt-set":"name-user-monitoringviewer"}
 spec:
   member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-service-account"}
+=======
+  name: name-user-monitoringviewer # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  member: serviceAccount:name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   role: roles/monitoring.viewer
   resourceRef:
     apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
     kind: Project
+<<<<<<< HEAD
     external: projects/project-id # {"$kpt-set":"projects"}
+=======
+    external: projects/project-id # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+---
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPolicy
+metadata:
+  name: name-user-workload-identity-users # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+spec:
+  resourceRef:
+    apiVersion: iam.cnrm.cloud.google.com/v1beta1
+    kind: IAMServiceAccount
+    name: name-user # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
+  bindings:
+  - role: roles/iam.workloadIdentityUser
+    members:
+    - serviceAccount:project-id.svc.id.goog[kubeflow/ml-pipeline-ui] # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+    - serviceAccount:project-id.svc.id.goog[kubeflow/ml-pipeline-visualizationserver] # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+    - serviceAccount:project-id.svc.id.goog[kubeflow/pipeline-runner] # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

@@ -3,20 +3,27 @@ kind: Deployment
 metadata:
   labels:
     app: ml-pipeline-ui
+<<<<<<< HEAD
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: ml-pipeline-ui
   namespace: kubeflow
 spec:
   selector:
     matchLabels:
       app: ml-pipeline-ui
+<<<<<<< HEAD
       app.kubernetes.io/component: ml-pipeline
       app.kubernetes.io/name: kubeflow-pipelines
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   template:
     metadata:
       labels:
         app: ml-pipeline-ui
+<<<<<<< HEAD
         app.kubernetes.io/component: ml-pipeline
         app.kubernetes.io/name: kubeflow-pipelines
     spec:
@@ -24,10 +31,16 @@ spec:
       - env:
         - name: VIEWER_TENSORBOARD_POD_TEMPLATE_SPEC_PATH
           value: /etc/config/viewer-pod-template.json
+=======
+    spec:
+      containers:
+      - env:
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         - name: MINIO_NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+<<<<<<< HEAD
         - name: MINIO_ACCESS_KEY
           valueFrom:
             secretKeyRef:
@@ -41,6 +54,11 @@ spec:
         - name: ALLOW_CUSTOM_VISUALIZATIONS
           value: "true"
         image: gcr.io/ml-pipeline/frontend:1.0.0
+=======
+        - name: ALLOW_CUSTOM_VISUALIZATIONS
+          value: "true"
+        image: gcr.io/ml-pipeline/frontend:1.0.0-rc.2
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
@@ -69,6 +87,7 @@ spec:
           initialDelaySeconds: 3
           periodSeconds: 5
           timeoutSeconds: 2
+<<<<<<< HEAD
         volumeMounts:
         - mountPath: /etc/config
           name: config-volume
@@ -78,3 +97,6 @@ spec:
       - configMap:
           name: ml-pipeline-ui-configmap
         name: config-volume
+=======
+      serviceAccountName: ml-pipeline-ui
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

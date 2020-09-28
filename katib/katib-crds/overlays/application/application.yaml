@@ -38,6 +38,11 @@ spec:
       name: Richard Liu
     - email: yuji.oshima0x3fd@gmail.com
       name: YujiOshima
+<<<<<<< HEAD
+=======
+    - email: andrey.velichkevich@gmail.com
+      name: Andrey Velichkevich
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     owners:
     - email: gaoce@caicloud.io
       name: Ce Gao
@@ -49,13 +54,25 @@ spec:
       name: Richard Liu
     - email: yuji.oshima0x3fd@gmail.com
       name: YujiOshima
+<<<<<<< HEAD
+=======
+    - email: andrey.velichkevich@gmail.com
+      name: Andrey Velichkevich
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     type: katib
     version: v1alpha3
   selector:
     matchLabels:
       app.kubernetes.io/component: katib
+<<<<<<< HEAD
       app.kubernetes.io/instance: katib-crds-0.8.0
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: katib-crds
       app.kubernetes.io/part-of: kubeflow
       app.kubernetes.io/version: 0.8.0
+=======
+      app.kubernetes.io/instance: katib-crds
+      app.kubernetes.io/managed-by: kfctl
+      app.kubernetes.io/name: katib-crds
+      app.kubernetes.io/part-of: kubeflow
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

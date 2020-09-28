@@ -10,8 +10,11 @@ resources:
 - statefulset.yaml
 - service.yaml
 - webhook.yaml
+<<<<<<< HEAD
 - role.yaml
 - role-binding.yaml
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 commonLabels:
   kustomize.component: kfserving
 generatorOptions:

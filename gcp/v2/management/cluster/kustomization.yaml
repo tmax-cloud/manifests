@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 resources:
+=======
+bases:
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 - enable-services.yaml
 - cluster.yaml
 - nodepool.yaml

@@ -3,7 +3,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: activator
   namespace: knative-serving
 spec:
@@ -19,7 +23,11 @@ spec:
       labels:
         app: activator
         role: activator
+<<<<<<< HEAD
         serving.knative.dev/release: "v0.11.1"
+=======
+        serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     spec:
       containers:
         - env:
@@ -83,7 +91,11 @@ kind: Deployment
 metadata:
   labels:
     autoscaling.knative.dev/autoscaler-provider: hpa
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: autoscaler-hpa
   namespace: knative-serving
 spec:
@@ -97,7 +109,11 @@ spec:
         sidecar.istio.io/inject: "false"
       labels:
         app: autoscaler-hpa
+<<<<<<< HEAD
         serving.knative.dev/release: "v0.11.1"
+=======
+        serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     spec:
       containers:
         - env:
@@ -133,7 +149,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: autoscaler
   namespace: knative-serving
 spec:
@@ -149,7 +169,11 @@ spec:
         traffic.sidecar.istio.io/includeInboundPorts: 8080,9090
       labels:
         app: autoscaler
+<<<<<<< HEAD
         serving.knative.dev/release: "v0.11.1"
+=======
+        serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     spec:
       containers:
         - args:
@@ -207,7 +231,11 @@ kind: Deployment
 metadata:
   labels:
     networking.knative.dev/ingress-provider: istio
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: networking-istio
   namespace: knative-serving
 spec:
@@ -221,7 +249,11 @@ spec:
         sidecar.istio.io/inject: "false"
       labels:
         app: networking-istio
+<<<<<<< HEAD
         serving.knative.dev/release: "v0.11.1"
+=======
+        serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     spec:
       containers:
         - env:
@@ -235,7 +267,11 @@ spec:
               value: config-observability
             - name: METRICS_DOMAIN
               value: knative.dev/serving
+<<<<<<< HEAD
           image: gcr.io/knative-releases/knative.dev/serving/cmd/networking/istio@sha256:727a623ccb17676fae8058cb1691207a9658a8d71bc7603d701e23b1a6037e6c
+=======
+          image: gcr.io/knative-releases/knative.dev/serving/cmd/networking/istio@sha256:61461fa789e19895d7d1e5ab96d8bb52a63788e0607e1bd2948b9570efeb6a8f
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
           name: networking-istio
           ports:
             - containerPort: 9090
@@ -257,7 +293,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: webhook
   namespace: knative-serving
 spec:
@@ -274,7 +314,11 @@ spec:
       labels:
         app: webhook
         role: webhook
+<<<<<<< HEAD
         serving.knative.dev/release: "v0.11.1"
+=======
+        serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     spec:
       containers:
         - env:
@@ -310,7 +354,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: controller
   namespace: knative-serving
 spec:
@@ -324,7 +372,11 @@ spec:
         sidecar.istio.io/inject: "false"
       labels:
         app: controller
+<<<<<<< HEAD
         serving.knative.dev/release: "v0.11.1"
+=======
+        serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     spec:
       containers:
         - env:

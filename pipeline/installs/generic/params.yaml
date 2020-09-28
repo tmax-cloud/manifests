@@ -1,5 +1,8 @@
 varReference:
 - path: spec/http/route/destination/host
   kind: VirtualService
+<<<<<<< HEAD
 - path: spec/descriptor/version
   kind: Application
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

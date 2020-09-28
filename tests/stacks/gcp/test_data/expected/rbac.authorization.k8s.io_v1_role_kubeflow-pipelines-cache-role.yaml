@@ -3,8 +3,11 @@ kind: Role
 metadata:
   labels:
     app: kubeflow-pipelines-cache-role
+<<<<<<< HEAD
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: kubeflow-pipelines-cache-role
   namespace: kubeflow
 rules:

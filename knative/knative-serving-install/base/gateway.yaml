@@ -3,6 +3,7 @@ kind: Gateway
 metadata:
   labels:
     networking.knative.dev/ingress-provider: istio
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
   name: cluster-local-gateway
   namespace: knative-serving
@@ -24,15 +25,28 @@ metadata:
   labels:
     networking.knative.dev/ingress-provider: istio
   name: knative-ingress-gateway
+=======
+    serving.knative.dev/release: "v0.11.2"
+  name: cluster-local-gateway
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   namespace: knative-serving
 spec:
   selector:
      app: kfserving-ingressgateway
      kfserving: ingressgateway
   servers:
+<<<<<<< HEAD
   - hosts:
     - '*'
     port:
       name: http
       number: 80
       protocol: HTTP
+=======
+    - hosts:
+        - '*'
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

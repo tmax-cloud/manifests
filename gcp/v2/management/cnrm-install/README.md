@@ -6,6 +6,7 @@ To update:
 
 1. Download the the latest GCS install bundle listed on (https://cloud.google.com/config-connector/docs/how-to/install-upgrade-uninstall#namespaced-mode)
 
+<<<<<<< HEAD
 1. Copy the system components for the workload identity install bundle to `install-system`
 1. Copy the per namespace components to the template stored in the blueprint repo.
 1. Edit "0-cnrm-system.yaml" to add the kpt setter; change
@@ -30,3 +31,9 @@ metadata:
     ...
     iam.gke.io/gcp-service-account: cnrm-system@${PROJECT_ID?}.iam.gserviceaccount.com # {"$kpt-set":"cnrm-system"}
    ```
+=======
+1. Copy the system components for the namespaced install bundle to `install-system`
+1. Copy the per namespace components to the template stored in the blueprint repo.
+
+   * You will need to add kpt setters to the per namespace components.
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

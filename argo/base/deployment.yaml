@@ -40,8 +40,13 @@ spec:
         - name: ENABLE_WEB_CONSOLE
           value: 'true'
         - name: BASE_HREF
+<<<<<<< HEAD
           value: /
         image: argoproj/argocli:v2.8.0
+=======
+          value: /argo/
+        image: argoproj/argcli:v2.8.0
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         imagePullPolicy: IfNotPresent
         name: argo-ui
         ports:

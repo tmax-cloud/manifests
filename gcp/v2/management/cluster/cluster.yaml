@@ -1,7 +1,18 @@
+<<<<<<< HEAD
+=======
+# TODO(jlewi): Do we still need IdentityNamespace? Isn't it automatically set for each project
+apiVersion: identity.cnrm.cloud.google.com/v1alpha2
+kind: IdentityNamespace
+metadata:
+  name: default
+spec: {}
+---
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 # TODO(jlewi): Use a regional cluster? There should no longer be any cost savings to using zonal
 #
 # User specific values should be defined in a patch inside the blueprint package.
 # Exception is the name since that needs to be changed in teh base package as well.
+<<<<<<< HEAD
 apiVersion: container.cnrm.cloud.google.com/v1beta1
 kind: ContainerCluster
 metadata:
@@ -21,3 +32,20 @@ spec:
     identityNamespace: project-id.svc.id.goog # {"$kpt-set":"wi-pool"}
   releaseChannel:
     channel: REGULAR
+=======
+apiVersion: container.cnrm.cloud.google.com/v1alpha2
+kind: ContainerCluster
+metadata:
+  name: name # {"type":"string","x-kustomize":{"setter":{"name":"name","value":"name"}}}
+spec:
+  # Use a regional cluster. Regional offer higher availability and the cluster management fee is the same.
+  location: us-central1-f
+  workloadIdentity:
+    identityNamespace: default
+  ipAllocationPolicy:
+    useIpAliases: true
+  releaseChannel:
+    channel: stable
+  clusterTelemetry:
+    type: enabled
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

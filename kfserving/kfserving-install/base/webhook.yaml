@@ -36,10 +36,13 @@ webhooks:
     matchExpressions:
     - key: control-plane
       operator: DoesNotExist
+<<<<<<< HEAD
   objectSelector:
     matchExpressions:
     - key: serving.kubeflow.org/inferenceservice
       operator: Exists
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   rules:
   - apiGroups:
     - ""

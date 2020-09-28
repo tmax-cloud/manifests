@@ -3,11 +3,15 @@ bases:
 - ../../base
 commonLabels:
   app.kubernetes.io/component: katib
+<<<<<<< HEAD
   app.kubernetes.io/instance: katib-crds-0.8.0
   app.kubernetes.io/managed-by: kfctl
   app.kubernetes.io/name: katib-crds
   app.kubernetes.io/part-of: kubeflow
   app.kubernetes.io/version: 0.8.0
+=======
+  app.kubernetes.io/name: katib-crds
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 kind: Kustomization
 resources:
 - application.yaml

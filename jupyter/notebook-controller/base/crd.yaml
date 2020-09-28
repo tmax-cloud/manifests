@@ -16,6 +16,19 @@ spec:
   scope: Namespaced
   subresources:
     status: {}
+<<<<<<< HEAD
+=======
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: false
+  - name: v1beta1
+    served: true
+    storage: true
+  - name: v1
+    served: true
+    storage: false
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   validation:
     openAPIV3Schema:
       description: Notebook is the Schema for the notebooks API
@@ -4330,6 +4343,7 @@ spec:
           - containerState
           - readyReplicas
           type: object
+<<<<<<< HEAD
       type: object
   version: v1
   versions:
@@ -4342,3 +4356,5 @@ status:
     plural: ""
   conditions: []
   storedVersions: []
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

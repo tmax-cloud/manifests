@@ -1,9 +1,15 @@
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
+<<<<<<< HEAD
   name: xgboostjobs.xgboostjob.kubeflow.org
 spec:
   group: xgboostjob.kubeflow.org
+=======
+  name: xgboostjobs.kubeflow.org
+spec:
+  group: kubeflow.org
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   names:
     kind: XGBoostJob
     singular: xgboostjob

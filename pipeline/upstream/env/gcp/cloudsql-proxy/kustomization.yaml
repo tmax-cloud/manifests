@@ -3,5 +3,8 @@ kind: Kustomization
 
 resources:
 - cloudsql-proxy-deployment.yaml
+<<<<<<< HEAD
 - cloudsql-proxy-sa.yaml
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 - mysql-service.yaml

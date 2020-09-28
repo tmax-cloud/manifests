@@ -30,8 +30,26 @@ spec:
     name: cluster-local-gateway
   - kustomizeConfig:
       parameters:
+<<<<<<< HEAD
       - name: clusterRbacConfig
         value: 'ON'
+=======
+<<<<<<<< HEAD:kfdef/kfctl_aws_cognito.v1.0.2.yaml
+      - name: clusterRbacConfig
+        value: 'ON'
+========
+      - name: namespace
+        value: istio-system
+      repoRef:
+        name: manifests
+        path: istio/kfserving-gateway
+    name: kfserving-gateway
+  - kustomizeConfig:
+      parameters:
+      - name: clusterRbacConfig
+        value: 'OFF'
+>>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890:kfdef/kfctl_gcp_basic_auth.yaml
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       repoRef:
         name: manifests
         path: istio/istio
@@ -152,6 +170,15 @@ spec:
       overlays:
       - istio
       - application
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:kfdef/kfctl_aws_cognito.v1.0.2.yaml
+========
+      parameters:
+      - name: injectGcpCredentials
+        value: 'true'
+>>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890:kfdef/kfctl_gcp_basic_auth.yaml
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       repoRef:
         name: manifests
         path: jupyter/notebook-controller
@@ -217,7 +244,15 @@ spec:
       - application
       parameters:
       - name: usageId
+<<<<<<< HEAD
         value: <randomly-generated-id>
+=======
+<<<<<<<< HEAD:kfdef/kfctl_aws_cognito.v1.0.2.yaml
+        value: <randomly-generated-id>
+========
+        value: '2700513155662330975'
+>>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890:kfdef/kfctl_gcp_basic_auth.yaml
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       - name: reportUsage
         value: 'true'
       repoRef:
@@ -339,8 +374,17 @@ spec:
       - application
       - istio
       parameters:
+<<<<<<< HEAD
       - name: userid-header
         value: kubeflow-userid
+=======
+<<<<<<<< HEAD:kfdef/kfctl_aws_cognito.v1.0.2.yaml
+      - name: userid-header
+        value: kubeflow-userid
+========
+      - name: admin
+>>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890:kfdef/kfctl_gcp_basic_auth.yaml
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       repoRef:
         name: manifests
         path: profiles
@@ -387,8 +431,25 @@ spec:
       overlays:
       - application
       parameters:
+<<<<<<< HEAD
       - name: clusterName
         value: kubeflow-aws
+=======
+<<<<<<<< HEAD:kfdef/kfctl_aws_cognito.v1.0.2.yaml
+      - name: clusterName
+        value: kubeflow-aws
+========
+      - name: namespace
+        value: istio-system
+      - name: ipName
+      - name: hostname
+      - name: project
+      - name: ingressName
+        value: envoy-ingress
+      - name: issuer
+        value: letsencrypt-prod
+>>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890:kfdef/kfctl_gcp_basic_auth.yaml
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       repoRef:
         name: manifests
         path: aws/aws-alb-ingress-controller
@@ -405,6 +466,10 @@ spec:
     metadata:
       name: aws
     spec:
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:kfdef/kfctl_aws_cognito.v1.0.2.yaml
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       auth:
         cognito:
           certArn: arn:aws:acm:us-west-2:xxxxx:certificate/xxxxxxxxxxxxx-xxxx
@@ -414,7 +479,23 @@ spec:
       region: us-west-2
       roles:
       - eksctl-kubeflow-aws-nodegroup-ng-a2-NodeInstanceRole-xxxxx
+<<<<<<< HEAD
   repos:
   - name: manifests
     uri: https://github.com/kubeflow/manifests/archive/v1.0-branch.tar.gz
+=======
+========
+      createPipelinePersistentStorage: true
+      deploymentManagerConfig:
+        repoRef:
+          name: manifests
+          path: gcp/deployment_manager_configs
+      enableWorkloadIdentity: true
+      skipInitProject: true
+      useBasicAuth: true
+>>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890:kfdef/kfctl_gcp_basic_auth.yaml
+  repos:
+  - name: manifests
+    uri: https://github.com/kubeflow/manifests/archive/v1.0.2.tar.gz
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   version: v1.0.2

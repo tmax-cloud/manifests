@@ -141,6 +141,7 @@ metadata:
     # this is unnecessary with the deletion-policy of 'abandon', but useful if the abandon policy is removed.
     cnrm.cloud.google.com/disable-dependent-services: "false"
   name: iap.googleapis.com
+<<<<<<< HEAD
 
 ---
 
@@ -154,3 +155,5 @@ metadata:
     # this is unnecessary with the deletion-policy of 'abandon', but useful if the abandon policy is removed.
     cnrm.cloud.google.com/disable-dependent-services: "false"
   name: servicemanagement.googleapis.com
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

@@ -1,22 +1,53 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: kubeflow
+<<<<<<< HEAD
 commonLabels:
   app.kubernetes.io/name: kubeflow-pipelines
   app.kubernetes.io/component: ml-pipeline
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 resources:
 - ../../upstream/base/pipeline/cluster-scoped
 - ../../upstream/base/pipeline
 - virtual-service.yaml
+<<<<<<< HEAD
 - ../../cache/base_v3
 - application.yaml
+=======
+- ../../metadata-writer/base_v3
+- ../../cache/base_v3
+images:
+- name: gcr.io/ml-pipeline/api-server
+  newTag: 1.0.0-rc.2
+- name: gcr.io/ml-pipeline/persistenceagent
+  newTag: 1.0.0-rc.2
+- name: gcr.io/ml-pipeline/scheduledworkflow
+  newTag: 1.0.0-rc.2
+- name: gcr.io/ml-pipeline/frontend
+  newTag: 1.0.0-rc.2
+- name: gcr.io/ml-pipeline/viewer-crd-controller
+  newTag: 1.0.0-rc.2
+- name: gcr.io/ml-pipeline/visualization-server
+  newTag: 1.0.0-rc.2
+- name: gcr.io/ml-pipeline/metadata-writer
+  newTag: 1.0.0-rc.2
+- name: gcr.io/ml-pipeline/cache-server
+  newTag: 1.0.0-rc.2
+- name: gcr.io/ml-pipeline/cache-deployer
+  newTag: 1.0.0-rc.2
+# Used by Kustomize
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 configMapGenerator:
 - name: pipeline-install-config
   envs:
   - ./params.env
+<<<<<<< HEAD
 - name: pipeline-upstream-install-config
   envs:
   - ../../upstream/base/params.env
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 secretGenerator:
 - name: mysql-secret
   envs:
@@ -29,6 +60,7 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: metadata.namespace
+<<<<<<< HEAD
 - name: kfp-app-version
   objref:
     kind: ConfigMap
@@ -36,5 +68,7 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.appVersion
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 configurations:
 - params.yaml

@@ -57,6 +57,7 @@ rules:
   resources:
   - experiments
   - experiments/status
+<<<<<<< HEAD
   - experiments/finalizers
   - trials
   - trials/status
@@ -64,6 +65,12 @@ rules:
   - suggestions
   - suggestions/status
   - suggestions/finalizers
+=======
+  - trials
+  - trials/status
+  - suggestions
+  - suggestions/status
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   verbs:
   - '*'
 - apiGroups:

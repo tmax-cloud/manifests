@@ -45,6 +45,17 @@ spec:
         path: istio/istio
     name: istio
   - kustomizeConfig:
+<<<<<<< HEAD
+=======
+      parameters:
+      - name: namespace
+        value: istio-system
+      repoRef:
+        name: manifests
+        path: istio/add-anonymous-user-filter
+    name: add-anonymous-user-filter
+  - kustomizeConfig:
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       repoRef:
         name: manifests
         path: application/application-crds
@@ -130,6 +141,12 @@ spec:
       overlays:
       - istio
       - application
+<<<<<<< HEAD
+=======
+      parameters:
+      - name: userid-header
+        value: kubeflow-userid
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       repoRef:
         name: manifests
         path: jupyter/jupyter-web-app

@@ -6,7 +6,11 @@ resources:
   - ../../katib-controller/base/katib-db-manager-service.yaml
 images:
   - name: gcr.io/kubeflow-images-public/katib/v1alpha3/katib-db-manager
+<<<<<<< HEAD
     newTag: ce89cbf
+=======
+    newTag: 917164a
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     newName: gcr.io/kubeflow-images-public/katib/v1alpha3/katib-db-manager
 commonLabels:
   app.kubernetes.io/component: katib

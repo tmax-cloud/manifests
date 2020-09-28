@@ -20,14 +20,22 @@ spec:
     kind: MXJob
   descriptor:
     type: "mxnet-operator"
-    version: "v1beta1"
+    version: "v1"
     description: "mxnet-operator allows users to create and manage the \"MXJob\" custom resource."
     maintainers:
     - name: Lei Su
       email: suleisl2000@hotmail.com
+    - name: Yuan Tang
+      email: terrytangyuan@gmail.com
+    - name: Jiaxin Shan
+      email: seedjeffwan@gmail.com
     owners:
     - name: Lei Su
       email: suleisl2000@hotmail.com
+    - name: Yuan Tang
+      email: terrytangyuan@gmail.com
+    - name: Jiaxin Shan
+      email: seedjeffwan@gmail.com
     keywords:
     - "MXjob"
     - "mxnet-operator"

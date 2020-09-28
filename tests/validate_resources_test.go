@@ -49,10 +49,13 @@ func TestCommonLabelsImmutable(t *testing.T) {
 	}
 
 	// These labels are likely to be mutable and should not be part of commonLabels
+<<<<<<< HEAD
 	// TODO(jlewi): In 1.0 and prior versions the convention was to use mutable values that contained the
 	// version number. That was the original reason we made these forbidden labels; it was to stop people
 	// from attaching mutable versions that would break upgrades. Post 1.1 we might want to start relaxing that
 	// and allow applications to start using these labels but in an immutable fashion.
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 	forbiddenLabels := []string{VersionLabel, ManagedByLabel, InstanceLabel, PartOfLabel}
 
 	err := filepath.Walk("..", func(path string, info os.FileInfo, err error) error {

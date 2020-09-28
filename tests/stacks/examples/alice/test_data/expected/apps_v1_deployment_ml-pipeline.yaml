@@ -3,20 +3,27 @@ kind: Deployment
 metadata:
   labels:
     app: ml-pipeline
+<<<<<<< HEAD
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: ml-pipeline
   namespace: kubeflow
 spec:
   selector:
     matchLabels:
       app: ml-pipeline
+<<<<<<< HEAD
       app.kubernetes.io/component: ml-pipeline
       app.kubernetes.io/name: kubeflow-pipelines
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   template:
     metadata:
       labels:
         app: ml-pipeline
+<<<<<<< HEAD
         app.kubernetes.io/component: ml-pipeline
         app.kubernetes.io/name: kubeflow-pipelines
     spec:
@@ -32,6 +39,11 @@ spec:
             configMapKeyRef:
               key: userid-prefix
               name: kubeflow-config-bmh8k74f52
+=======
+    spec:
+      containers:
+      - env:
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         - name: POD_NAMESPACE
           valueFrom:
             fieldRef:
@@ -68,6 +80,7 @@ spec:
             configMapKeyRef:
               key: dbPort
               name: pipeline-install-config-2829cc67f8
+<<<<<<< HEAD
         - name: OBJECTSTORECONFIG_ACCESSKEY
           valueFrom:
             secretKeyRef:
@@ -82,6 +95,9 @@ spec:
         - configMapRef:
             name: pipeline-api-server-config-f4t72426kt
         image: gcr.io/ml-pipeline/api-server:1.0.0
+=======
+        image: gcr.io/ml-pipeline/api-server:1.0.0-rc.2
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:

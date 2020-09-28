@@ -5,6 +5,11 @@ commonLabels:
   app.kubernetes.io/name: minio
 resources:
 - ../../../upstream/env/platform-agnostic/minio/
+<<<<<<< HEAD
 - ../../overlays/application/application.yaml
 patchesStrategicMerge:
 - deployment-patch.yaml
+=======
+- ../../../upstream/base/argo/minio-artifact-secret.yaml # TODO: move it to minio/ folder
+- ../../overlays/application/application.yaml
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

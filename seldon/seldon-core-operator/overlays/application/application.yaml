@@ -22,7 +22,11 @@ spec:
   - inference
   links:
   - description: Docs
+<<<<<<< HEAD
     url: https://docs.seldon.io/projects/seldon-core/en/v1.0.1/
+=======
+    url: https://docs.seldon.io/projects/seldon-core/en/v1.1.0/
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   maintainers:
   - email: dev@seldon.io
     name: Seldon

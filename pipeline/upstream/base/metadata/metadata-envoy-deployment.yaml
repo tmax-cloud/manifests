@@ -16,7 +16,11 @@ spec:
     spec:
       containers:
       - name: container
+<<<<<<< HEAD
         image: gcr.io/ml-pipeline/metadata-envoy:dummy
+=======
+        image: gcr.io/ml-pipeline/envoy:metadata-grpc
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         ports:
         - name: md-envoy
           containerPort: 9090

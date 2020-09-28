@@ -43,7 +43,11 @@ spec:
   - kustomizeConfig:
       parameters:
       - name: clusterRbacConfig
+<<<<<<< HEAD
         value: 'ON'
+=======
+        value: 'ON_WITH_EXCLUSION'
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       repoRef:
         name: manifests
         path: istio/istio

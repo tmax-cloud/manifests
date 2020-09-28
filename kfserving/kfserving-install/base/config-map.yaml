@@ -1,5 +1,6 @@
 apiVersion: v1
 data:
+<<<<<<< HEAD
   batcher: |-
     {
         "image" : "gcr.io/kfserving/batcher:v0.4.0",
@@ -8,36 +9,63 @@ data:
         "cpuRequest": "1",
         "cpuLimit": "1"
     }
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   credentials: |-
     {
        "gcs": {
            "gcsCredentialFileName": "gcloud-application-credentials.json"
        },
        "s3": {
+<<<<<<< HEAD
            "s3AccessKeyIDName": "AWS_ACCESS_KEY_ID",
            "s3SecretAccessKeyName": "AWS_SECRET_ACCESS_KEY"
+=======
+           "s3AccessKeyIDName": "awsAccessKeyID",
+           "s3SecretAccessKeyName": "awsSecretAccessKey"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
        }
     }
   explainers: |-
     {
         "alibi": {
+<<<<<<< HEAD
             "image" : "gcr.io/kfserving/alibi-explainer",
             "defaultImageVersion": "v0.4.0"
+=======
+            "image" : "docker.io/seldonio/kfserving-alibiexplainer",
+            "defaultImageVersion": "v0.3.0",
+            "allowedImageVersions": [
+               "v0.3.0"
+            ]
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         }
     }
   ingress: |-
     {
+<<<<<<< HEAD
         "ingressGateway" : "knative-ingress-gateway.knative-serving",
+=======
+        "ingressGateway" : "kubeflow-gateway.kubeflow",
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         "ingressService" : "istio-ingressgateway.istio-system.svc.cluster.local"
     }
   logger: |-
     {
+<<<<<<< HEAD
         "image" : "gcr.io/kfserving/logger:v0.4.0",
         "memoryRequest": "100Mi",
         "memoryLimit": "1Gi",
         "cpuRequest": "100m",
         "cpuLimit": "1",
         "defaultUrl": "http://default-broker"
+=======
+        "image" : "gcr.io/kfserving/logger:v0.3.0",
+        "memoryRequest": "100Mi",
+        "memoryLimit": "1Gi",
+        "cpuRequest": "100m",
+        "cpuLimit": "1"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     }
   predictors: |-
     {
@@ -52,6 +80,7 @@ data:
         },
         "sklearn": {
             "image": "gcr.io/kfserving/sklearnserver",
+<<<<<<< HEAD
             "defaultImageVersion": "v0.4.0"
         },
         "xgboost": {
@@ -66,11 +95,44 @@ data:
         "triton": {
             "image": "nvcr.io/nvidia/tritonserver",
             "defaultImageVersion": "20.03-py3"
+=======
+            "defaultImageVersion": "v0.3.0",
+            "allowedImageVersions": [
+               "v0.3.0"
+            ]
+        },
+        "xgboost": {
+            "image": "gcr.io/kfserving/xgbserver",
+            "defaultImageVersion": "v0.3.0",
+            "allowedImageVersions": [
+               "v0.3.0"
+            ]
+        },
+        "pytorch": {
+            "image": "gcr.io/kfserving/pytorchserver",
+            "defaultImageVersion": "v0.3.0",
+            "defaultGpuImageVersion": "v0.3.0-gpu",
+            "allowedImageVersions": [
+               "v0.3.0",
+               "v0.3.0-gpu"
+            ]
+        },
+        "tensorrt": {
+            "image": "nvcr.io/nvidia/tensorrtserver",
+            "defaultImageVersion": "19.05-py3",
+            "allowedImageVersions": [
+               "19.05-py3"
+            ]
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         }
     }
   storageInitializer: |-
     {
+<<<<<<< HEAD
         "image" : "gcr.io/kfserving/storage-initializer:v0.4.0",
+=======
+        "image" : "gcr.io/kfserving/storage-initializer:v0.3.0",
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         "memoryRequest": "100Mi",
         "memoryLimit": "1Gi",
         "cpuRequest": "100m",
@@ -81,4 +143,8 @@ data:
     }
 kind: ConfigMap
 metadata:
+<<<<<<< HEAD
   name: inferenceservice-config
+=======
+  name: inferenceservice-config
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

@@ -113,7 +113,11 @@ data:
 kind: ConfigMap
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-autoscaler
   namespace: knative-serving
 
@@ -185,7 +189,11 @@ data:
 kind: ConfigMap
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-defaults
   namespace: knative-serving
 
@@ -214,7 +222,11 @@ data:
 kind: ConfigMap
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-deployment
   namespace: knative-serving
 
@@ -260,7 +272,11 @@ data:
 kind: ConfigMap
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-domain
   namespace: knative-serving
 
@@ -299,7 +315,11 @@ data:
 kind: ConfigMap
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-gc
   namespace: knative-serving
 
@@ -359,7 +379,11 @@ data:
 kind: ConfigMap
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-logging
   namespace: knative-serving
 
@@ -485,7 +509,11 @@ data:
 kind: ConfigMap
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-network
   namespace: knative-serving
 
@@ -584,7 +612,11 @@ data:
 kind: ConfigMap
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-observability
   namespace: knative-serving
 
@@ -628,7 +660,11 @@ data:
 kind: ConfigMap
 metadata:
   labels:
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-tracing
   namespace: knative-serving
 
@@ -658,7 +694,11 @@ data:
     # {{ingress_namespace}}.svc.cluster.local"`. The {{gateway_namespace}}
     # is optional; when it is omitted, the system will search for
     # the gateway in the serving system namespace `knative-serving`
+<<<<<<< HEAD
     gateway.knative-serving.knative-ingress-gateway: "kfserving-ingressgateway.istio-system.svc.cluster.local"
+=======
+    gateway.kubeflow.kubeflow-gateway: "istio-ingressgateway.istio-system.svc.cluster.local"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
 
     # A cluster local gateway to allow pods outside of the mesh to access
     # Services and Routes not exposing through an ingress.  If the users
@@ -689,6 +729,10 @@ kind: ConfigMap
 metadata:
   labels:
     networking.knative.dev/ingress-provider: istio
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: config-istio
   namespace: knative-serving

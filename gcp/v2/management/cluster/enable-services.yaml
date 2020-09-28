@@ -1,4 +1,5 @@
 # GKE
+<<<<<<< HEAD
 #apiVersion: cnrm.cloud.google.com/v1alpha1
 #kind: CloudService
 #metadata:
@@ -14,3 +15,12 @@ metadata:
     # this is unnecessary with the deletion-policy of 'abandon', but useful if the abandon policy is removed.
     cnrm.cloud.google.com/disable-dependent-services: "false"
   name: container.googleapis.com
+=======
+apiVersion: cnrm.cloud.google.com/v1alpha1
+kind: CloudService
+metadata:
+  name: gke
+  namespace: "project-id" # {"type":"string","x-kustomize":{"setter":{"name":"gcloud.core.project","value":"project-id"}}}
+spec:
+  service: container.googleapis.com
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890

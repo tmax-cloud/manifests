@@ -3,7 +3,11 @@ kind: APIService
 metadata:
   labels:
     autoscaling.knative.dev/metric-provider: custom-metrics
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: "v0.11.2"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: v1beta1.custom.metrics.k8s.io
 spec:
   group: custom.metrics.k8s.io

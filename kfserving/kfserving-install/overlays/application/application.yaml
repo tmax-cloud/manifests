@@ -10,7 +10,11 @@ spec:
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/component: kfserving-install
       app.kubernetes.io/part-of: kubeflow
+<<<<<<< HEAD
       app.kubernetes.io/version: v0.4.0
+=======
+      app.kubernetes.io/version: v0.3.0
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   type: "kfserving"
   componentKinds:
     - group: apps/v1

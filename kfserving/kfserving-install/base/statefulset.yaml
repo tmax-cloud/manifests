@@ -41,7 +41,13 @@ spec:
               fieldPath: metadata.namespace
         - name: SECRET_NAME
           value: kfserving-webhook-server-cert
+<<<<<<< HEAD
         image: $(registry)/kfserving-controller:v0.4.0
+=======
+        - name: ENABLE_WEBHOOK_NAMESPACE_SELECTOR
+          value: enabled
+        image: $(registry)/kfserving-controller:v0.3.0
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         imagePullPolicy: Always
         name: manager
         ports:

@@ -3,6 +3,7 @@ data:
   metrics-collector-sidecar: |-
     {
       "StdOut": {
+<<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/file-metrics-collector:ce89cbf"
       },
       "File": {
@@ -10,6 +11,15 @@ data:
       },
       "TensorFlowEvent": {
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/tfevent-metrics-collector:ce89cbf",
+=======
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/file-metrics-collector:917164a"
+      },
+      "File": {
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/file-metrics-collector:917164a"
+      },
+      "TensorFlowEvent": {
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/tfevent-metrics-collector:917164a",
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         "resources": {
           "limits": {
             "memory": "1Gi"
@@ -20,6 +30,7 @@ data:
   suggestion: |-
     {
       "random": {
+<<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-hyperopt:ce89cbf"
       },
       "grid": {
@@ -36,6 +47,24 @@ data:
       },
       "enas": {
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-enas:ce89cbf",
+=======
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-hyperopt:917164a"
+      },
+      "grid": {
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-chocolate:917164a"
+      },
+      "hyperband": {
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-hyperband:917164a"
+      },
+      "bayesianoptimization": {
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-skopt:917164a"
+      },
+      "tpe": {
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-hyperopt:917164a"
+      },
+      "enas": {
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-enas:917164a",
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         "imagePullPolicy": "Always",
         "resources": {
           "limits": {
@@ -44,10 +73,17 @@ data:
         }
       },
       "cmaes": {
+<<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-goptuna:ce89cbf"
       },
       "darts": {
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-darts:ce89cbf"
+=======
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-goptuna:917164a"
+      },
+      "darts": {
+        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-darts:917164a"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
       }
     }
 kind: ConfigMap

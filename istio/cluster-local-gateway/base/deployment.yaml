@@ -18,7 +18,11 @@ spec:
       serviceAccountName: cluster-local-gateway-service-account
       containers:
         - name: istio-proxy
+<<<<<<< HEAD
           image: "docker.io/istio/proxyv2:1.5.1"
+=======
+          image: "docker.io/istio/proxyv2:1.1.6"
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80

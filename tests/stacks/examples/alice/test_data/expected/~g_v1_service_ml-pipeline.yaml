@@ -1,9 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
+<<<<<<< HEAD
   labels:
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   name: ml-pipeline
   namespace: kubeflow
 spec:
@@ -18,5 +21,8 @@ spec:
     targetPort: 8887
   selector:
     app: ml-pipeline
+<<<<<<< HEAD
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
+=======
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
