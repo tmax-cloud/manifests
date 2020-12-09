@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
     name: deployment
 spec:
-    template:
+  template:
     spec:
-        containers:
-        - name: notebook-controller
-        env:
-        - name: ISTIO_GATEWAY
-          value: $(ISTIO_GATEWAY)
+      containers:
+      - name: notebook-controller
+      env:
+      - name: ISTIO_GATEWAY
+        value: $(ISTIO_GATEWAY)
