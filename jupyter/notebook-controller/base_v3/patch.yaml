@@ -8,5 +8,5 @@ spec:
         containers:
         - name: notebook-controller
         env:
-            - name: ISTIO_GATEWAY
-            value: $(ISTIO_GATEWAY)
+        - name: ISTIO_GATEWAY
+          value: $(ISTIO_GATEWAY)
