@@ -64,7 +64,7 @@ spec:
           - --controlPlaneAuthPolicy
           - NONE
           - --discoveryAddress
-          - istio-pilot.$(namespace):15010
+          - istiod.$(namespace):15010
           readinessProbe:
             failureThreshold: 30
             httpGet:
