@@ -1,0 +1,47 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: kubernetes-pods
+  namespace: monitoring
+spec:
+  jobLabel: kubernetes-pods
+  namespaceSelector:
+    any: true
+  podMetricsEndpoints:
+  - relabelings:
+    - action: keep
+      regex: (true)
+      sourceLabels: 
+      - __meta_kubernetes_pod_annotation_prometheus_io_scrape
+    - action: keep
+      regex: ((;.*)|(.*;http))
+      sourceLabels: 
+      - __meta_kubernetes_pod_annotation_sidecar_istio_io_status
+      - __meta_kubernetes_pod_annotation_prometheus_io_scheme
+    - action: drop
+      regex: (true)
+      sourceLabels: 
+      - __meta_kubernetes_pod_annotation_istio_mtls
+    - action: replace
+      regex: (.+)
+      sourceLabels:
+      - __meta_kubernetes_pod_annotation_prometheus_io_path
+      targetLabel: __matrics_path__
+    - action: replace
+      regex: ([^:]+)(?::\d+)?;(\d+)
+      replacement: $1:$2
+      sourceLabels:
+      - __address__
+      - __meta_kubernetes_pod_annotation_prometheus_io_port
+      targetLabel: __address__
+    - action: labelmap
+      regex: __meta_kubernetes_pod_label_(.+)
+    - action: replace
+      sourceLabels:
+      - __meta_kubernetes_namespace
+      targetLabel: namespace
+    - action: replace
+      sourceLabels:
+      - __meta_kubernetes_pod_name
+      targetLabel: pod_name
+  selector: {}

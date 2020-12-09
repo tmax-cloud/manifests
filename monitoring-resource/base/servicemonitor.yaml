@@ -1,0 +1,62 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pilot
+  namespace: monitoring
+spec:
+  endpoints:
+  - relabelings:
+    - action: keep
+      regex: istio-pilot;http-monitoring
+      sourceLabels:
+      - __meta_kubernetes_service_name
+      - __meta_kubernetes_endpoint_port_name
+  jobLabel: istiod
+  namespaceSelector:
+    matchNames: 
+    - istio-system
+  selector: {}
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kubernetes-service-endpoints
+  namespace: monitoring
+spec:
+  endpoints:
+  - relabelings:
+    - action: keep
+      regex: (true)
+      sourceLabels:
+      - __meta_kubernetes_service_annotation_prometheus_io_scrape
+    - action: replace
+      regex: (https?)
+      sourceLabels:
+      - __meta_kubernetes_service_annotation_prometheus_io_scheme
+      targetLabel: __scheme__
+    - action: replace
+      regex: (.+)
+      sourceLabels:
+      - __meta_kubernetes_service_annotation_prometheus_io_path
+      targetLabel: __metrics_path__
+    - action: replace
+      regex: ([^:]+)(?::\d+)?;(\d+)
+      replacement: $1:$2
+      sourceLabels:
+      - __address__
+      - __meta_kubernetes_service_annotation_prometheus_io_port
+      targetLabel: __address__
+    - action: labelmap
+      regex: __meta_kubernetes_service_label_(.+)
+    - action: replace
+      sourceLabels:
+      - __meta_kubernetes_namespace
+      targetLabel: kubernetes_namespace
+    - action: replace
+      sourceLabels:
+      - __meta_kubernetes_service_name
+      targetLabel: kubernetes_name
+  jobLabel: kubernetes-service-endpoints
+  namespaceSelector:
+    any: true
+  selector: {}
