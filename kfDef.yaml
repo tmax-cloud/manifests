@@ -59,15 +59,6 @@ spec:
         name: manifests
         path: admission-webhook/bootstrap/overlays/application
     name: bootstrap
-  - kustomizeConfig:
-      overlays:
-      - istio
-      - application
-      - hypercloud
-      repoRef:
-        name: manifests
-        path: jupyter/notebook-controller
-    name: notebook-controller
 #   - kustomizeConfig:
 #       repoRef:
 #         name: manifests

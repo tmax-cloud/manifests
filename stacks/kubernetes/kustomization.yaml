@@ -7,7 +7,7 @@ resources:
   - ../../common/centraldashboard/overlays/stacks
   - ../../kubeflow-roles/base
   # - ../../jupyter/jupyter-web-app/base_v3
-  # - ../../jupyter/notebook-controller/base_v3
+  - ../../jupyter/notebook-controller/base_v3
   - ../../profiles/base_v3
   # Training Operators
   - ../../pytorch-job/pytorch-job-crds/overlays/application
