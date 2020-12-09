@@ -10,6 +10,8 @@ resources:
 - statefulset.yaml
 - service.yaml
 - webhook.yaml
+- role.yaml
+- role-binding.yaml
 commonLabels:
   kustomize.component: kfserving
 generatorOptions:
@@ -34,4 +36,4 @@ images:
   newTag: v0.4.0
 - name: $(registry)/kfserving-controller
   newName: $(registry)/kfserving-controller
-  newTag: v0.3.0
+  newTag: v0.4.0

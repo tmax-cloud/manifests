@@ -12,6 +12,8 @@ resources:
 - ../../kfserving-install/base/statefulset.yaml
 - ../../kfserving-install/base/service.yaml
 - ../../kfserving-install/base/webhook.yaml
+- ../../kfserving-install/base/role.yaml
+- ../../kfserving-install/base/role-binding.yaml
 - ../../kfserving-install/overlays/application
 commonLabels:
   app: kfserving
@@ -40,4 +42,4 @@ images:
   newTag: v0.4.0
 - name: $(registry)/kfserving-controller
   newName: $(registry)/kfserving-controller
-  newTag: v0.3.0
+  newTag: v0.4.0
