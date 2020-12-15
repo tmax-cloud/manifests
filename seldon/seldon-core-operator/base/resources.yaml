@@ -983,6 +983,7 @@ spec:
                                           type: string
                                       required:
                                       - containerPort
+                                      - protocol
                                       type: object
                                     type: array
                                   readinessProbe:
@@ -1627,6 +1628,7 @@ spec:
                                           type: string
                                       required:
                                       - containerPort
+                                      - protocol
                                       type: object
                                     type: array
                                   readinessProbe:
@@ -2362,6 +2364,7 @@ spec:
                                   type: string
                               required:
                               - containerPort
+                              - protocol
                               type: object
                             type: array
                           readinessProbe:
