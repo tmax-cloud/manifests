@@ -1,9 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
+<<<<<<< HEAD
   labels:
     app.kubernetes.io/component: oidc-authservice
     app.kubernetes.io/name: oidc-authservice
+=======
+>>>>>>> upstream/master
   name: authservice
   namespace: istio-system
 spec:
@@ -14,6 +17,9 @@ spec:
   publishNotReadyAddresses: true
   selector:
     app: authservice
+<<<<<<< HEAD
     app.kubernetes.io/component: oidc-authservice
     app.kubernetes.io/name: oidc-authservice
+=======
+>>>>>>> upstream/master
   type: ClusterIP

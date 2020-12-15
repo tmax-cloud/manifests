@@ -2,6 +2,7 @@ apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeRouter
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name # {"$kpt-set":"name"}
 spec:
   description: Router to allow outbound internet access
@@ -10,16 +11,24 @@ spec:
     name: name # {"$kpt-set":"name"}
 =======
   name: name # {"type":"string","x-kustomize":{"setter":{"name":"name","value":"name"}}}
+=======
+  name: name # {"$kpt-set":"name"}
+>>>>>>> upstream/master
 spec:
   description: Router to allow outbound internet access
-  region: us-central1 # {"type":"string","x-kustomize":{"setter":{"name":"gcloud.compute.region","value":"us-central1"}}}
+  region: REGION # {"$kpt-set":"gcloud.compute.region"}
   networkRef:
+<<<<<<< HEAD
     name: name # {"type":"string","x-kustomize":{"setter":{"name":"name","value":"name"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+>>>>>>> upstream/master
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeRouterNAT
 metadata:
+<<<<<<< HEAD
 <<<<<<< HEAD
   name: name # {"$kpt-set":"name"}
 spec:
@@ -28,10 +37,17 @@ spec:
     name: name # {"$kpt-set":"name"}
 =======
   name: name # {"type":"string","x-kustomize":{"setter":{"name":"name","value":"name"}}}
+=======
+  name: name # {"$kpt-set":"name"}
+>>>>>>> upstream/master
 spec:
-  region: us-central1 # {"type":"string","x-kustomize":{"setter":{"name":"gcloud.compute.region","value":"us-central1"}}}
+  region: REGION # {"$kpt-set":"gcloud.compute.region"}
   routerRef:
+<<<<<<< HEAD
     name: name # {"type":"string","x-kustomize":{"setter":{"name":"name","value":"name"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+>>>>>>> upstream/master
   natIpAllocateOption: AUTO_ONLY
   sourceSubnetworkIpRangesToNat: ALL_SUBNETWORKS_ALL_IP_RANGES

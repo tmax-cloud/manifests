@@ -4,24 +4,25 @@ kind: HorizontalPodAutoscaler
 metadata:
   labels:
 <<<<<<< HEAD
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
 =======
     serving.knative.dev/release: "v0.11.2"
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    serving.knative.dev/release: v0.14.3
+>>>>>>> upstream/master
   name: activator
   namespace: knative-serving
 spec:
   maxReplicas: 20
   metrics:
-    - resource:
-        name: cpu
-        targetAverageUtilization: 100
-      type: Resource
+  - resource:
+      name: cpu
+      targetAverageUtilization: 100
+    type: Resource
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: activator
----
-
-

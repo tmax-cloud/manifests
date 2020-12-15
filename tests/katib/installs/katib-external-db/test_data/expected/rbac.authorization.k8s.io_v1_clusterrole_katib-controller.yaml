@@ -15,6 +15,8 @@ rules:
   - secrets
   - events
   - namespaces
+  - persistentvolumes
+  - persistentvolumeclaims
   verbs:
   - '*'
 - apiGroups:
@@ -58,6 +60,9 @@ rules:
   - experiments
   - experiments/status
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
   - experiments/finalizers
   - trials
   - trials/status
@@ -65,12 +70,15 @@ rules:
   - suggestions
   - suggestions/status
   - suggestions/finalizers
+<<<<<<< HEAD
 =======
   - trials
   - trials/status
   - suggestions
   - suggestions/status
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
   verbs:
   - '*'
 - apiGroups:
@@ -78,5 +86,20 @@ rules:
   resources:
   - tfjobs
   - pytorchjobs
+  - mpijobs
+  verbs:
+  - '*'
+- apiGroups:
+  - tekton.dev
+  resources:
+  - pipelineruns
+  - taskruns
+  verbs:
+  - '*'
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - roles
+  - rolebindings
   verbs:
   - '*'

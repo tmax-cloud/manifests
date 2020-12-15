@@ -216,9 +216,12 @@ spec:
       - istio
       - application
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       - aws
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
       parameters:
       - name: userid-header
         value: kubeflow-userid
@@ -321,13 +324,6 @@ spec:
         name: manifests
         path: common/spartakus
     name: spartakus
-  - kustomizeConfig:
-      overlays:
-      - istio
-      repoRef:
-        name: manifests
-        path: tensorboard
-    name: tensorboard
   - kustomizeConfig:
       overlays:
       - application

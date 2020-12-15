@@ -39,10 +39,15 @@ spec:
         - -userid-prefix 
         - $(USERID_PREFIX)
 <<<<<<< HEAD
+<<<<<<< HEAD
         - -userid-header
         - $(USERID_HEADER)
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        - -userid-header
+        - $(USERID_HEADER)
+>>>>>>> upstream/master
         args: []
         name: kfam
         env:

@@ -7,5 +7,12 @@ data:
   userid-prefix: ""
 kind: ConfigMap
 metadata:
+<<<<<<< HEAD
+=======
+  labels:
+    app.kubernetes.io/component: metadata
+    app.kubernetes.io/name: metadata
+    kustomize.component: metadata
+>>>>>>> upstream/master
   name: kubeflow-config-bk4bc7m928
   namespace: kubeflow

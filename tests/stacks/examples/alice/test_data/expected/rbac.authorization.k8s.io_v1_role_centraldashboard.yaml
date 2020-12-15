@@ -5,6 +5,7 @@ metadata:
     app: centraldashboard
     app.kubernetes.io/component: centraldashboard
     app.kubernetes.io/name: centraldashboard
+    kustomize.component: centraldashboard
   name: centraldashboard
   namespace: kubeflow
 rules:
@@ -25,8 +26,12 @@ rules:
   resources:
   - secrets
 <<<<<<< HEAD
+<<<<<<< HEAD
   - configmaps
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  - configmaps
+>>>>>>> upstream/master
   verbs:
   - get

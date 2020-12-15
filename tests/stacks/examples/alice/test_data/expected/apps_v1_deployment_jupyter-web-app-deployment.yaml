@@ -27,20 +27,29 @@ spec:
             configMapKeyRef:
               key: userid-header
 <<<<<<< HEAD
+<<<<<<< HEAD
               name: kubeflow-config-bmh8k74f52
 =======
               name: kubeflow-config-4bkkg42k5m
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+              name: kubeflow-config-bmh8k74f52
+>>>>>>> upstream/master
         - name: USERID_PREFIX
           valueFrom:
             configMapKeyRef:
               key: userid-prefix
+<<<<<<< HEAD
 <<<<<<< HEAD
               name: kubeflow-config-bmh8k74f52
 =======
               name: kubeflow-config-4bkkg42k5m
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
         image: gcr.io/kubeflow-images-public/jupyter-web-app:vmaster-gd9be4b9e
+=======
+              name: kubeflow-config-bmh8k74f52
+        image: gcr.io/kubeflow-images-public/jupyter-web-app:vmaster-ge4456300
+>>>>>>> upstream/master
         name: jupyter-web-app
         ports:
         - containerPort: 5000

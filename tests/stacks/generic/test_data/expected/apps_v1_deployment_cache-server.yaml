@@ -4,10 +4,15 @@ metadata:
   labels:
     app: cache-server
 <<<<<<< HEAD
+<<<<<<< HEAD
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    app.kubernetes.io/component: ml-pipeline
+    app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
   name: cache-server
   namespace: kubeflow
 spec:
@@ -16,19 +21,29 @@ spec:
     matchLabels:
       app: cache-server
 <<<<<<< HEAD
+<<<<<<< HEAD
       app.kubernetes.io/component: ml-pipeline
       app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+      app.kubernetes.io/component: ml-pipeline
+      app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
   template:
     metadata:
       labels:
         app: cache-server
 <<<<<<< HEAD
+<<<<<<< HEAD
         app.kubernetes.io/component: ml-pipeline
         app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        app.kubernetes.io/component: ml-pipeline
+        app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
     spec:
       containers:
       - args:
@@ -72,10 +87,14 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
 <<<<<<< HEAD
+<<<<<<< HEAD
         image: gcr.io/ml-pipeline/cache-server:1.0.0
 =======
         image: gcr.io/ml-pipeline/cache-server:1.0.0-rc.2
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        image: gcr.io/ml-pipeline/cache-server:1.0.4
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: server
         ports:

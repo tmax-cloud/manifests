@@ -13,7 +13,11 @@ images:
 - name: gcr.io/kubeflow-images-public/tf_operator
   newName: gcr.io/kubeflow-images-public/tf_operator
 <<<<<<< HEAD
+<<<<<<< HEAD
   newTag: v1.0.0-g92389064
 =======
   newTag: vmaster-ga2ae7bff
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  newTag: vmaster-gda226016
+>>>>>>> upstream/master

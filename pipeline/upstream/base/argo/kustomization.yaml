@@ -3,9 +3,12 @@ kind: Kustomization
 
 resources:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 - minio-artifact-secret.yaml
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
 - workflow-controller-configmap.yaml
 - workflow-controller-deployment.yaml
 - workflow-controller-role.yaml

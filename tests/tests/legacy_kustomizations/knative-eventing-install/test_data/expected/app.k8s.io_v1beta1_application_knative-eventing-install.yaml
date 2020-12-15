@@ -3,6 +3,7 @@ kind: Application
 metadata:
   labels:
     app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
     app.kubernetes.io/instance: knative-eventing-install
     app.kubernetes.io/managed-by: kfctl
     app.kubernetes.io/name: knative-eventing-install
@@ -11,6 +12,11 @@ metadata:
     serving.knative.dev/release: v0.11.0
   name: knative-eventing-install
   namespace: knative-serving
+=======
+    app.kubernetes.io/name: knative-eventing-install
+  name: knative-eventing-install
+  namespace: knative-eventing
+>>>>>>> upstream/master
 spec:
   addOwnerRef: true
   componentKinds:
@@ -33,8 +39,12 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
       app.kubernetes.io/instance: knative-eventing-install
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: knative-eventing-install
       app.kubernetes.io/part-of: kubeflow
       app.kubernetes.io/version: v0.11.2
+=======
+      app.kubernetes.io/name: knative-eventing-install
+>>>>>>> upstream/master

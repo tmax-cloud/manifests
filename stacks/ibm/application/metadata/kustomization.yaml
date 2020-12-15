@@ -8,7 +8,6 @@ commonLabels:
 resources:
 - ../../../../metadata/overlays/db
 - ../../../../metadata/overlays/application/application.yaml
-- ../../../../metadata/overlays/istio/virtual-service.yaml
 - ../../../../metadata/overlays/istio/virtual-service-metadata-grpc.yaml
 configurations:
 - ../../../../metadata/overlays/istio/params.yaml
@@ -16,3 +15,24 @@ images:
   - name: mysql
     newTag: "5.6"
     newName: mysql
+configMapGenerator:
+- name: kubeflow-config
+  envs:
+  - ../../config/params.env
+vars:
+# We need to define vars at the top level otherwise we will get
+# conflicts. 
+- fieldref:
+    fieldPath: data.clusterDomain
+  name: clusterDomain
+  objref:
+    apiVersion: v1
+    kind: ConfigMap
+    name: kubeflow-config
+- fieldref:
+    fieldPath: metadata.namespace
+  name: namespace
+  objref:
+    apiVersion: v1
+    kind: ConfigMap
+    name: kubeflow-config

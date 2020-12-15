@@ -3,18 +3,31 @@ kind: Service
 metadata:
   labels:
     app: kfserving
+<<<<<<< HEAD
     app.kubernetes.io/component: kfserving-install
     app.kubernetes.io/name: kfserving-install
+=======
+    app.kubernetes.io/component: kfserving
+    app.kubernetes.io/name: kfserving
+>>>>>>> upstream/master
     kustomize.component: kfserving
   name: kfserving-webhook-server-service
   namespace: kubeflow
 spec:
   ports:
   - port: 443
+<<<<<<< HEAD
     targetPort: 443
   selector:
     app: kfserving
     app.kubernetes.io/component: kfserving-install
     app.kubernetes.io/name: kfserving-install
+=======
+    targetPort: 9443
+  selector:
+    app: kfserving
+    app.kubernetes.io/component: kfserving
+    app.kubernetes.io/name: kfserving
+>>>>>>> upstream/master
     control-plane: kfserving-controller-manager
     kustomize.component: kfserving

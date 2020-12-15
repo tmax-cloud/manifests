@@ -54,7 +54,11 @@ spec:
           value: X-Goog-Authenticated-User-Email
         - name: USERID_PREFIX
           value: 'accounts.google.com:'
+<<<<<<< HEAD
         image: gcr.io/kubeflow-images-public/jupyter-web-app:vmaster-g845af298
+=======
+        image: gcr.io/kubeflow-images-public/jupyter-web-app:vmaster-ge4456300
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: jupyter-web-app
         ports:

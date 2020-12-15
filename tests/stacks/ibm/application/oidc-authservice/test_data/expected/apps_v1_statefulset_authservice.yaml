@@ -1,9 +1,12 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
+<<<<<<< HEAD
   labels:
     app.kubernetes.io/component: oidc-authservice
     app.kubernetes.io/name: oidc-authservice
+=======
+>>>>>>> upstream/master
   name: authservice
   namespace: istio-system
 spec:
@@ -11,8 +14,11 @@ spec:
   selector:
     matchLabels:
       app: authservice
+<<<<<<< HEAD
       app.kubernetes.io/component: oidc-authservice
       app.kubernetes.io/name: oidc-authservice
+=======
+>>>>>>> upstream/master
   serviceName: authservice
   template:
     metadata:
@@ -20,8 +26,11 @@ spec:
         sidecar.istio.io/inject: "false"
       labels:
         app: authservice
+<<<<<<< HEAD
         app.kubernetes.io/component: oidc-authservice
         app.kubernetes.io/name: oidc-authservice
+=======
+>>>>>>> upstream/master
     spec:
       containers:
       - env:

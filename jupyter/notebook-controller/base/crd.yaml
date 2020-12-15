@@ -52,6 +52,7 @@ spec:
               description: NotebookTemplateSpec defines the spec of Notebook template
               properties:
                 spec:
+<<<<<<< HEAD
                   description: PodSpec is a description of a pod.
                   properties:
                     activeDeadlineSeconds:
@@ -4230,6 +4231,35 @@ spec:
                       type: array
                   required:
                   - containers
+=======
+                  properties:
+                    containers:
+                      items:
+                        properties:
+                          resources:
+                            properties:
+                              limits:
+                                properties:
+                                  memory:
+                                    type: string
+                                    pattern: '^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$'
+                                  cpu:
+                                    type: string
+                                    pattern: '^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$'
+                                type: object
+                              requests:
+                                properties:
+                                  memory:
+                                    type: string
+                                    pattern: '^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$'
+                                  cpu:
+                                    type: string
+                                    pattern: '^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$'
+                                type: object
+                            type: object
+                        type: object
+                      type: array
+>>>>>>> upstream/master
                   type: object
               type: object
             volumeClaim:

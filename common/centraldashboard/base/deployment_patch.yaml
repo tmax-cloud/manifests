@@ -15,9 +15,16 @@ spec:
         - name: PROFILES_KFAM_SERVICE_HOST
           value: profiles-kfam.kubeflow
 <<<<<<< HEAD
+<<<<<<< HEAD
         - name: REGISTRATION_FLOW
           value: $(registration-flow)
         - name: DASHBOARD_LINKS_CONFIGMAP
           value: centraldashboard-links-config
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        - name: REGISTRATION_FLOW
+          value: $(registration-flow)
+        - name: DASHBOARD_LINKS_CONFIGMAP
+          value: centraldashboard-links-config
+>>>>>>> upstream/master

@@ -1,13 +1,32 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:gcp/basic-auth-ingress/overlays/application/application.yaml
+  name: basic-auth-ingress
+=======
+>>>>>>> upstream/master
   labels:
     app.kubernetes.io/component: spartakus
     app.kubernetes.io/name: spartakus
   name: spartakus
   namespace: kubeflow
+<<<<<<< HEAD
 spec:
   addOwnerRef: true
+=======
+>>>>>>> upstream/master:tests/stacks/aws/application/spartakus/test_data/expected/app.k8s.io_v1beta1_application_spartakus.yaml
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: basic-auth-ingress
+      app.kubernetes.io/instance: basic-auth-ingress-v1.0.0
+      app.kubernetes.io/managed-by: kfctl
+      app.kubernetes.io/component: basic-auth-ingress
+      app.kubernetes.io/part-of: kubeflow
+      app.kubernetes.io/version: v1.0.0
+>>>>>>> upstream/master
   componentKinds:
   - group: core
     kind: ConfigMap
@@ -16,8 +35,25 @@ spec:
   - group: core
     kind: ServiceAccount
   descriptor:
+<<<<<<< HEAD
     description: ""
     keywords:
+=======
+    type: basic-auth-ingress
+    version: v1beta1
+    description: ""
+    maintainers: []
+    owners: []
+    keywords:
+<<<<<<< HEAD:gcp/basic-auth-ingress/overlays/application/application.yaml
+     - basic-auth-ingress
+     - kubeflow
+    links:
+    - description: About
+      url: ""
+  addOwnerRef: true
+=======
+>>>>>>> upstream/master
     - spartakus
     - kubeflow
     links:
@@ -35,3 +71,7 @@ spec:
       app.kubernetes.io/name: spartakus
       app.kubernetes.io/part-of: kubeflow
       app.kubernetes.io/version: v0.7.0
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master:tests/stacks/aws/application/spartakus/test_data/expected/app.k8s.io_v1beta1_application_spartakus.yaml
+>>>>>>> upstream/master

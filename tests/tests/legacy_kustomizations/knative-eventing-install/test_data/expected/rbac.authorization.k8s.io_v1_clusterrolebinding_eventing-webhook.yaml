@@ -3,6 +3,7 @@ kind: ClusterRoleBinding
 metadata:
   labels:
     app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
     app.kubernetes.io/instance: knative-eventing-install
     app.kubernetes.io/managed-by: kfctl
     app.kubernetes.io/name: knative-eventing-install
@@ -11,6 +12,11 @@ metadata:
     eventing.knative.dev/release: v0.11.0
     kustomize.component: knative
     serving.knative.dev/release: v0.11.0
+=======
+    app.kubernetes.io/name: knative-eventing-install
+    eventing.knative.dev/release: v0.14.2
+    kustomize.component: knative
+>>>>>>> upstream/master
   name: eventing-webhook
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -19,4 +25,8 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: eventing-webhook
+<<<<<<< HEAD
   namespace: knative-serving
+=======
+  namespace: knative-eventing
+>>>>>>> upstream/master

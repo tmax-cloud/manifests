@@ -14,5 +14,12 @@ rules:
   - secrets
   verbs:
   - create
+<<<<<<< HEAD
   - get
   - patch
+=======
+  - delete
+  - get
+  - patch
+  - list
+>>>>>>> upstream/master

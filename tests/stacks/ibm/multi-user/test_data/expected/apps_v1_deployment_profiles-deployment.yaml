@@ -49,7 +49,11 @@ spec:
             configMapKeyRef:
               key: gcp-sa
               name: profiles-profiles-config-h7dck95hm2
+<<<<<<< HEAD
         image: gcr.io/kubeflow-images-public/profile-controller:vmaster-g34aa47c2
+=======
+        image: gcr.io/kubeflow-images-public/profile-controller:vmaster-ga49f658f
+>>>>>>> upstream/master
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -87,7 +91,11 @@ spec:
             configMapKeyRef:
               key: admin
               name: profiles-profiles-config-h7dck95hm2
+<<<<<<< HEAD
         image: gcr.io/kubeflow-images-public/kfam:vmaster-gf3e09203
+=======
+        image: gcr.io/kubeflow-images-public/kfam:vmaster-g9f3bfd00
+>>>>>>> upstream/master
         imagePullPolicy: Always
         livenessProbe:
           httpGet:

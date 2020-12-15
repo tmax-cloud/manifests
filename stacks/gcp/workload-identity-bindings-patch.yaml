@@ -4,10 +4,14 @@ metadata:
   name: profiles-controller-service-account
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     iam.gke.io/gcp-service-account: name-admin@project-id.iam.gserviceaccount.com # {"$kpt-set":"admin-sa-ref"}
 =======
     iam.gke.io/gcp-service-account: name-admin@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    iam.gke.io/gcp-service-account: name-admin@project-id.iam.gserviceaccount.com # {"$kpt-set":"admin-sa-ref"}
+>>>>>>> upstream/master
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -15,10 +19,14 @@ metadata:
   name: ml-pipeline-ui
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     iam.gke.io/gcp-service-account: name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-sa-ref"}
 =======
     iam.gke.io/gcp-service-account: name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    iam.gke.io/gcp-service-account: name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-sa-ref"}
+>>>>>>> upstream/master
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -26,10 +34,14 @@ metadata:
   name: ml-pipeline-visualizationserver
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     iam.gke.io/gcp-service-account: name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-sa-ref"}
 =======
     iam.gke.io/gcp-service-account: name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    iam.gke.io/gcp-service-account: name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-sa-ref"}
+>>>>>>> upstream/master
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -37,7 +49,11 @@ metadata:
   name: pipeline-runner
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     iam.gke.io/gcp-service-account: name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-sa-ref"}
 =======
     iam.gke.io/gcp-service-account: name-user@project-id.iam.gserviceaccount.com # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"},{"name":"gcloud.core.project","value":"project-id"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    iam.gke.io/gcp-service-account: name-user@project-id.iam.gserviceaccount.com # {"$kpt-set":"user-sa-ref"}
+>>>>>>> upstream/master

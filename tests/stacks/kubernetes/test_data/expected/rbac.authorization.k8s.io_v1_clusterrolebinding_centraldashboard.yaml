@@ -5,6 +5,10 @@ metadata:
     app: centraldashboard
     app.kubernetes.io/component: centraldashboard
     app.kubernetes.io/name: centraldashboard
+<<<<<<< HEAD
+=======
+    kustomize.component: centraldashboard
+>>>>>>> upstream/master
   name: centraldashboard
 roleRef:
   apiGroup: rbac.authorization.k8s.io

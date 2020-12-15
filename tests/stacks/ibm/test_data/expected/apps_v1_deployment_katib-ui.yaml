@@ -37,7 +37,11 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+<<<<<<< HEAD
         image: gcr.io/kubeflow-images-public/katib/v1alpha3/katib-ui:ce89cbf
+=======
+        image: docker.io/kubeflowkatib/katib-ui:v1beta1-a96ff59
+>>>>>>> upstream/master
         imagePullPolicy: IfNotPresent
         name: katib-ui
         ports:

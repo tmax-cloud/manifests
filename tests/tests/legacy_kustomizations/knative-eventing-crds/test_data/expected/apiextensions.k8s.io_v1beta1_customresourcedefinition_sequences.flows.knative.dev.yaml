@@ -2,6 +2,7 @@ apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     app.kubernetes.io/component: knative-eventing-crds
     app.kubernetes.io/instance: knative-eventing-crds-v0.11.0
     app.kubernetes.io/managed-by: kfctl
@@ -10,6 +11,12 @@ metadata:
     app.kubernetes.io/version: v0.11.0
     duck.knative.dev/addressable: "true"
     eventing.knative.dev/release: v0.11.0
+=======
+    app.kubernetes.io/instance: knative-eventing-crds
+    app.kubernetes.io/name: knative-eventing-crds
+    duck.knative.dev/addressable: "true"
+    eventing.knative.dev/release: v0.14.2
+>>>>>>> upstream/master
     knative.dev/crd-install: "true"
   name: sequences.flows.knative.dev
 spec:
@@ -26,6 +33,15 @@ spec:
   - JSONPath: .metadata.creationTimestamp
     name: Age
     type: date
+<<<<<<< HEAD
+=======
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+>>>>>>> upstream/master
   group: flows.knative.dev
   names:
     categories:
@@ -36,11 +52,16 @@ spec:
     kind: Sequence
     plural: sequences
     singular: sequence
+<<<<<<< HEAD
+=======
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
+<<<<<<< HEAD
       properties:
         spec:
           properties:
@@ -140,7 +161,17 @@ spec:
           required:
           - steps
           - channelTemplate
+=======
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
+=======
+  - name: v1beta1
+    served: true
+    storage: false
+>>>>>>> upstream/master

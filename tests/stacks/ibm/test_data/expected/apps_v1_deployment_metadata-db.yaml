@@ -16,6 +16,11 @@ spec:
       app.kubernetes.io/name: metadata
       component: db
       kustomize.component: metadata
+<<<<<<< HEAD
+=======
+  strategy:
+    type: Recreate
+>>>>>>> upstream/master
   template:
     metadata:
       annotations:

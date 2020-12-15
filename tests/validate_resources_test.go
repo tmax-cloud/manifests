@@ -50,12 +50,18 @@ func TestCommonLabelsImmutable(t *testing.T) {
 
 	// These labels are likely to be mutable and should not be part of commonLabels
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
 	// TODO(jlewi): In 1.0 and prior versions the convention was to use mutable values that contained the
 	// version number. That was the original reason we made these forbidden labels; it was to stop people
 	// from attaching mutable versions that would break upgrades. Post 1.1 we might want to start relaxing that
 	// and allow applications to start using these labels but in an immutable fashion.
+<<<<<<< HEAD
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
 	forbiddenLabels := []string{VersionLabel, ManagedByLabel, InstanceLabel, PartOfLabel}
 
 	err := filepath.Walk("..", func(path string, info os.FileInfo, err error) error {
@@ -314,6 +320,10 @@ func TestCheckWebhookSelector(t *testing.T) {
 		nodes, err := reader.Read()
 
 		if err != nil {
+			if strings.Contains(err.Error(), "wrong Node Kind for") {
+				t.Logf("Skipping non SequenceNode yaml %v", path)
+				return nil
+			}
 			t.Errorf("Error unmarshaling %v; error: %v", path, err)
 		}
 
@@ -372,6 +382,177 @@ func TestCheckWebhookSelector(t *testing.T) {
 						}
 					}
 				}
+			}
+		}
+		return nil
+	})
+
+	if err != nil {
+		t.Errorf("error walking the path %v; error: %v", rootDir, err)
+	}
+}
+
+// kustomizationHasDeprecatedEnv checks if the node has the depracted format of configmap generator
+// see https://github.com/kubeflow/manifests/issues/538
+func kustomizationHasDeprecatedEnv(t *testing.T, n *kyaml.RNode) bool {
+	configMaps, err := n.Pipe(kyaml.Lookup("configMapGenerator"))
+	if err != nil {
+		s, _ := n.String()
+		t.Errorf("%v: %s", err, s)
+		return false
+	}
+
+	if configMaps == nil {
+		// doesn't have any configmap generators, skip the Resource
+		return false
+	}
+
+	// visit each container and apply the cpu and memory reservations
+
+	hasDeprecated := false
+	err = configMaps.VisitElements(func(cm *kyaml.RNode) error {
+		// Ensure env field isn't set
+		f := cm.Field("env")
+
+		if !kyaml.IsFieldEmpty(f) {
+			hasDeprecated = true
+		}
+		return nil
+	})
+
+	if err != nil {
+		t.Errorf("Error chcecking if deprecated envs are set; error %v", err)
+	}
+
+	return hasDeprecated
+}
+
+// TestKustomizationHasDeprecatedEnv verifies that kustomizationHasDeprecatedEnv correctly
+// detects obosolete kustomizations
+func TestKustomizationHasDeprecatedEnv(t *testing.T) {
+	type testCase struct {
+		Raw      string
+		Expected bool
+	}
+
+	testCases := []testCase{
+		{
+			Raw: `apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- cluster-role-binding.yaml
+configMapGenerator:
+- name: config-map
+  env: somenev
+  
+`,
+			Expected: true,
+		},
+		{
+			Raw: `apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- cluster-role-binding.yaml
+configMapGenerator:
+- name: config-map
+  envs:
+   - params.env
+`,
+			Expected: false,
+		},
+	}
+
+	for _, c := range testCases {
+		n, err := kyaml.Parse(c.Raw)
+
+		if err != nil {
+			t.Errorf("Could not parse yaml:\n%v\nerror: %v", c.Raw, err)
+			continue
+		}
+
+		actual := kustomizationHasDeprecatedEnv(t, n)
+
+		if actual != c.Expected {
+			t.Errorf("got %v; want %v; YAML\n:%v", actual, c.Expected, c.Raw)
+		}
+	}
+}
+
+// TestNoObsoleteKustomizations verifies that all kustomization files aren't using
+// deprecated/obsolete features
+func TestNoObsoleteKustomizations(t *testing.T) {
+	rootDir := ".."
+
+	// Directories to exclude. Thee paths should be relative to rootDir.
+	// Subdirectories won't be searched
+	excludes := map[string]bool{
+		"tests":                  true,
+		".git":                   true,
+		".github":                true,
+		"profiles/overlays/test": true,
+		// Skip cnrm-install. We don't install this with ACM so we don't need to fix it.
+		// It seems like if this is an issue it should eventually get fixed in upstream cnrm configs.
+		// The CNRM directory has lots of CRDS with non empty status.
+		"gcp/v2/management/cnrm-install": true,
+	}
+
+	err := filepath.Walk("..", func(path string, info os.FileInfo, err error) error {
+		relPath, err := filepath.Rel(rootDir, path)
+
+		if err != nil {
+			t.Fatalf("Could not compute relative path(%v, %v); error: %v", rootDir, path, err)
+		}
+
+		if _, ok := excludes[relPath]; ok {
+			return filepath.SkipDir
+		}
+
+		// skip directories
+		if info.IsDir() {
+			return nil
+		}
+
+		if strings.ToLower(info.Name()) != "kustomization.yaml" {
+			return nil
+		}
+
+		data, err := ioutil.ReadFile(path)
+
+		if err != nil {
+			t.Errorf("Error reading %v; error: %v", path, err)
+		}
+
+		input := bytes.NewReader(data)
+		reader := kio.ByteReader{
+			Reader: input,
+			// We need to disable adding reader annotations because
+			// we want to run some checks about whether annotations are set and
+			// adding those annotations interferes with that.
+			OmitReaderAnnotations: true,
+		}
+
+		nodes, err := reader.Read()
+
+		if err != nil {
+			t.Errorf("Error unmarshaling %v; error: %v", path, err)
+		}
+
+		for _, n := range nodes {
+			m, err := n.GetMeta()
+			// Skip objects with no metadata
+			if err != nil {
+				continue
+			}
+
+			// Skip Kustomization
+			if strings.ToLower(m.Kind) != "kustomization" {
+				continue
+			}
+
+			hasDeprecated := kustomizationHasDeprecatedEnv(t, n)
+
+			if hasDeprecated {
+				t.Errorf("Kustomization %v is using obsolete syntax for configMapGenerate; you must use envs not env", path)
 			}
 		}
 		return nil

@@ -52,6 +52,9 @@ spec:
               name: pipeline-install-config
               key: dbPort
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
         - name: OBJECTSTORECONFIG_ACCESSKEY
           valueFrom:
             secretKeyRef:
@@ -62,8 +65,11 @@ spec:
             secretKeyRef:
               name: mlpipeline-minio-artifact
               key: secretkey
+<<<<<<< HEAD
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
         image: gcr.io/ml-pipeline/api-server:dummy
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-api-server

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,17 +16,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+<<<<<<< HEAD
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
 apiVersion: v1
 kind: Namespace
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-system
@@ -33,7 +43,11 @@ kind: ServiceAccount
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
     iam.gke.io/gcp-service-account: NAME-cnrm-system@PROJECT.iam.gserviceaccount.com # {"$kpt-set":"cnrm-system"}
   labels:
     cnrm.cloud.google.com/system: "true"
@@ -44,10 +58,14 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   annotations:
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-deletiondefender
@@ -58,10 +76,14 @@ kind: ServiceAccount
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-resource-stats-recorder
@@ -72,30 +94,81 @@ kind: ServiceAccount
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-webhook-manager
   namespace: cnrm-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  annotations:
+    cnrm.cloud.google.com/version: 1.27.2
+  labels:
+    cnrm.cloud.google.com/system: "true"
+  name: cnrm-deletiondefender-cnrm-system-role
+  namespace: cnrm-system
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - create
+  - update
+  - patch
+  - delete
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  annotations:
+    cnrm.cloud.google.com/version: 1.27.2
+  labels:
+    cnrm.cloud.google.com/system: "true"
+  name: cnrm-webhook-cnrm-system-role
+  namespace: cnrm-system
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - create
+  - update
+  - patch
+  - delete
+---
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
+<<<<<<< HEAD
 <<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-admin
 rules:
 - apiGroups:
   - accesscontextmanager.cnrm.cloud.google.com
+  - artifactregistry.cnrm.cloud.google.com
   - bigquery.cnrm.cloud.google.com
   - bigtable.cnrm.cloud.google.com
   - cloudbuild.cnrm.cloud.google.com
@@ -106,13 +179,19 @@ rules:
   - firestore.cnrm.cloud.google.com
   - iam.cnrm.cloud.google.com
   - kms.cnrm.cloud.google.com
+  - logging.cnrm.cloud.google.com
+  - monitoring.cnrm.cloud.google.com
   - pubsub.cnrm.cloud.google.com
   - redis.cnrm.cloud.google.com
   - resourcemanager.cnrm.cloud.google.com
 <<<<<<< HEAD
+<<<<<<< HEAD
   - secretmanager.cnrm.cloud.google.com
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  - secretmanager.cnrm.cloud.google.com
+>>>>>>> upstream/master
   - servicenetworking.cnrm.cloud.google.com
   - serviceusage.cnrm.cloud.google.com
   - sourcerepo.cnrm.cloud.google.com
@@ -120,9 +199,13 @@ rules:
   - sql.cnrm.cloud.google.com
   - storage.cnrm.cloud.google.com
 <<<<<<< HEAD
+<<<<<<< HEAD
   - storagetransfer.cnrm.cloud.google.com
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  - storagetransfer.cnrm.cloud.google.com
+>>>>>>> upstream/master
   resources:
   - '*'
   verbs:
@@ -139,10 +222,14 @@ kind: ClusterRole
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-deletiondefender-role
@@ -193,10 +280,14 @@ kind: ClusterRole
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-manager-cluster-role
@@ -255,10 +346,14 @@ kind: ClusterRole
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-manager-ns-role
@@ -284,10 +379,14 @@ kind: ClusterRole
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-recorder-role
@@ -318,10 +417,14 @@ kind: ClusterRole
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-webhook-role
@@ -381,14 +484,54 @@ rules:
   - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    cnrm.cloud.google.com/version: 1.27.2
+  labels:
+    cnrm.cloud.google.com/system: "true"
+  name: cnrm-deletiondefender-role-binding
+  namespace: cnrm-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: cnrm-deletiondefender-cnrm-system-role
+subjects:
+- kind: ServiceAccount
+  name: cnrm-deletiondefender
+  namespace: cnrm-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    cnrm.cloud.google.com/version: 1.27.2
+  labels:
+    cnrm.cloud.google.com/system: "true"
+  name: cnrm-webhook-role-binding
+  namespace: cnrm-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: cnrm-webhook-cnrm-system-role
+subjects:
+- kind: ServiceAccount
+  name: cnrm-webhook-manager
+  namespace: cnrm-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
+<<<<<<< HEAD
 <<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-admin-binding
@@ -399,11 +542,17 @@ roleRef:
 subjects:
 - kind: ServiceAccount
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: cnrm-controller-manager
   namespace: cnrm-system
 - kind: ServiceAccount
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: cnrm-controller-manager
+  namespace: cnrm-system
+- kind: ServiceAccount
+>>>>>>> upstream/master
   name: cnrm-resource-stats-recorder
   namespace: cnrm-system
 - kind: ServiceAccount
@@ -415,10 +564,14 @@ kind: ClusterRoleBinding
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-deletiondefender-binding
@@ -436,7 +589,11 @@ kind: ClusterRoleBinding
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-manager-binding
@@ -453,7 +610,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-manager-watcher-binding
@@ -470,10 +631,14 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-recorder-binding
@@ -491,10 +656,14 @@ kind: ClusterRoleBinding
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-webhook-binding
@@ -512,10 +681,14 @@ kind: Service
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/system: "true"
   name: cnrm-deletiondefender
@@ -533,7 +706,11 @@ kind: Service
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
     prometheus.io/port: "8888"
     prometheus.io/scrape: "true"
   labels:
@@ -555,10 +732,14 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
     prometheus.io/port: "8888"
     prometheus.io/scrape: "true"
   labels:
@@ -579,10 +760,14 @@ kind: Deployment
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/component: cnrm-resource-stats-recorder
     cnrm.cloud.google.com/system: "true"
@@ -591,9 +776,13 @@ metadata:
 spec:
   replicas: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   revisionHistoryLimit: 1
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  revisionHistoryLimit: 1
+>>>>>>> upstream/master
   selector:
     matchLabels:
       cnrm.cloud.google.com/component: cnrm-resource-stats-recorder
@@ -602,10 +791,14 @@ spec:
     metadata:
       annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
         cnrm.cloud.google.com/version: 1.15.1
 =======
         cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
       labels:
         cnrm.cloud.google.com/component: cnrm-resource-stats-recorder
         cnrm.cloud.google.com/system: "true"
@@ -619,12 +812,17 @@ spec:
         env:
         - name: CONFIG_CONNECTOR_VERSION
 <<<<<<< HEAD
+<<<<<<< HEAD
           value: 1.15.1
         image: gcr.io/cnrm-eap/recorder:b59b871
 =======
           value: 1.7.1
         image: gcr.io/cnrm-eap/recorder:f190973
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+          value: 1.27.2
+        image: gcr.io/cnrm-eap/recorder:1c8c589
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: recorder
         readinessProbe:
@@ -636,6 +834,7 @@ spec:
           periodSeconds: 3
         resources:
           limits:
+<<<<<<< HEAD
 <<<<<<< HEAD
             cpu: 20m
             memory: 64Mi
@@ -649,6 +848,13 @@ spec:
             cpu: 50m
             memory: 64Mi
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+            cpu: 40m
+            memory: 64Mi
+          requests:
+            cpu: 20m
+            memory: 32Mi
+>>>>>>> upstream/master
         securityContext:
           privileged: false
           runAsNonRoot: true
@@ -661,21 +867,29 @@ kind: Deployment
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/component: cnrm-webhook-manager
     cnrm.cloud.google.com/system: "true"
   name: cnrm-webhook-manager
   namespace: cnrm-system
 spec:
+<<<<<<< HEAD
   replicas: 1
 <<<<<<< HEAD
   revisionHistoryLimit: 1
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  revisionHistoryLimit: 1
+>>>>>>> upstream/master
   selector:
     matchLabels:
       cnrm.cloud.google.com/component: cnrm-webhook-manager
@@ -684,10 +898,14 @@ spec:
     metadata:
       annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
         cnrm.cloud.google.com/version: 1.15.1
 =======
         cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
       labels:
         cnrm.cloud.google.com/component: cnrm-webhook-manager
         cnrm.cloud.google.com/system: "true"
@@ -703,10 +921,14 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
 <<<<<<< HEAD
+<<<<<<< HEAD
         image: gcr.io/cnrm-eap/webhook:b59b871
 =======
         image: gcr.io/cnrm-eap/webhook:f190973
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        image: gcr.io/cnrm-eap/webhook:1c8c589
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: webhook
         readinessProbe:
@@ -719,11 +941,16 @@ spec:
         resources:
           limits:
 <<<<<<< HEAD
+<<<<<<< HEAD
             cpu: 40m
             memory: 64Mi
           requests:
             cpu: 20m
             memory: 32Mi
+=======
+            cpu: 40m
+            memory: 64Mi
+>>>>>>> upstream/master
         securityContext:
           privileged: false
           runAsNonRoot: true
@@ -735,7 +962,11 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   annotations:
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/component: cnrm-controller-manager
     cnrm.cloud.google.com/system: "true"
@@ -750,7 +981,11 @@ spec:
   template:
     metadata:
       annotations:
+<<<<<<< HEAD
         cnrm.cloud.google.com/version: 1.15.1
+=======
+        cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
       labels:
         cnrm.cloud.google.com/component: cnrm-controller-manager
         cnrm.cloud.google.com/system: "true"
@@ -761,7 +996,11 @@ spec:
         - --prometheus-scrape-endpoint=:8888
         command:
         - /configconnector/manager
+<<<<<<< HEAD
         image: gcr.io/cnrm-eap/controller:b59b871
+=======
+        image: gcr.io/cnrm-eap/controller:1c8c589
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: manager
         readinessProbe:
@@ -775,6 +1014,7 @@ spec:
           limits:
             cpu: 200m
             memory: 512Mi
+<<<<<<< HEAD
           requests:
             cpu: 100m
             memory: 256Mi
@@ -785,15 +1025,24 @@ spec:
             cpu: 100m
             memory: 128Mi
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+          requests:
+            cpu: 100m
+            memory: 256Mi
+>>>>>>> upstream/master
         securityContext:
           privileged: false
           runAsNonRoot: true
           runAsUser: 1000
 <<<<<<< HEAD
+<<<<<<< HEAD
       serviceAccountName: cnrm-controller-manager
 =======
       serviceAccountName: cnrm-webhook-manager
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+      serviceAccountName: cnrm-controller-manager
+>>>>>>> upstream/master
       terminationGracePeriodSeconds: 10
 ---
 apiVersion: apps/v1
@@ -801,10 +1050,14 @@ kind: StatefulSet
 metadata:
   annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
     cnrm.cloud.google.com/version: 1.15.1
 =======
     cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
   labels:
     cnrm.cloud.google.com/component: cnrm-deletiondefender
     cnrm.cloud.google.com/system: "true"
@@ -820,10 +1073,14 @@ spec:
     metadata:
       annotations:
 <<<<<<< HEAD
+<<<<<<< HEAD
         cnrm.cloud.google.com/version: 1.15.1
 =======
         cnrm.cloud.google.com/version: 1.7.1
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        cnrm.cloud.google.com/version: 1.27.2
+>>>>>>> upstream/master
       labels:
         cnrm.cloud.google.com/component: cnrm-deletiondefender
         cnrm.cloud.google.com/system: "true"
@@ -834,10 +1091,14 @@ spec:
         command:
         - /configconnector/deletiondefender
 <<<<<<< HEAD
+<<<<<<< HEAD
         image: gcr.io/cnrm-eap/deletiondefender:b59b871
 =======
         image: gcr.io/cnrm-eap/deletiondefender:f190973
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        image: gcr.io/cnrm-eap/deletiondefender:1c8c589
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: deletiondefender
         readinessProbe:
@@ -851,6 +1112,7 @@ spec:
           limits:
             cpu: 100m
 <<<<<<< HEAD
+<<<<<<< HEAD
             memory: 128Mi
           requests:
             cpu: 100m
@@ -861,9 +1123,38 @@ spec:
             cpu: 100m
             memory: 128Mi
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+            memory: 128Mi
+          requests:
+            memory: 64Mi
+>>>>>>> upstream/master
         securityContext:
           privileged: false
           runAsNonRoot: true
           runAsUser: 1000
       serviceAccountName: cnrm-deletiondefender
       terminationGracePeriodSeconds: 10
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    cnrm.cloud.google.com/version: 1.27.2
+  labels:
+    cnrm.cloud.google.com/system: "true"
+  name: cnrm-webhook
+  namespace: cnrm-system
+spec:
+  maxReplicas: 10
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 60
+        type: Utilization
+    type: Resource
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: cnrm-webhook-manager

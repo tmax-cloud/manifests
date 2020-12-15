@@ -4,10 +4,15 @@ metadata:
   labels:
     app: ml-pipeline-scheduledworkflow
 <<<<<<< HEAD
+<<<<<<< HEAD
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    app.kubernetes.io/component: ml-pipeline
+    app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
   name: ml-pipeline-scheduledworkflow
   namespace: kubeflow
 spec:
@@ -15,23 +20,34 @@ spec:
     matchLabels:
       app: ml-pipeline-scheduledworkflow
 <<<<<<< HEAD
+<<<<<<< HEAD
       app.kubernetes.io/component: ml-pipeline
       app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+      app.kubernetes.io/component: ml-pipeline
+      app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
   template:
     metadata:
       labels:
         app: ml-pipeline-scheduledworkflow
 <<<<<<< HEAD
+<<<<<<< HEAD
         app.kubernetes.io/component: ml-pipeline
         app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        app.kubernetes.io/component: ml-pipeline
+        app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
     spec:
       containers:
       - env:
         - name: NAMESPACE
+<<<<<<< HEAD
 <<<<<<< HEAD
           value: ""
         image: gcr.io/ml-pipeline/scheduledworkflow:1.0.0
@@ -41,6 +57,10 @@ spec:
               fieldPath: metadata.namespace
         image: gcr.io/ml-pipeline/scheduledworkflow:1.0.0-rc.2
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+          value: ""
+        image: gcr.io/ml-pipeline/scheduledworkflow:1.0.4
+>>>>>>> upstream/master
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-scheduledworkflow
       serviceAccountName: ml-pipeline-scheduledworkflow

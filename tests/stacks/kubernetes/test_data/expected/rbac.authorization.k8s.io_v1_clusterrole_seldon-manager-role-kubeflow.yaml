@@ -7,7 +7,11 @@ metadata:
     app.kubernetes.io/component: seldon
     app.kubernetes.io/instance: seldon-core
     app.kubernetes.io/name: seldon-core-operator
+<<<<<<< HEAD
     app.kubernetes.io/version: 1.2.1
+=======
+    app.kubernetes.io/version: 1.4.0
+>>>>>>> upstream/master
   name: seldon-manager-role-kubeflow
 rules:
 - apiGroups:
@@ -78,6 +82,41 @@ rules:
   - patch
   - update
 - apiGroups:
+<<<<<<< HEAD
+=======
+  - keda.sh
+  resources:
+  - scaledobjects
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - keda.sh
+  resources:
+  - scaledobjects/finalizers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - keda.sh
+  resources:
+  - scaledobjects/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+>>>>>>> upstream/master
   - machinelearning.seldon.io
   resources:
   - seldondeployments
@@ -146,6 +185,29 @@ rules:
   - patch
   - update
 - apiGroups:
+<<<<<<< HEAD
+=======
+  - policy
+  resources:
+  - poddisruptionbudgets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - policy
+  resources:
+  - poddisruptionbudgets/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+>>>>>>> upstream/master
   - v1
   resources:
   - namespaces

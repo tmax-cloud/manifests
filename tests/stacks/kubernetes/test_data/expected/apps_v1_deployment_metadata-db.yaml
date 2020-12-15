@@ -12,6 +12,11 @@ spec:
     matchLabels:
       component: db
       kustomize.component: metadata
+<<<<<<< HEAD
+=======
+  strategy:
+    type: Recreate
+>>>>>>> upstream/master
   template:
     metadata:
       annotations:

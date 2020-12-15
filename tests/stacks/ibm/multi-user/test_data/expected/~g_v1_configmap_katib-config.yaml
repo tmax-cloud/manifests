@@ -1,5 +1,6 @@
 apiVersion: v1
 data:
+<<<<<<< HEAD
   metrics-collector-sidecar: |-
     {
       "StdOut": {
@@ -10,6 +11,25 @@ data:
       },
       "TensorFlowEvent": {
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/tfevent-metrics-collector:ce89cbf",
+=======
+  early-stopping: |-
+    {
+      "medianstop": {
+        "image": "docker.io/kubeflowkatib/earlystopping-medianstop:v1beta1-a96ff59",
+        "imagePullPolicy": "Always"
+      }
+    }
+  metrics-collector-sidecar: |-
+    {
+      "StdOut": {
+        "image": "docker.io/kubeflowkatib/file-metrics-collector:v1beta1-a96ff59"
+      },
+      "File": {
+        "image": "docker.io/kubeflowkatib/file-metrics-collector:v1beta1-a96ff59"
+      },
+      "TensorFlowEvent": {
+        "image": "docker.io/kubeflowkatib/tfevent-metrics-collector:v1beta1-a96ff59",
+>>>>>>> upstream/master
         "resources": {
           "limits": {
             "memory": "1Gi"
@@ -20,6 +40,7 @@ data:
   suggestion: |-
     {
       "random": {
+<<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-hyperopt:ce89cbf"
       },
       "grid": {
@@ -36,6 +57,24 @@ data:
       },
       "enas": {
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-enas:ce89cbf",
+=======
+        "image": "docker.io/kubeflowkatib/suggestion-hyperopt:v1beta1-a96ff59"
+      },
+      "grid": {
+        "image": "docker.io/kubeflowkatib/suggestion-chocolate:v1beta1-a96ff59"
+      },
+      "hyperband": {
+        "image": "docker.io/kubeflowkatib/suggestion-hyperband:v1beta1-a96ff59"
+      },
+      "bayesianoptimization": {
+        "image": "docker.io/kubeflowkatib/suggestion-skopt:v1beta1-a96ff59"
+      },
+      "tpe": {
+        "image": "docker.io/kubeflowkatib/suggestion-hyperopt:v1beta1-a96ff59"
+      },
+      "enas": {
+        "image": "docker.io/kubeflowkatib/suggestion-enas:v1beta1-a96ff59",
+>>>>>>> upstream/master
         "imagePullPolicy": "Always",
         "resources": {
           "limits": {
@@ -44,10 +83,17 @@ data:
         }
       },
       "cmaes": {
+<<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-goptuna:ce89cbf"
       },
       "darts": {
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-darts:ce89cbf"
+=======
+        "image": "docker.io/kubeflowkatib/suggestion-goptuna:v1beta1-a96ff59"
+      },
+      "darts": {
+        "image": "docker.io/kubeflowkatib/suggestion-darts:v1beta1-a96ff59"
+>>>>>>> upstream/master
       }
     }
 kind: ConfigMap

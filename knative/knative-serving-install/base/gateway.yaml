@@ -1,16 +1,22 @@
+---
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   labels:
     networking.knative.dev/ingress-provider: istio
 <<<<<<< HEAD
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
+=======
+    serving.knative.dev/release: v0.14.3
+>>>>>>> upstream/master
   name: cluster-local-gateway
   namespace: knative-serving
 spec:
   selector:
     istio: cluster-local-gateway
   servers:
+<<<<<<< HEAD
     - hosts:
         - '*'
       port:
@@ -36,12 +42,15 @@ spec:
      kfserving: ingressgateway
   servers:
 <<<<<<< HEAD
+=======
+>>>>>>> upstream/master
   - hosts:
     - '*'
     port:
       name: http
       number: 80
       protocol: HTTP
+<<<<<<< HEAD
 =======
     - hosts:
         - '*'
@@ -50,3 +59,5 @@ spec:
         number: 80
         protocol: HTTP
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master

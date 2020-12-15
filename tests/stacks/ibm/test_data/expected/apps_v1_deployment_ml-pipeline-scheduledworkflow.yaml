@@ -26,7 +26,11 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+<<<<<<< HEAD
         image: gcr.io/ml-pipeline/scheduledworkflow:1.0.0
+=======
+        image: gcr.io/ml-pipeline/scheduledworkflow:1.0.4
+>>>>>>> upstream/master
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-scheduledworkflow
       serviceAccountName: ml-pipeline-scheduledworkflow

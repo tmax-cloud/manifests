@@ -6,7 +6,11 @@ metadata:
     app.kubernetes.io/component: seldon
     app.kubernetes.io/instance: seldon-core
     app.kubernetes.io/name: seldon-core-operator
+<<<<<<< HEAD:tests/stacks/aws/test_data/expected/rbac.authorization.k8s.io_v1_clusterrolebinding_seldon-manager-sas-rolebinding-kubeflow.yaml
     app.kubernetes.io/version: 1.2.1
+=======
+    app.kubernetes.io/version: 1.4.0
+>>>>>>> upstream/master:tests/tests/legacy_kustomizations/seldon-core-operator/test_data/expected/rbac.authorization.k8s.io_v1_clusterrolebinding_seldon-webhook-rolebinding-kubeflow.yaml
   name: seldon-manager-sas-rolebinding-kubeflow
 roleRef:
   apiGroup: rbac.authorization.k8s.io

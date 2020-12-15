@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
     app.kubernetes.io/instance: knative-eventing-install
     app.kubernetes.io/managed-by: kfctl
     app.kubernetes.io/name: knative-eventing-install
@@ -13,11 +14,19 @@ metadata:
     serving.knative.dev/release: v0.11.0
   name: imc-dispatcher
   namespace: knative-serving
+=======
+    app.kubernetes.io/name: knative-eventing-install
+    eventing.knative.dev/release: v0.14.2
+    kustomize.component: knative
+  name: imc-dispatcher
+  namespace: knative-eventing
+>>>>>>> upstream/master
 spec:
   replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
       app.kubernetes.io/instance: knative-eventing-install
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: knative-eventing-install
@@ -27,10 +36,17 @@ spec:
       messaging.knative.dev/channel: in-memory-channel
       messaging.knative.dev/role: dispatcher
       serving.knative.dev/release: v0.11.0
+=======
+      app.kubernetes.io/name: knative-eventing-install
+      kustomize.component: knative
+      messaging.knative.dev/channel: in-memory-channel
+      messaging.knative.dev/role: dispatcher
+>>>>>>> upstream/master
   template:
     metadata:
       labels:
         app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
         app.kubernetes.io/instance: knative-eventing-install
         app.kubernetes.io/managed-by: kfctl
         app.kubernetes.io/name: knative-eventing-install
@@ -40,6 +56,12 @@ spec:
         messaging.knative.dev/channel: in-memory-channel
         messaging.knative.dev/role: dispatcher
         serving.knative.dev/release: v0.11.0
+=======
+        app.kubernetes.io/name: knative-eventing-install
+        kustomize.component: knative
+        messaging.knative.dev/channel: in-memory-channel
+        messaging.knative.dev/role: dispatcher
+>>>>>>> upstream/master
     spec:
       containers:
       - env:
@@ -53,11 +75,16 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+<<<<<<< HEAD
         image: gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_dispatcher@sha256:f5402f075154adfdfb72bf3e4e1a755df6eb57e0e5c7770450210c3b0270d38f
+=======
+        image: gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_dispatcher@sha256:8df896444091f1b34185f0fa3da5d41f32e84c43c48df07605c728e0fe49a9a8
+>>>>>>> upstream/master
         name: dispatcher
         ports:
         - containerPort: 9090
           name: metrics
+<<<<<<< HEAD
         volumeMounts:
         - mountPath: /etc/config-logging
           name: config-logging
@@ -66,3 +93,6 @@ spec:
       - configMap:
           name: config-logging
         name: config-logging
+=======
+      serviceAccountName: imc-dispatcher
+>>>>>>> upstream/master

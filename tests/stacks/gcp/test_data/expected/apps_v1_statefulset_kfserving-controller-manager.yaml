@@ -3,8 +3,13 @@ kind: StatefulSet
 metadata:
   labels:
     app: kfserving
+<<<<<<< HEAD
     app.kubernetes.io/component: kfserving-install
     app.kubernetes.io/name: kfserving-install
+=======
+    app.kubernetes.io/component: kfserving
+    app.kubernetes.io/name: kfserving
+>>>>>>> upstream/master
     control-plane: kfserving-controller-manager
     controller-tools.k8s.io: "1.0"
     kustomize.component: kfserving
@@ -14,8 +19,13 @@ spec:
   selector:
     matchLabels:
       app: kfserving
+<<<<<<< HEAD
       app.kubernetes.io/component: kfserving-install
       app.kubernetes.io/name: kfserving-install
+=======
+      app.kubernetes.io/component: kfserving
+      app.kubernetes.io/name: kfserving
+>>>>>>> upstream/master
       control-plane: kfserving-controller-manager
       controller-tools.k8s.io: "1.0"
       kustomize.component: kfserving
@@ -26,8 +36,13 @@ spec:
         sidecar.istio.io/inject: "false"
       labels:
         app: kfserving
+<<<<<<< HEAD
         app.kubernetes.io/component: kfserving-install
         app.kubernetes.io/name: kfserving-install
+=======
+        app.kubernetes.io/component: kfserving
+        app.kubernetes.io/name: kfserving
+>>>>>>> upstream/master
         control-plane: kfserving-controller-manager
         controller-tools.k8s.io: "1.0"
         kustomize.component: kfserving
@@ -54,9 +69,13 @@ spec:
               fieldPath: metadata.namespace
         - name: SECRET_NAME
           value: kfserving-webhook-server-cert
+<<<<<<< HEAD
         - name: ENABLE_WEBHOOK_NAMESPACE_SELECTOR
           value: enabled
         image: gcr.io/kfserving/kfserving-controller:v0.3.0
+=======
+        image: gcr.io/kfserving/kfserving-controller:v0.4.1
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: manager
         ports:

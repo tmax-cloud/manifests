@@ -8,6 +8,12 @@ metadata:
 spec:
   additionalPrinterColumns:
   - JSONPath: .status.conditions[-1:].type
+<<<<<<< HEAD
+=======
+    name: Type
+    type: string
+  - JSONPath: .status.conditions[-1:].status
+>>>>>>> upstream/master
     name: Status
     type: string
   - JSONPath: .metadata.creationTimestamp
@@ -25,4 +31,8 @@ spec:
   scope: Namespaced
   subresources:
     status: {}
+<<<<<<< HEAD
   version: v1alpha3
+=======
+  version: v1beta1
+>>>>>>> upstream/master

@@ -2,5 +2,9 @@ apiVersion: v1
 kind: Namespace
 metadata:
   labels:
+<<<<<<< HEAD
     eventing.knative.dev/release: "v0.11.0"
+=======
+    eventing.knative.dev/release: v0.14.2
+>>>>>>> upstream/master
   name: knative-eventing

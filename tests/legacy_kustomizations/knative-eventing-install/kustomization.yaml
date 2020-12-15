@@ -3,6 +3,7 @@ bases:
 - ../../../knative/knative-eventing-install/base
 commonLabels:
   app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
   app.kubernetes.io/instance: knative-eventing-install
   app.kubernetes.io/managed-by: kfctl
   app.kubernetes.io/name: knative-eventing-install
@@ -13,6 +14,13 @@ configMapGenerator: []
 configurations: []
 kind: Kustomization
 namespace: knative-serving
+=======
+  app.kubernetes.io/name: knative-eventing-install
+configMapGenerator: []
+configurations: []
+kind: Kustomization
+namespace: knative-eventing
+>>>>>>> upstream/master
 patches: []
 patchesStrategicMerge: []
 resources:

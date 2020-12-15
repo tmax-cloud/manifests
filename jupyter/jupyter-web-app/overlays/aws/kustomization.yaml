@@ -1,11 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
 namespace: kubeflow
 commonLabels:
   app: jupyter-web-app
   kustomize.component: jupyter-web-app
 bases:
+<<<<<<< HEAD
 - ../../base
 resources:
 - config-map.yaml
@@ -20,3 +24,10 @@ configMapGenerator:
   files:
   - spawner_ui_config.yaml
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+- ../../base
+resources:
+- config-map.yaml
+patchesStrategicMerge:
+- deployment-aws-patch.yaml
+>>>>>>> upstream/master

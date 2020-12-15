@@ -2,12 +2,17 @@ apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
   labels:
+<<<<<<< HEAD
     app.kubernetes.io/component: knative-eventing-crds
     app.kubernetes.io/instance: knative-eventing-crds-v0.11.0
     app.kubernetes.io/managed-by: kfctl
     app.kubernetes.io/name: knative-eventing-crds
     app.kubernetes.io/part-of: kubeflow
     app.kubernetes.io/version: v0.11.0
+=======
+    app.kubernetes.io/instance: knative-eventing-crds
+    app.kubernetes.io/name: knative-eventing-crds
+>>>>>>> upstream/master
   name: knative-eventing-crds
   namespace: knative-eventing
 spec:
@@ -32,8 +37,12 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: knative-eventing-crds
+<<<<<<< HEAD
       app.kubernetes.io/instance: knative-eventing-crds
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: knative-eventing-crds
       app.kubernetes.io/part-of: kubeflow
       app.kubernetes.io/version: v0.11.0
+=======
+      app.kubernetes.io/name: knative-eventing-crds
+>>>>>>> upstream/master

@@ -9,12 +9,17 @@ Please reference [GPU Tutorial](/samples/tutorials/gpu/).
 - **Security** You may consider use **Workload Identity** in GCP cluster.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Here for simplicity, we create a small cluster with **--scopes=cloud-platform**
 which grants all the GCP permissions to the cluster.
 =======
 Here for simplicity we create a small cluster with **--scopes=cloud-platform**
 to save credentail configure efforts.
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+Here for simplicity, we create a small cluster with **--scopes=cloud-platform**
+which grants all the GCP permissions to the cluster.
+>>>>>>> upstream/master
 
 ```
 gcloud container clusters create mycluster \
@@ -59,6 +64,9 @@ gsutil mb -p myProjectId gs://myBucketName/
 - Edit kustomization.yaml to set your namespace, e.x. "kubeflow"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
 5. (Optional.) If the cluster is on Workload Identity, please run **[gcp-workload-identity-setup.sh](../gcp-workload-identity-setup.sh)**
   The script prints usage documentation when calling without argument. Note, you should
   call it with `USE_GCP_MANAGED_STORAGE=true` env var.
@@ -67,9 +75,12 @@ gsutil mb -p myProjectId gs://myBucketName/
   - if your workload calls other GCP APIs, make sure the GSA can access them
 
 6. Install
+<<<<<<< HEAD
 =======
 5. Install
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
 
 ```
 kubectl apply -k sample/cluster-scoped-resources/
@@ -85,6 +96,7 @@ kubectl wait applications/mypipeline -n kubeflow --for condition=Ready --timeout
 
 Now you can find the installation in [Console](http://console.cloud.google.com/ai-platform/pipelines)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 6. Post-installation configures
@@ -95,3 +107,5 @@ It depends on how you create the cluster,
   - make sure the Google Service Account (GSA) can access the CloudSQL instance and GCS bucket
   - if your workload calls other GCP APIs, make sure the GSA can access them
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master

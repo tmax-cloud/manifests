@@ -62,7 +62,11 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+<<<<<<< HEAD
         image: gcr.io/ml-pipeline/cache-server:1.0.0
+=======
+        image: gcr.io/ml-pipeline/cache-server:1.0.4
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: server
         ports:

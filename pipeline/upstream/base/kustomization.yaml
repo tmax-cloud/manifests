@@ -11,6 +11,7 @@ bases:
 resources:
 - pipeline-application.yaml
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 images:
 - name: gcr.io/ml-pipeline/api-server
@@ -32,6 +33,8 @@ images:
 - name: gcr.io/ml-pipeline/cache-deployer
   newTag: 1.0.0-rc.2
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
 # Used by Kustomize
 configMapGenerator:
 - name: pipeline-install-config
@@ -68,5 +71,12 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.bucketName
+- name: kfp-container-runtime-executor
+  objref:
+    kind: ConfigMap
+    name: pipeline-install-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.containerRuntimeExecutor
 configurations:
 - params.yaml

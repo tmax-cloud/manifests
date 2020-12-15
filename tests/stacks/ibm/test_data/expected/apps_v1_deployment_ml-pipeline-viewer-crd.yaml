@@ -28,7 +28,11 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+<<<<<<< HEAD
         image: gcr.io/ml-pipeline/viewer-crd-controller:1.0.0
+=======
+        image: gcr.io/ml-pipeline/viewer-crd-controller:1.0.4
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: ml-pipeline-viewer-crd
       serviceAccountName: ml-pipeline-viewer-crd-service-account

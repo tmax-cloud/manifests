@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+---
+>>>>>>> upstream/master
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -13,6 +17,7 @@ metadata:
       ]
   creationTimestamp: null
   labels:
+<<<<<<< HEAD
     duck.knative.dev/source: "true"
     eventing.knative.dev/release: "v0.11.0"
     eventing.knative.dev/source: "true"
@@ -27,6 +32,34 @@ spec:
     name: Age
     type: date
   group: sources.eventing.knative.dev
+=======
+    duck.knative.dev/source: 'true'
+    eventing.knative.dev/release: v0.14.2
+    eventing.knative.dev/source: 'true'
+    knative.dev/crd-install: 'true'
+  name: apiserversources.sources.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type==''Ready'')].reason'
+    name: Reason
+    type: string
+  - JSONPath: .status.sinkUri
+    name: Sink
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    name: Age
+    type: date
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+  group: sources.knative.dev
+>>>>>>> upstream/master
   names:
     categories:
     - all
@@ -35,11 +68,16 @@ spec:
     - sources
     kind: ApiServerSource
     plural: apiserversources
+<<<<<<< HEAD
+=======
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
+<<<<<<< HEAD
       properties:
         spec:
           properties:
@@ -153,16 +191,27 @@ spec:
             sinkUri:
               type: string
           type: object
+=======
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
 
+=======
+  - name: v1alpha2
+    served: true
+    storage: false
+>>>>>>> upstream/master
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     duck.knative.dev/addressable: "true"
     eventing.knative.dev/release: "v0.11.0"
     knative.dev/crd-install: "true"
@@ -173,6 +222,18 @@ spec:
     name: Ready
     type: string
   - JSONPath: .status.conditions[?(@.type=="Ready")].reason
+=======
+    duck.knative.dev/addressable: 'true'
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/crd-install: 'true'
+  name: brokers.eventing.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].reason'
+>>>>>>> upstream/master
     name: Reason
     type: string
   - JSONPath: .status.address.url
@@ -181,6 +242,15 @@ spec:
   - JSONPath: .metadata.creationTimestamp
     name: Age
     type: date
+<<<<<<< HEAD
+=======
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+>>>>>>> upstream/master
   group: eventing.knative.dev
   names:
     categories:
@@ -190,11 +260,16 @@ spec:
     kind: Broker
     plural: brokers
     singular: broker
+<<<<<<< HEAD
+=======
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
+<<<<<<< HEAD
       properties:
         spec:
           properties:
@@ -212,16 +287,27 @@ spec:
               - apiVersion
               - kind
               type: object
+=======
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
 
+=======
+  - name: v1beta1
+    served: true
+    storage: false
+>>>>>>> upstream/master
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     duck.knative.dev/addressable: "true"
     eventing.knative.dev/release: "v0.11.0"
     knative.dev/crd-install: "true"
@@ -233,6 +319,19 @@ spec:
     name: Ready
     type: string
   - JSONPath: .status.conditions[?(@.type=="Ready")].reason
+=======
+    duck.knative.dev/addressable: 'true'
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/crd-install: 'true'
+    messaging.knative.dev/subscribable: 'true'
+  name: channels.messaging.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].reason'
+>>>>>>> upstream/master
     name: Reason
     type: string
   - JSONPath: .status.address.url
@@ -241,6 +340,15 @@ spec:
   - JSONPath: .metadata.creationTimestamp
     name: Age
     type: date
+<<<<<<< HEAD
+=======
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+>>>>>>> upstream/master
   group: messaging.knative.dev
   names:
     categories:
@@ -253,6 +361,7 @@ spec:
     shortNames:
     - ch
     singular: channel
+<<<<<<< HEAD
   scope: Namespaced
   subresources:
     status: {}
@@ -318,11 +427,108 @@ spec:
     served: true
     storage: true
 
+=======
+  preserveUnknownFields: false
+  scope: Namespaced
+  subresources:
+    status: {}
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        properties:
+          spec:
+            properties:
+              channelTemplate:
+                description: 'Channel implementation which dictates the durability guarantees of events. If not specified then the default channel is used. More information: https://knative.dev/docs/eventing/channels/default-channels.'
+                properties:
+                  apiVersion:
+                    description: API version of the channel implementation.
+                    minLength: 1
+                    type: string
+                  kind:
+                    description: 'Kind of the channel implementation to use (InMemoryChannel, KafkaChannel, etc.).'
+                    minLength: 1
+                    type: string
+                  spec:
+                    type: object
+                required:
+                - apiVersion
+                - kind
+                type: object
+              subscribable:
+                properties:
+                  subscribers:
+                    description: Events received on the channel are forwarded to its subscribers.
+                    items:
+                      properties:
+                        ref:
+                          description: a reference to a Kubernetes object from which to retrieve the target URI.
+                          properties:
+                            apiVersion:
+                              type: string
+                            kind:
+                              type: string
+                            name:
+                              minLength: 1
+                              type: string
+                            namespace:
+                              minLength: 1
+                              type: string
+                            uid:
+                              minLength: 1
+                              type: string
+                          required:
+                          - namespace
+                          - name
+                          - uid
+                          type: object
+                          x-kubernetes-preserve-unknown-fields: true
+                        replyURI:
+                          description: Endpoint for the reply.
+                          minLength: 1
+                          type: string
+                        subscriberURI:
+                          description: Endpoint for the subscriber.
+                          minLength: 1
+                          type: string
+                        uid:
+                          description: Used to understand the origin of the subscriber.
+                          minLength: 1
+                          type: string
+                      required:
+                      - uid
+                      type: object
+                      x-kubernetes-preserve-unknown-fields: true
+                    type: array
+                type: object
+            type: object
+          status:
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+  - name: v1beta1
+    schema:
+      openAPIV3Schema:
+        properties:
+          spec:
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+          status:
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: false
+>>>>>>> upstream/master
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     duck.knative.dev/source: "true"
     eventing.knative.dev/release: "v0.11.0"
     eventing.knative.dev/source: "true"
@@ -330,6 +536,28 @@ metadata:
   name: containersources.sources.eventing.knative.dev
 spec:
   group: sources.eventing.knative.dev
+=======
+    duck.knative.dev/source: 'true'
+    eventing.knative.dev/release: v0.14.2
+    eventing.knative.dev/source: 'true'
+    knative.dev/crd-install: 'true'
+  name: containersources.sources.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type==''Ready'')].reason'
+    name: Reason
+    type: string
+  - JSONPath: .status.sinkUri
+    name: Sink
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    name: Age
+    type: date
+  group: sources.knative.dev
+>>>>>>> upstream/master
   names:
     categories:
     - all
@@ -338,11 +566,16 @@ spec:
     - sources
     kind: ContainerSource
     plural: containersources
+<<<<<<< HEAD
+=======
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
+<<<<<<< HEAD
       properties:
         apiVersion:
           type: string
@@ -442,10 +675,19 @@ spec:
     served: true
     storage: true
 
+=======
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+  versions:
+  - name: v1alpha2
+    served: true
+    storage: true
+>>>>>>> upstream/master
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
+<<<<<<< HEAD
   annotations:
     registry.knative.dev/eventTypes: |
       [
@@ -466,19 +708,63 @@ spec:
     name: Age
     type: date
   group: sources.eventing.knative.dev
+=======
+  labels:
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/crd-install: 'true'
+  name: eventtypes.eventing.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: .spec.type
+    name: Type
+    type: string
+  - JSONPath: .spec.source
+    name: Source
+    type: string
+  - JSONPath: .spec.schema
+    name: Schema
+    type: string
+  - JSONPath: .spec.broker
+    name: Broker
+    type: string
+  - JSONPath: .spec.description
+    name: Description
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].reason'
+    name: Reason
+    type: string
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+  group: eventing.knative.dev
+>>>>>>> upstream/master
   names:
     categories:
     - all
     - knative
     - eventing
+<<<<<<< HEAD
     - sources
     kind: CronJobSource
     plural: cronjobsources
+=======
+    kind: EventType
+    plural: eventtypes
+    singular: eventtype
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
+<<<<<<< HEAD
       properties:
         spec:
           properties:
@@ -577,10 +863,15 @@ spec:
             sinkUri:
               type: string
           type: object
+=======
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
 
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -652,11 +943,17 @@ spec:
     served: true
     storage: true
 
+=======
+  - name: v1beta1
+    served: true
+    storage: false
+>>>>>>> upstream/master
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     duck.knative.dev/addressable: "true"
     eventing.knative.dev/release: "v0.11.0"
     knative.dev/crd-install: "true"
@@ -667,6 +964,18 @@ spec:
     name: Ready
     type: string
   - JSONPath: .status.conditions[?(@.type=="Ready")].reason
+=======
+    duck.knative.dev/addressable: 'true'
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/crd-install: 'true'
+  name: parallels.flows.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].reason'
+>>>>>>> upstream/master
     name: Reason
     type: string
   - JSONPath: .status.address.url
@@ -675,6 +984,15 @@ spec:
   - JSONPath: .metadata.creationTimestamp
     name: Age
     type: date
+<<<<<<< HEAD
+=======
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+>>>>>>> upstream/master
   group: flows.knative.dev
   names:
     categories:
@@ -685,11 +1003,16 @@ spec:
     kind: Parallel
     plural: parallels
     singular: parallel
+<<<<<<< HEAD
+=======
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
+<<<<<<< HEAD
       properties:
         spec:
           properties:
@@ -1007,10 +1330,15 @@ spec:
           required:
           - steps
           - channelTemplate
+=======
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
 
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1230,11 +1558,76 @@ spec:
           - channelTemplate
   version: v1alpha1
 
+=======
+  - name: v1beta1
+    served: true
+    storage: false
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    registry.knative.dev/eventTypes: |
+      [
+        { "type": "dev.knative.sources.ping" }
+      ]
+  labels:
+    duck.knative.dev/source: 'true'
+    eventing.knative.dev/release: v0.14.2
+    eventing.knative.dev/source: 'true'
+    knative.dev/crd-install: 'true'
+  name: pingsources.sources.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type==''Ready'')].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type==''Ready'')].reason'
+    name: Reason
+    type: string
+  - JSONPath: .status.sinkUri
+    name: Sink
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    name: Age
+    type: date
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+  group: sources.knative.dev
+  names:
+    categories:
+    - all
+    - knative
+    - eventing
+    - sources
+    kind: PingSource
+    plural: pingsources
+  preserveUnknownFields: false
+  scope: Namespaced
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+  - name: v1alpha2
+    served: true
+    storage: false
+>>>>>>> upstream/master
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     duck.knative.dev/addressable: "true"
     eventing.knative.dev/release: "v0.11.0"
     knative.dev/crd-install: "true"
@@ -1245,6 +1638,18 @@ spec:
     name: Ready
     type: string
   - JSONPath: .status.conditions[?(@.type=="Ready")].reason
+=======
+    duck.knative.dev/addressable: 'true'
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/crd-install: 'true'
+  name: sequences.flows.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].reason'
+>>>>>>> upstream/master
     name: Reason
     type: string
   - JSONPath: .status.address.url
@@ -1253,21 +1658,40 @@ spec:
   - JSONPath: .metadata.creationTimestamp
     name: Age
     type: date
+<<<<<<< HEAD
   group: messaging.knative.dev
+=======
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+  group: flows.knative.dev
+>>>>>>> upstream/master
   names:
     categories:
     - all
     - knative
     - eventing
+<<<<<<< HEAD
     - messaging
     kind: Sequence
     plural: sequences
     singular: sequence
+=======
+    - flows
+    kind: Sequence
+    plural: sequences
+    singular: sequence
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
+<<<<<<< HEAD
       properties:
         spec:
           properties:
@@ -1367,16 +1791,27 @@ spec:
           required:
           - steps
           - channelTemplate
+=======
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
 
+=======
+  - name: v1beta1
+    served: true
+    storage: false
+>>>>>>> upstream/master
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     duck.knative.dev/binding: "true"
     duck.knative.dev/source: "true"
     eventing.knative.dev/release: "v0.11.0"
@@ -1392,6 +1827,35 @@ spec:
     name: Reason
     type: string
   group: sources.eventing.knative.dev
+=======
+    duck.knative.dev/binding: 'true'
+    duck.knative.dev/source: 'true'
+    eventing.knative.dev/release: v0.14.2
+    eventing.knative.dev/source: 'true'
+    knative.dev/crd-install: 'true'
+  name: sinkbindings.sources.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type==''Ready'')].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type==''Ready'')].reason'
+    name: Reason
+    type: string
+  - JSONPath: .status.sinkUri
+    name: Sink
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    name: Age
+    type: date
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+  group: sources.knative.dev
+>>>>>>> upstream/master
   names:
     categories:
     - all
@@ -1401,19 +1865,37 @@ spec:
     - bindings
     kind: SinkBinding
     plural: sinkbindings
+<<<<<<< HEAD
   scope: Namespaced
   subresources:
     status: {}
+=======
+  preserveUnknownFields: false
+  scope: Namespaced
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
 
+=======
+  - name: v1alpha2
+    served: true
+    storage: false
+>>>>>>> upstream/master
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     eventing.knative.dev/release: "v0.11.0"
     knative.dev/crd-install: "true"
   name: subscriptions.messaging.knative.dev
@@ -1423,11 +1905,27 @@ spec:
     name: Ready
     type: string
   - JSONPath: .status.conditions[?(@.type=="Ready")].reason
+=======
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/crd-install: 'true'
+  name: subscriptions.messaging.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].reason'
+>>>>>>> upstream/master
     name: Reason
     type: string
   - JSONPath: .metadata.creationTimestamp
     name: Age
     type: date
+<<<<<<< HEAD
+=======
+  conversion:
+    strategy: None
+>>>>>>> upstream/master
   group: messaging.knative.dev
   names:
     categories:
@@ -1439,6 +1937,10 @@ spec:
     shortNames:
     - sub
     singular: subscription
+<<<<<<< HEAD
+=======
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
@@ -1448,6 +1950,10 @@ spec:
         spec:
           properties:
             channel:
+<<<<<<< HEAD
+=======
+              description: Channel that forwards incoming events to the subscription.
+>>>>>>> upstream/master
               properties:
                 apiVersion:
                   minLength: 1
@@ -1463,33 +1969,43 @@ spec:
               - name
               type: object
             delivery:
+<<<<<<< HEAD
               type: object
             reply:
               description: the destination that (optionally) receive events.
               properties:
                 channel:
+=======
+              description: 'Subscription delivery options. More information: https://knative.dev/docs/eventing/event-delivery.'
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+            reply:
+              description: the destination that (optionally) receive events.
+              properties:
+                ref:
+                  description: a reference to a Kubernetes object from which to retrieve the target URI.
+>>>>>>> upstream/master
                   properties:
                     apiVersion:
                       minLength: 1
                       type: string
                     kind:
+<<<<<<< HEAD
+=======
+                      minLength: 1
+>>>>>>> upstream/master
                       type: string
                     name:
                       minLength: 1
                       type: string
+<<<<<<< HEAD
                   type: object
               type: object
             subscriber:
               properties:
                 ref:
-                  properties:
-                    apiVersion:
-                      minLength: 1
-                      type: string
-                    kind:
-                      minLength: 1
-                      type: string
-                    name:
+=======
+                    namespace:
                       minLength: 1
                       type: string
                   required:
@@ -1498,21 +2014,72 @@ spec:
                   - name
                   type: object
                 uri:
+                  description: 'the target URI or, if ref is provided, a relative URI reference that will be combined with ref to produce a target URI.'
+                  minLength: 1
+                  type: string
+              type: object
+            subscriber:
+              description: the subscriber that (optionally) processes events.
+              properties:
+                ref:
+                  description: a reference to a Kubernetes object from which to retrieve the target URI.
+>>>>>>> upstream/master
+                  properties:
+                    apiVersion:
+                      minLength: 1
+                      type: string
+                    kind:
+                      minLength: 1
+                      type: string
+                    name:
+                      minLength: 1
+                      type: string
+<<<<<<< HEAD
+=======
+                    namespace:
+                      minLength: 1
+                      type: string
+>>>>>>> upstream/master
+                  required:
+                  - apiVersion
+                  - kind
+                  - name
+                  type: object
+                uri:
+<<<<<<< HEAD
+=======
+                  description: 'the target URI or, if ref is provided, a relative URI reference that will be combined with ref to produce a target URI.'
+>>>>>>> upstream/master
                   minLength: 1
                   type: string
               type: object
           required:
           - channel
+<<<<<<< HEAD
+=======
+          type: object
+        status:
+          type: object
+          x-kubernetes-preserve-unknown-fields: true
+      type: object
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
 
+=======
+  - name: v1beta1
+    served: true
+    storage: false
+>>>>>>> upstream/master
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     eventing.knative.dev/release: "v0.11.0"
     knative.dev/crd-install: "true"
   name: triggers.eventing.knative.dev
@@ -1522,17 +2089,41 @@ spec:
     name: Ready
     type: string
   - JSONPath: .status.conditions[?(@.type=="Ready")].reason
+=======
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/crd-install: 'true'
+  name: triggers.eventing.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].reason'
+>>>>>>> upstream/master
     name: Reason
     type: string
   - JSONPath: .spec.broker
     name: Broker
     type: string
+<<<<<<< HEAD
   - JSONPath: .status.subscriberURI
+=======
+  - JSONPath: .status.subscriberUri
+>>>>>>> upstream/master
     name: Subscriber_URI
     type: string
   - JSONPath: .metadata.creationTimestamp
     name: Age
     type: date
+<<<<<<< HEAD
+=======
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+>>>>>>> upstream/master
   group: eventing.knative.dev
   names:
     categories:
@@ -1542,6 +2133,156 @@ spec:
     kind: Trigger
     plural: triggers
     singular: trigger
+<<<<<<< HEAD
+=======
+  preserveUnknownFields: false
+  scope: Namespaced
+  subresources:
+    status: {}
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        properties:
+          spec:
+            properties:
+              broker:
+                description: 'Broker that this trigger receives events from. If not specified, will default to ''default''.'
+                type: string
+              filter:
+                properties:
+                  attributes:
+                    additionalProperties:
+                      type: string
+                    description: Map of CloudEvents attributes used for filtering events.
+                    type: object
+                  sourceAndType:
+                    properties:
+                      source:
+                        type: string
+                      type:
+                        type: string
+                    type: object
+                type: object
+              subscriber:
+                description: the destination that should receive events.
+                properties:
+                  ref:
+                    description: a reference to a Kubernetes object from which to retrieve the target URI.
+                    properties:
+                      apiVersion:
+                        minLength: 1
+                        type: string
+                      kind:
+                        minLength: 1
+                        type: string
+                      name:
+                        minLength: 1
+                        type: string
+                      namespace:
+                        minLength: 1
+                        type: string
+                    required:
+                    - apiVersion
+                    - kind
+                    - name
+                    type: object
+                  uri:
+                    description: 'the target URI or, if ref is provided, a relative URI reference that will be combined with ref to produce a target URI.'
+                    type: string
+                type: object
+            required:
+            - subscriber
+            type: object
+          status:
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+  - name: v1beta1
+    schema:
+      openAPIV3Schema:
+        properties:
+          spec:
+            properties:
+              broker:
+                description: 'Broker that this trigger receives events from. If not specified, will default to ''default''.'
+                type: string
+              filter:
+                properties:
+                  attributes:
+                    additionalProperties:
+                      type: string
+                    description: Map of CloudEvents attributes used for filtering events.
+                    type: object
+                type: object
+              subscriber:
+                description: the destination that should receive events.
+                properties:
+                  ref:
+                    description: a reference to a Kubernetes object from which to retrieve the target URI.
+                    properties:
+                      apiVersion:
+                        minLength: 1
+                        type: string
+                      kind:
+                        minLength: 1
+                        type: string
+                      name:
+                        minLength: 1
+                        type: string
+                      namespace:
+                        minLength: 1
+                        type: string
+                    required:
+                    - apiVersion
+                    - kind
+                    - name
+                    type: object
+                  uri:
+                    description: 'the target URI or, if ref is provided, a relative URI reference that will be combined with ref to produce a target URI.'
+                    type: string
+                type: object
+            required:
+            - subscriber
+            type: object
+          status:
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: false
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  labels:
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/crd-install: 'true'
+  name: configmappropagations.configs.internal.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].reason'
+    name: Reason
+    type: string
+  - JSONPath: .spec.originalNamespace
+    name: OriginalNamespace
+    type: string
+  group: configs.internal.knative.dev
+  names:
+    categories:
+    - knative-internal
+    kind: ConfigMapPropagation
+    plural: configmappropagations
+    shortNames:
+    - kcmp
+    - cmp
+    singular: configmappropagation
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
@@ -1550,6 +2291,7 @@ spec:
       properties:
         spec:
           properties:
+<<<<<<< HEAD
             broker:
               type: string
             filter:
@@ -1595,6 +2337,13 @@ spec:
               type: object
           required:
           - subscriber
+=======
+            originalNamespace:
+              description: The namespace where original ConfigMaps exist in.
+              type: string
+          required:
+          - originalNamespace
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
@@ -1604,6 +2353,7 @@ apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     duck.knative.dev/addressable: "true"
     eventing.knative.dev/release: "v0.11.0"
     knative.dev/crd-install: "true"
@@ -1615,6 +2365,19 @@ spec:
     name: Ready
     type: string
   - JSONPath: .status.conditions[?(@.type=="Ready")].reason
+=======
+    duck.knative.dev/addressable: 'true'
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/crd-install: 'true'
+    messaging.knative.dev/subscribable: 'true'
+  name: inmemorychannels.messaging.knative.dev
+spec:
+  additionalPrinterColumns:
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].status'
+    name: Ready
+    type: string
+  - JSONPath: '.status.conditions[?(@.type=="Ready")].reason'
+>>>>>>> upstream/master
     name: Reason
     type: string
   - JSONPath: .status.address.url
@@ -1623,6 +2386,15 @@ spec:
   - JSONPath: .metadata.creationTimestamp
     name: Age
     type: date
+<<<<<<< HEAD
+=======
+  conversion:
+    strategy: Webhook
+    webhookClientConfig:
+      service:
+        name: eventing-webhook
+        namespace: knative-eventing
+>>>>>>> upstream/master
   group: messaging.knative.dev
   names:
     categories:
@@ -1635,11 +2407,16 @@ spec:
     shortNames:
     - imc
     singular: inmemorychannel
+<<<<<<< HEAD
+=======
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
+<<<<<<< HEAD
       properties:
         spec:
           properties:
@@ -1683,7 +2460,17 @@ spec:
                     - uid
                   type: array
               type: object
+=======
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
+=======
+  - name: v1beta1
+    served: true
+    storage: false
+>>>>>>> upstream/master

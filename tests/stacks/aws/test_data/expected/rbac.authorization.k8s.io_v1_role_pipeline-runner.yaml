@@ -8,6 +8,21 @@ metadata:
   namespace: kubeflow
 rules:
 - apiGroups:
+<<<<<<< HEAD
+  - tekton.dev
+  resources:
+  - pipelineruns
+  - taskruns
+  - conditions
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+  - patch
+- apiGroups:
+=======
+>>>>>>> upstream/master
   - ""
   resources:
   - secrets

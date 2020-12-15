@@ -2,15 +2,22 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: kubeflow
 <<<<<<< HEAD
+<<<<<<< HEAD
 commonLabels:
   app.kubernetes.io/name: kubeflow-pipelines
   app.kubernetes.io/component: ml-pipeline
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+commonLabels:
+  app.kubernetes.io/name: kubeflow-pipelines
+  app.kubernetes.io/component: ml-pipeline
+>>>>>>> upstream/master
 resources:
 - ../../upstream/base/pipeline/cluster-scoped
 - ../../upstream/base/pipeline
 - virtual-service.yaml
+<<<<<<< HEAD
 <<<<<<< HEAD
 - ../../cache/base_v3
 - application.yaml
@@ -38,16 +45,26 @@ images:
   newTag: 1.0.0-rc.2
 # Used by Kustomize
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+- ../../cache/base_v3
+- application.yaml
+>>>>>>> upstream/master
 configMapGenerator:
 - name: pipeline-install-config
   envs:
   - ./params.env
+<<<<<<< HEAD
 <<<<<<< HEAD
 - name: pipeline-upstream-install-config
   envs:
   - ../../upstream/base/params.env
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+- name: pipeline-upstream-install-config
+  envs:
+  - ../../upstream/base/params.env
+>>>>>>> upstream/master
 secretGenerator:
 - name: mysql-secret
   envs:
@@ -61,6 +78,9 @@ vars:
   fieldref:
     fieldpath: metadata.namespace
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
 - name: kfp-app-version
   objref:
     kind: ConfigMap
@@ -68,7 +88,10 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.appVersion
+<<<<<<< HEAD
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
 configurations:
 - params.yaml

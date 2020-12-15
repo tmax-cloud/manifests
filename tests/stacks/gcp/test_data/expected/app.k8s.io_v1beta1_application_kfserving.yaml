@@ -3,14 +3,20 @@ kind: Application
 metadata:
   labels:
     app: kfserving
+<<<<<<< HEAD
     app.kubernetes.io/component: kfserving-install
     app.kubernetes.io/name: kfserving-install
+=======
+    app.kubernetes.io/component: kfserving
+    app.kubernetes.io/name: kfserving
+>>>>>>> upstream/master
     kustomize.component: kfserving
   name: kfserving
   namespace: kubeflow
 spec:
   addOwnerRef: true
   componentKinds:
+<<<<<<< HEAD
   - group: apps/v1
     kind: StatefulSet
   - group: v1
@@ -21,6 +27,20 @@ spec:
     kind: Secret
   - group: v1
     kind: ConfigMap
+=======
+  - group: apps
+    kind: StatefulSet
+  - group: core
+    kind: Service
+  - group: core
+    kind: Secret
+  - group: core
+    kind: ConfigMap
+  - group: rbac.authorization.k8s.io/v1
+    kind: Role
+  - group: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+>>>>>>> upstream/master
   descriptor:
     description: KFServing provides a Kubernetes Custom Resource Definition for serving
       ML Models on arbitrary frameworks
@@ -37,6 +57,7 @@ spec:
     - email: johnugeo@cisco.com
       name: Johnu George
     type: kfserving
+<<<<<<< HEAD
     version: v1alpha2
   selector:
     matchLabels:
@@ -46,3 +67,10 @@ spec:
       app.kubernetes.io/name: kfserving-install
       app.kubernetes.io/part-of: kubeflow
       app.kubernetes.io/version: v0.3.0
+=======
+    version: v0.4.1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: kfserving
+      app.kubernetes.io/name: kfserving
+>>>>>>> upstream/master

@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
     app.kubernetes.io/instance: knative-eventing-install
     app.kubernetes.io/managed-by: kfctl
     app.kubernetes.io/name: knative-eventing-install
@@ -13,12 +14,20 @@ metadata:
     serving.knative.dev/release: v0.11.0
   name: eventing-webhook
   namespace: knative-serving
+=======
+    app.kubernetes.io/name: knative-eventing-install
+    eventing.knative.dev/release: v0.14.2
+    kustomize.component: knative
+  name: eventing-webhook
+  namespace: knative-eventing
+>>>>>>> upstream/master
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: eventing-webhook
       app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
       app.kubernetes.io/instance: knative-eventing-install
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: knative-eventing-install
@@ -42,6 +51,19 @@ spec:
         kustomize.component: knative
         role: eventing-webhook
         serving.knative.dev/release: v0.11.0
+=======
+      app.kubernetes.io/name: knative-eventing-install
+      kustomize.component: knative
+      role: eventing-webhook
+  template:
+    metadata:
+      labels:
+        app: eventing-webhook
+        app.kubernetes.io/component: knative-eventing-install
+        app.kubernetes.io/name: knative-eventing-install
+        kustomize.component: knative
+        role: eventing-webhook
+>>>>>>> upstream/master
     spec:
       containers:
       - env:
@@ -55,8 +77,22 @@ spec:
           value: knative.dev/eventing
         - name: WEBHOOK_NAME
           value: eventing-webhook
+<<<<<<< HEAD
         image: gcr.io/knative-releases/knative.dev/eventing/cmd/webhook@sha256:75b2dfaaf279b98c2e90b02414b2255aebbc58b23beeba838feba57b09da12b6
         name: eventing-webhook
+=======
+        - name: SINK_BINDING_SELECTION_MODE
+          value: exclusion
+        image: gcr.io/knative-releases/knative.dev/eventing/cmd/webhook@sha256:a3046d0426b4617fe9186fb3d983e350de82d2e3f33dcc13441e591e24410901
+        name: eventing-webhook
+        ports:
+        - containerPort: 8443
+          name: https-webhook
+        - containerPort: 9090
+          name: metrics
+        - containerPort: 8008
+          name: profiling
+>>>>>>> upstream/master
         resources:
           limits:
             cpu: 200m
@@ -64,5 +100,10 @@ spec:
           requests:
             cpu: 20m
             memory: 20Mi
+<<<<<<< HEAD
+=======
+        securityContext:
+          allowPrivilegeEscalation: false
+>>>>>>> upstream/master
         terminationMessagePolicy: FallbackToLogsOnError
       serviceAccountName: eventing-webhook

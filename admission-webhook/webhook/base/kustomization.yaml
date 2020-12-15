@@ -16,10 +16,14 @@ images:
 - name: gcr.io/kubeflow-images-public/admission-webhook
   newName: gcr.io/kubeflow-images-public/admission-webhook
 <<<<<<< HEAD
+<<<<<<< HEAD
   newTag: v1.0.0-gaf96e4e3
 =======
   newTag: vmaster-gaf96e4e3
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  newTag: vmaster-ge5452b6f
+>>>>>>> upstream/master
 namespace: kubeflow
 configMapGenerator:
 - envs:

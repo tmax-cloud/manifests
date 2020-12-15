@@ -2,6 +2,7 @@ apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   labels:
+<<<<<<< HEAD
     app.kubernetes.io/component: knative-eventing-crds
     app.kubernetes.io/instance: knative-eventing-crds-v0.11.0
     app.kubernetes.io/managed-by: kfctl
@@ -9,6 +10,11 @@ metadata:
     app.kubernetes.io/part-of: kubeflow
     app.kubernetes.io/version: v0.11.0
     eventing.knative.dev/release: v0.11.0
+=======
+    app.kubernetes.io/instance: knative-eventing-crds
+    app.kubernetes.io/name: knative-eventing-crds
+    eventing.knative.dev/release: v0.14.2
+>>>>>>> upstream/master
     knative.dev/crd-install: "true"
   name: subscriptions.messaging.knative.dev
 spec:
@@ -22,6 +28,11 @@ spec:
   - JSONPath: .metadata.creationTimestamp
     name: Age
     type: date
+<<<<<<< HEAD
+=======
+  conversion:
+    strategy: None
+>>>>>>> upstream/master
   group: messaging.knative.dev
   names:
     categories:
@@ -33,6 +44,10 @@ spec:
     shortNames:
     - sub
     singular: subscription
+<<<<<<< HEAD
+=======
+  preserveUnknownFields: false
+>>>>>>> upstream/master
   scope: Namespaced
   subresources:
     status: {}
@@ -42,6 +57,10 @@ spec:
         spec:
           properties:
             channel:
+<<<<<<< HEAD
+=======
+              description: Channel that forwards incoming events to the subscription.
+>>>>>>> upstream/master
               properties:
                 apiVersion:
                   minLength: 1
@@ -57,33 +76,44 @@ spec:
               - name
               type: object
             delivery:
+<<<<<<< HEAD
               type: object
             reply:
               description: the destination that (optionally) receive events.
               properties:
                 channel:
+=======
+              description: 'Subscription delivery options. More information: https://knative.dev/docs/eventing/event-delivery.'
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+            reply:
+              description: the destination that (optionally) receive events.
+              properties:
+                ref:
+                  description: a reference to a Kubernetes object from which to retrieve
+                    the target URI.
+>>>>>>> upstream/master
                   properties:
                     apiVersion:
                       minLength: 1
                       type: string
                     kind:
+<<<<<<< HEAD
+=======
+                      minLength: 1
+>>>>>>> upstream/master
                       type: string
                     name:
                       minLength: 1
                       type: string
+<<<<<<< HEAD
                   type: object
               type: object
             subscriber:
               properties:
                 ref:
-                  properties:
-                    apiVersion:
-                      minLength: 1
-                      type: string
-                    kind:
-                      minLength: 1
-                      type: string
-                    name:
+=======
+                    namespace:
                       minLength: 1
                       type: string
                   required:
@@ -92,12 +122,65 @@ spec:
                   - name
                   type: object
                 uri:
+                  description: the target URI or, if ref is provided, a relative URI
+                    reference that will be combined with ref to produce a target URI.
+                  minLength: 1
+                  type: string
+              type: object
+            subscriber:
+              description: the subscriber that (optionally) processes events.
+              properties:
+                ref:
+                  description: a reference to a Kubernetes object from which to retrieve
+                    the target URI.
+>>>>>>> upstream/master
+                  properties:
+                    apiVersion:
+                      minLength: 1
+                      type: string
+                    kind:
+                      minLength: 1
+                      type: string
+                    name:
+                      minLength: 1
+                      type: string
+<<<<<<< HEAD
+=======
+                    namespace:
+                      minLength: 1
+                      type: string
+>>>>>>> upstream/master
+                  required:
+                  - apiVersion
+                  - kind
+                  - name
+                  type: object
+                uri:
+<<<<<<< HEAD
+=======
+                  description: the target URI or, if ref is provided, a relative URI
+                    reference that will be combined with ref to produce a target URI.
+>>>>>>> upstream/master
                   minLength: 1
                   type: string
               type: object
           required:
           - channel
+<<<<<<< HEAD
+=======
+          type: object
+        status:
+          type: object
+          x-kubernetes-preserve-unknown-fields: true
+      type: object
+>>>>>>> upstream/master
   versions:
   - name: v1alpha1
     served: true
     storage: true
+<<<<<<< HEAD
+=======
+  - name: v1beta1
+    served: true
+    storage: false
+>>>>>>> upstream/master

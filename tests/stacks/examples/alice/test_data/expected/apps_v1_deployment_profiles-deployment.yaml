@@ -33,25 +33,33 @@ spec:
             configMapKeyRef:
               key: userid-header
 <<<<<<< HEAD
-              name: kubeflow-config-bmh8k74f52
-=======
-              name: kubeflow-config-4bkkg42k5m
->>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
-        - name: USERID_PREFIX
-          valueFrom:
-            configMapKeyRef:
-              key: userid-prefix
 <<<<<<< HEAD
               name: kubeflow-config-bmh8k74f52
 =======
               name: kubeflow-config-4bkkg42k5m
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+              name: kubeflow-config-bmh8k74f52
+>>>>>>> upstream/master
+        - name: USERID_PREFIX
+          valueFrom:
+            configMapKeyRef:
+              key: userid-prefix
+<<<<<<< HEAD
+<<<<<<< HEAD
+              name: kubeflow-config-bmh8k74f52
+=======
+              name: kubeflow-config-4bkkg42k5m
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+              name: kubeflow-config-bmh8k74f52
+>>>>>>> upstream/master
         - name: WORKLOAD_IDENTITY
           valueFrom:
             configMapKeyRef:
               key: gcp-sa
               name: profiles-profiles-config-4mgcmtgk6t
-        image: gcr.io/kubeflow-images-public/profile-controller:vmaster-g34aa47c2
+        image: gcr.io/kubeflow-images-public/profile-controller:vmaster-ga49f658f
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -72,35 +80,48 @@ spec:
         - -userid-prefix
         - $(USERID_PREFIX)
 <<<<<<< HEAD
+<<<<<<< HEAD
         - -userid-header
         - $(USERID_HEADER)
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        - -userid-header
+        - $(USERID_HEADER)
+>>>>>>> upstream/master
         env:
         - name: USERID_HEADER
           valueFrom:
             configMapKeyRef:
               key: userid-header
 <<<<<<< HEAD
-              name: kubeflow-config-bmh8k74f52
-=======
-              name: kubeflow-config-4bkkg42k5m
->>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
-        - name: USERID_PREFIX
-          valueFrom:
-            configMapKeyRef:
-              key: userid-prefix
 <<<<<<< HEAD
               name: kubeflow-config-bmh8k74f52
 =======
               name: kubeflow-config-4bkkg42k5m
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+              name: kubeflow-config-bmh8k74f52
+>>>>>>> upstream/master
+        - name: USERID_PREFIX
+          valueFrom:
+            configMapKeyRef:
+              key: userid-prefix
+<<<<<<< HEAD
+<<<<<<< HEAD
+              name: kubeflow-config-bmh8k74f52
+=======
+              name: kubeflow-config-4bkkg42k5m
+>>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+              name: kubeflow-config-bmh8k74f52
+>>>>>>> upstream/master
         - name: CLUSTER_ADMIN
           valueFrom:
             configMapKeyRef:
               key: admin
               name: profiles-profiles-config-4mgcmtgk6t
-        image: gcr.io/kubeflow-images-public/kfam:vmaster-gf3e09203
+        image: gcr.io/kubeflow-images-public/kfam:vmaster-g9f3bfd00
         imagePullPolicy: Always
         livenessProbe:
           httpGet:

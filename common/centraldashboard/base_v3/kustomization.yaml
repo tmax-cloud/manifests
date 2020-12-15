@@ -1,13 +1,20 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+commonLabels:
+  app: centraldashboard
+  kustomize.component: centraldashboard
 images:
 - name: gcr.io/kubeflow-images-public/centraldashboard
   newName: gcr.io/kubeflow-images-public/centraldashboard
+<<<<<<< HEAD
 <<<<<<< HEAD
   newTag: vmaster-gd601b2d0
 =======
   newTag: vmaster-gf39279c0
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  newTag: vmaster-g8097cfeb
+>>>>>>> upstream/master
 resources:
 - ../base/clusterrole-binding.yaml
 - ../base/clusterrole.yaml
@@ -16,3 +23,6 @@ resources:
 - ../base/role.yaml
 - ../base/service-account.yaml
 - ../base/service.yaml
+- ../base/links-configmap.yaml
+patchesStrategicMerge:
+- deployment_patch.yaml

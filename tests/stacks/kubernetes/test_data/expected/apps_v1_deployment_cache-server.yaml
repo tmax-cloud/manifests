@@ -60,7 +60,11 @@ spec:
               name: mysql-secret-fd5gktm75t
         - name: NAMESPACE_TO_WATCH
           value: ""
+<<<<<<< HEAD
         image: gcr.io/ml-pipeline/cache-server:1.0.0
+=======
+        image: gcr.io/ml-pipeline/cache-server:1.0.4
+>>>>>>> upstream/master
         imagePullPolicy: Always
         name: server
         ports:

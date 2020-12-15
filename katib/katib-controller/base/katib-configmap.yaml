@@ -7,6 +7,7 @@ data:
     {
       "StdOut": {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/file-metrics-collector:v0.8.0"
       },
       "File": {
@@ -16,13 +17,20 @@ data:
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/tfevent-metrics-collector:v0.8.0",
 =======
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/file-metrics-collector:917164a"
+=======
+        "image": "docker.io/kubeflowkatib/file-metrics-collector:v1beta1-a96ff59"
+>>>>>>> upstream/master
       },
       "File": {
-        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/file-metrics-collector:917164a"
+        "image": "docker.io/kubeflowkatib/file-metrics-collector:v1beta1-a96ff59"
       },
       "TensorFlowEvent": {
+<<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/tfevent-metrics-collector:917164a",
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        "image": "docker.io/kubeflowkatib/tfevent-metrics-collector:v1beta1-a96ff59",
+>>>>>>> upstream/master
         "resources": {
           "limits": {
             "memory": "1Gi"
@@ -33,6 +41,7 @@ data:
   suggestion: |-
     {
       "random": {
+<<<<<<< HEAD
 <<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-hyperopt:v0.8.0"
       },
@@ -52,22 +61,29 @@ data:
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-nasrl:v0.8.0",
 =======
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-hyperopt:917164a"
+=======
+        "image": "docker.io/kubeflowkatib/suggestion-hyperopt:v1beta1-a96ff59"
+>>>>>>> upstream/master
       },
       "grid": {
-        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-chocolate:917164a"
+        "image": "docker.io/kubeflowkatib/suggestion-chocolate:v1beta1-a96ff59"
       },
       "hyperband": {
-        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-hyperband:917164a"
+        "image": "docker.io/kubeflowkatib/suggestion-hyperband:v1beta1-a96ff59"
       },
       "bayesianoptimization": {
-        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-skopt:917164a"
+        "image": "docker.io/kubeflowkatib/suggestion-skopt:v1beta1-a96ff59"
       },
       "tpe": {
-        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-hyperopt:917164a"
+        "image": "docker.io/kubeflowkatib/suggestion-hyperopt:v1beta1-a96ff59"
       },
       "enas": {
+<<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-enas:917164a",
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        "image": "docker.io/kubeflowkatib/suggestion-enas:v1beta1-a96ff59",
+>>>>>>> upstream/master
         "imagePullPolicy": "Always",
         "resources": {
           "limits": {
@@ -78,10 +94,21 @@ data:
 =======
       },
       "cmaes": {
-        "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-goptuna:917164a"
+        "image": "docker.io/kubeflowkatib/suggestion-goptuna:v1beta1-a96ff59"
       },
       "darts": {
+<<<<<<< HEAD
         "image": "gcr.io/kubeflow-images-public/katib/v1alpha3/suggestion-darts:917164a"
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        "image": "docker.io/kubeflowkatib/suggestion-darts:v1beta1-a96ff59"
+      }
+    }
+  early-stopping: |-
+    {
+      "medianstop": {
+        "image": "docker.io/kubeflowkatib/earlystopping-medianstop:v1beta1-a96ff59",
+        "imagePullPolicy": "Always"
+>>>>>>> upstream/master
       }
     }

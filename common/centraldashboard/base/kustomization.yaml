@@ -18,10 +18,14 @@ images:
 - name: gcr.io/kubeflow-images-public/centraldashboard
   newName: gcr.io/kubeflow-images-public/centraldashboard
 <<<<<<< HEAD
+<<<<<<< HEAD
   newTag: v1.0.0-g3ec0de71
 =======
   newTag: vmaster-gf39279c0
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  newTag: vmaster-g8097cfeb
+>>>>>>> upstream/master
 configMapGenerator:
 - envs:
   - params.env
@@ -53,6 +57,13 @@ vars:
 - fieldref:
     fieldPath: data.userid-prefix
   name: userid-prefix
+  objref:
+    apiVersion: v1
+    kind: ConfigMap
+    name: parameters
+- fieldref:
+    fieldPath: data.registration-flow
+  name: registration-flow
   objref:
     apiVersion: v1
     kind: ConfigMap

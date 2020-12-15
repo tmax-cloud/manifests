@@ -3,8 +3,13 @@ kind: Service
 metadata:
   labels:
     app: kfserving
+<<<<<<< HEAD
     app.kubernetes.io/component: kfserving-install
     app.kubernetes.io/name: kfserving-install
+=======
+    app.kubernetes.io/component: kfserving
+    app.kubernetes.io/name: kfserving
+>>>>>>> upstream/master
     control-plane: kfserving-controller-manager
     controller-tools.k8s.io: "1.0"
     kustomize.component: kfserving
@@ -15,8 +20,13 @@ spec:
   - port: 443
   selector:
     app: kfserving
+<<<<<<< HEAD
     app.kubernetes.io/component: kfserving-install
     app.kubernetes.io/name: kfserving-install
+=======
+    app.kubernetes.io/component: kfserving
+    app.kubernetes.io/name: kfserving
+>>>>>>> upstream/master
     control-plane: kfserving-controller-manager
     controller-tools.k8s.io: "1.0"
     kustomize.component: kfserving

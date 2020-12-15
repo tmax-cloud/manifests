@@ -38,7 +38,14 @@ spec:
     - name: Kubeflow Pipelines
       url: https://github.com/kubeflow/pipelines
     type: Kubeflow Pipelines
+<<<<<<< HEAD
     version: 1.0.0
   selector:
     matchLabels:
       app.kubernetes.io/application: kubeflow-pipelines
+=======
+    version: 1.0.4
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master

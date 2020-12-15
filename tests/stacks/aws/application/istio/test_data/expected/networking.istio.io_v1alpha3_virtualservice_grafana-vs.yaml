@@ -1,7 +1,15 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
+<<<<<<< HEAD
   name: grafana-vs
+=======
+<<<<<<< HEAD:tests/stacks/aws/test_data/expected/networking.istio.io_v1alpha3_virtualservice_metadata-ui.yaml
+  name: metadata-ui
+=======
+  name: grafana-vs
+>>>>>>> upstream/master:tests/stacks/aws/application/istio/test_data/expected/networking.istio.io_v1alpha3_virtualservice_grafana-vs.yaml
+>>>>>>> upstream/master
   namespace: kubeflow
 spec:
   gateways:
@@ -10,10 +18,18 @@ spec:
   - '*'
   http:
   - match:
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:tests/stacks/aws/test_data/expected/networking.istio.io_v1alpha3_virtualservice_metadata-ui.yaml
+    - uri:
+        prefix: /metadata
+=======
+>>>>>>> upstream/master
     - method:
         exact: GET
       uri:
         prefix: /istio/grafana/
+<<<<<<< HEAD
     rewrite:
       uri: /
     route:
@@ -21,3 +37,20 @@ spec:
         host: grafana.istio-system.svc.cluster.local
         port:
           number: 3000
+=======
+>>>>>>> upstream/master:tests/stacks/aws/application/istio/test_data/expected/networking.istio.io_v1alpha3_virtualservice_grafana-vs.yaml
+    rewrite:
+      uri: /metadata
+    route:
+    - destination:
+<<<<<<< HEAD:tests/stacks/aws/test_data/expected/networking.istio.io_v1alpha3_virtualservice_metadata-ui.yaml
+        host: metadata-ui.kubeflow.svc.cluster.local
+        port:
+          number: 80
+    timeout: 300s
+=======
+        host: grafana.istio-system.svc.cluster.local
+        port:
+          number: 3000
+>>>>>>> upstream/master:tests/stacks/aws/application/istio/test_data/expected/networking.istio.io_v1alpha3_virtualservice_grafana-vs.yaml
+>>>>>>> upstream/master

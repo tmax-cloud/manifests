@@ -37,10 +37,20 @@ data:
     # Setting this flag to "true" could cause extra Stackdriver charge.
     # If metrics.backend-destination is not Stackdriver, this is ignored.
     metrics.allow-stackdriver-custom-metrics: "false"
+<<<<<<< HEAD
+=======
+
+    # profiling.enable indicates whether it is allowed to retrieve runtime profiling data from
+    # the pods via an HTTP server in the format expected by the pprof visualization tool. When
+    # enabled, the Knative Eventing pods expose the profiling data on an alternate HTTP port 8008.
+    # The HTTP context root for profiling is then /debug/pprof/.
+    profiling.enable: "false"
+>>>>>>> upstream/master
 kind: ConfigMap
 metadata:
   labels:
     app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
     app.kubernetes.io/instance: knative-eventing-install
     app.kubernetes.io/managed-by: kfctl
     app.kubernetes.io/name: knative-eventing-install
@@ -50,3 +60,12 @@ metadata:
     serving.knative.dev/release: v0.11.0
   name: config-observability
   namespace: knative-serving
+=======
+    app.kubernetes.io/name: knative-eventing-install
+    eventing.knative.dev/release: v0.14.2
+    knative.dev/config-category: eventing
+    knative.dev/config-propagation: original
+    kustomize.component: knative
+  name: config-observability
+  namespace: knative-eventing
+>>>>>>> upstream/master

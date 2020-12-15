@@ -3,6 +3,9 @@ kind: Kustomization
 namespace: kubeflow
 resources:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
 # List the Kubeflow applications that should be included 
 # TODO(https://github.com/kubeflow/manifests/issues/1073): 
 # We need to switch the admission webhook to use cert-manager.
@@ -25,6 +28,7 @@ resources:
 # This package will create a profile resource so it needs to be installed after the profiles CR
 - ../../default-install/base
 - ../../katib/installs/katib-standalone
+<<<<<<< HEAD
 patchesStrategicMerge:
 - workload-identity-bindings-patch.yaml
 =======
@@ -52,6 +56,10 @@ patchesStrategicMerge:
 patchesStrategicMerge:
   - workload-identity-bindings-patch.yaml
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+patchesStrategicMerge:
+- workload-identity-bindings-patch.yaml
+>>>>>>> upstream/master
 configMapGenerator:
 - envs:
   - ./config/params.env

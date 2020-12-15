@@ -3,6 +3,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
+<<<<<<< HEAD
     autoscaling.knative.dev/metric-provider: custom-metrics
 <<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
@@ -50,13 +51,15 @@ metadata:
 =======
     serving.knative.dev/release: "v0.11.2"
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    serving.knative.dev/release: v0.14.3
+>>>>>>> upstream/master
   name: knative-serving-controller-admin
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: knative-serving-admin
 subjects:
-  - kind: ServiceAccount
-    name: controller
-    namespace: knative-serving
-
+- kind: ServiceAccount
+  name: controller
+  namespace: knative-serving

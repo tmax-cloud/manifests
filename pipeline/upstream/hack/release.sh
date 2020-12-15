@@ -26,6 +26,9 @@ fi
 
 echo "This release script uses yq, it can be downloaded at https://github.com/mikefarah/yq/releases/tag/3.3.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
 kustomization_yamls_with_images=(
   "base/cache-deployer/kustomization.yaml"
   "base/cache/kustomization.yaml"
@@ -38,10 +41,13 @@ for path in "${kustomization_yamls_with_images[@]}"
 do
   yq w -i "$DIR/../$path" images[*].newTag "$TAG_NAME"
 done
+<<<<<<< HEAD
 =======
 yq w -i "$DIR/../base/kustomization.yaml" images[*].newTag "$TAG_NAME"
 yq w -i "$DIR/../env/gcp/inverse-proxy/kustomization.yaml" images[*].newTag "$TAG_NAME"
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
 
 # Note, this only works in linux. TODO: make it MacOS sed compatible.
 sed -i.bak -e "s|appVersion=.\+|appVersion=$TAG_NAME|g" "$DIR/../base/params.env"

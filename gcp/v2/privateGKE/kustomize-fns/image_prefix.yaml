@@ -11,6 +11,7 @@ spec:
   imageMappings:
   - src: quay.io/jetstack
 <<<<<<< HEAD
+<<<<<<< HEAD
     dest: gcr.io/project-id/mirror/quay.io/jetstack # {"$kpt-set":"image-mirror-quay-io-jetstack"}
   - src: gcr.io/kubeflow-images-public
     dest: gcr.io/project-id/mirror/gcr.io/kubeflow-images-public # {"$kpt-set":"image-mirror-kubeflow-images-public"}
@@ -18,8 +19,15 @@ spec:
     dest: gcr.io/project-id/mirror/metacontroller # {"$kpt-set":"image-mirror-metacontroller"}
 =======
     dest: gcr.io/project-id/mirror/quay.io/jetstack # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+=======
+    dest: gcr.io/project-id/mirror/quay.io/jetstack # {"$kpt-set":"image-mirror-quay-io-jetstack"}
+>>>>>>> upstream/master
   - src: gcr.io/kubeflow-images-public
-    dest: gcr.io/project-id/mirror/gcr.io/kubeflow-images-public # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
+    dest: gcr.io/project-id/mirror/gcr.io/kubeflow-images-public # {"$kpt-set":"image-mirror-kubeflow-images-public"}
   - src: metacontroller
+<<<<<<< HEAD
     dest: gcr.io/project-id/mirror/metacontroller # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"gcloud.core.project","value":"project-id"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    dest: gcr.io/project-id/mirror/metacontroller # {"$kpt-set":"image-mirror-metacontroller"}
+>>>>>>> upstream/master

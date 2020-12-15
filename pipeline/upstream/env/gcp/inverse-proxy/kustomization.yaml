@@ -3,10 +3,14 @@ kind: Kustomization
 images:
 - name: gcr.io/ml-pipeline/inverse-proxy-agent
 <<<<<<< HEAD
+<<<<<<< HEAD
   newTag: 1.0.0
 =======
   newTag: 1.0.0-rc.2
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  newTag: 1.0.4
+>>>>>>> upstream/master
 resources:
 - proxy-configmap.yaml
 - proxy-deployment.yaml

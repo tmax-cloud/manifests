@@ -9,10 +9,16 @@ data:
 kind: ConfigMap
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   labels:
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  labels:
+    app.kubernetes.io/component: ml-pipeline
+    app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
   name: pipeline-install-config-2829cc67f8
   namespace: kubeflow

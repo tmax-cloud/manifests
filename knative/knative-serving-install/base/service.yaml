@@ -5,30 +5,33 @@ metadata:
   labels:
     app: activator
 <<<<<<< HEAD
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
 =======
     serving.knative.dev/release: "v0.11.2"
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    serving.knative.dev/release: v0.14.3
+>>>>>>> upstream/master
   name: activator-service
   namespace: knative-serving
 spec:
   ports:
-    - name: http
-      port: 80
-      protocol: TCP
-      targetPort: 8012
-    - name: http2
-      port: 81
-      protocol: TCP
-      targetPort: 8013
-    - name: http-metrics
-      port: 9090
-      protocol: TCP
-      targetPort: 9090
+  - name: http
+    port: 80
+    targetPort: 8012
+  - name: http2
+    port: 81
+    targetPort: 8013
+  - name: http-profiling
+    port: 8008
+    targetPort: 8008
+  - name: http-metrics
+    port: 9090
+    targetPort: 9090
   selector:
     app: activator
   type: ClusterIP
-
 ---
 apiVersion: v1
 kind: Service
@@ -36,21 +39,26 @@ metadata:
   labels:
     app: controller
 <<<<<<< HEAD
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
 =======
     serving.knative.dev/release: "v0.11.2"
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    serving.knative.dev/release: v0.14.3
+>>>>>>> upstream/master
   name: controller
   namespace: knative-serving
 spec:
   ports:
-    - name: http-metrics
-      port: 9090
-      protocol: TCP
-      targetPort: 9090
+  - name: http-profiling
+    port: 8008
+    targetPort: 8008
+  - name: http-metrics
+    port: 9090
+    targetPort: 9090
   selector:
     app: controller
-
 ---
 apiVersion: v1
 kind: Service
@@ -58,17 +66,27 @@ metadata:
   labels:
     role: webhook
 <<<<<<< HEAD
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
 =======
     serving.knative.dev/release: "v0.11.2"
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    serving.knative.dev/release: v0.14.3
+>>>>>>> upstream/master
   name: webhook
   namespace: knative-serving
 spec:
   ports:
-    - name: https-webhook
-      port: 443
-      targetPort: 8443
+  - name: http-metrics
+    port: 9090
+    targetPort: 9090
+  - name: http-profiling
+    port: 8008
+    targetPort: 8008
+  - name: https-webhook
+    port: 443
+    targetPort: 8443
   selector:
     role: webhook
 ---
@@ -78,25 +96,51 @@ metadata:
   labels:
     app: autoscaler
 <<<<<<< HEAD
+<<<<<<< HEAD
     serving.knative.dev/release: "v0.11.1"
 =======
     serving.knative.dev/release: "v0.11.2"
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    serving.knative.dev/release: v0.14.3
+>>>>>>> upstream/master
   name: autoscaler
   namespace: knative-serving
 spec:
   ports:
-    - name: http
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-    - name: http-metrics
-      port: 9090
-      protocol: TCP
-      targetPort: 9090
-    - name: https-custom-metrics
-      port: 443
-      protocol: TCP
-      targetPort: 8443
+  - name: http
+    port: 8080
+    targetPort: 8080
+  - name: http-profiling
+    port: 8008
+    targetPort: 8008
+  - name: http-metrics
+    port: 9090
+    targetPort: 9090
+  - name: https-custom-metrics
+    port: 443
+    targetPort: 8443
   selector:
     app: autoscaler
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    role: istio-webhook
+    serving.knative.dev/release: v0.14.3
+  name: istio-webhook
+  namespace: knative-serving
+spec:
+  ports:
+  - name: http-metrics
+    port: 9090
+    targetPort: 9090
+  - name: http-profiling
+    port: 8008
+    targetPort: 8008
+  - name: https-webhook
+    port: 443
+    targetPort: 8443
+  selector:
+    app: istio-webhook

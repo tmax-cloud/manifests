@@ -50,7 +50,11 @@ spec:
           value: "true"
         - name: DASHBOARD_LINKS_CONFIGMAP
           value: centraldashboard-links-config
+<<<<<<< HEAD
         image: gcr.io/kubeflow-images-public/centraldashboard:vmaster-gf39279c0
+=======
+        image: gcr.io/kubeflow-images-public/centraldashboard:vmaster-g8097cfeb
+>>>>>>> upstream/master
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

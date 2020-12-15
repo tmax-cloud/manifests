@@ -7,29 +7,22 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: application/application-crds
-    name: application-crds
+        path: namespaces/base
+    name: namespaces
   - kustomizeConfig:
-      overlays:
-      - application
       repoRef:
         name: manifests
-        path: application/application
+        path: application/v3
     name: application
   - kustomizeConfig:
-      parameters:
-      - name: namespace
-        value: istio-system
       repoRef:
         name: manifests
-        path: istio-1-3-1/istio-crds-1-3-1
-    name: istio-crds
+        path: stacks/aws/application/istio-1-3-1-stack
+    name: istio-stack
   - kustomizeConfig:
-      parameters:
-      - name: namespace
-        value: istio-system
       repoRef:
         name: manifests
+<<<<<<< HEAD
         path: istio-1-3-1/istio-install-1-3-1
     name: istio-install
   - kustomizeConfig:
@@ -52,11 +45,17 @@ spec:
 =======
         value: 'ON'
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        path: stacks/aws/application/cluster-local-gateway-1-3-1
+    name: cluster-local-gateway
+  - kustomizeConfig:
+>>>>>>> upstream/master
       repoRef:
         name: manifests
-        path: istio/istio
+        path: istio/istio/base
     name: istio
   - kustomizeConfig:
+<<<<<<< HEAD
       parameters:
       - name: namespace
 <<<<<<< HEAD
@@ -96,115 +95,44 @@ spec:
       parameters:
       - name: namespace
         value: cert-manager
+=======
+>>>>>>> upstream/master
       repoRef:
         name: manifests
-        path: cert-manager/cert-manager-crds
+        path: stacks/aws/application/cert-manager-crds
     name: cert-manager-crds
   - kustomizeConfig:
-      parameters:
-      - name: namespace
-        value: kube-system
       repoRef:
         name: manifests
-        path: cert-manager/cert-manager-kube-system-resources
+        path: stacks/aws/application/cert-manager-kube-system-resources
     name: cert-manager-kube-system-resources
   - kustomizeConfig:
-      overlays:
-      - self-signed
-      - application
-      parameters:
-      - name: namespace
-        value: cert-manager
       repoRef:
         name: manifests
-        path: cert-manager/cert-manager
+        path: stacks/aws/application/cert-manager
     name: cert-manager
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: metacontroller
+        path: metacontroller/base
     name: metacontroller
   - kustomizeConfig:
-      overlays:
-      - application
-      parameters:
-      - name: namespace
-        value: istio-system
-      - name: userid-header
-        value: kubeflow-userid
-      - name: oidc_provider
-        value: http://dex.auth.svc.cluster.local:5556/dex
-      - name: oidc_redirect_uri
-        value: /login/oidc
-      - name: oidc_auth_url
-        value: /dex/auth
-      - name: skip_auth_uri
-        value: /dex
-      - name: client_id
-        value: kubeflow-oidc-authservice
       repoRef:
         name: manifests
-        path: istio/oidc-authservice
+        path: stacks/aws/application/oidc-authservice
     name: oidc-authservice
   - kustomizeConfig:
-      overlays:
-      - istio
-      parameters:
-      - name: namespace
-        value: auth
-      - name: issuer
-        value: http://dex.auth.svc.cluster.local:5556/dex
-      - name: client_id
-        value: kubeflow-oidc-authservice
-      - name: oidc_redirect_uris
-        value: '["/login/oidc"]'
       repoRef:
         name: manifests
-        path: dex-auth/dex-crds
+        path: stacks/aws/application/dex-auth
     name: dex
   - kustomizeConfig:
-      overlays:
-      - istio
-      - application
       repoRef:
         name: manifests
-        path: argo
-    name: argo
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: kubeflow-roles
-    name: kubeflow-roles
-  - kustomizeConfig:
-      overlays:
-      - istio
-      - application
-      parameters:
-      - name: userid-header
-        value: kubeflow-userid
-      repoRef:
-        name: manifests
-        path: common/centraldashboard
-    name: centraldashboard
-  - kustomizeConfig:
-      overlays:
-      - cert-manager
-      - application
-      repoRef:
-        name: manifests
-        path: admission-webhook/webhook
-    name: webhook
-  - kustomizeConfig:
-      overlays:
-      - application
-      parameters:
-      - name: webhookNamePrefix
-        value: admission-webhook-
-      repoRef:
-        name: manifests
-        path: admission-webhook/bootstrap
+        path: admission-webhook/bootstrap/overlays/application
     name: bootstrap
   - kustomizeConfig:
+<<<<<<< HEAD
       overlays:
       - istio
       - application
@@ -222,76 +150,34 @@ spec:
   - kustomizeConfig:
       overlays:
       - application
+=======
+>>>>>>> upstream/master
       repoRef:
         name: manifests
-        path: spark/spark-operator
+        path: spark/spark-operator/overlays/application
     name: spark-operator
   - kustomizeConfig:
-      overlays:
-      - istio
-      - application
-      - db
       repoRef:
         name: manifests
-        path: metadata
-    name: metadata
+        path: stacks/aws
+    name: kubeflow-apps
   - kustomizeConfig:
-      overlays:
-      - istio
-      - application
       repoRef:
         name: manifests
-        path: jupyter/notebook-controller
-    name: notebook-controller
+        path: aws/istio-ingress/base_v3
+    name: istio-ingress
   - kustomizeConfig:
-      overlays:
-      - application
       repoRef:
         name: manifests
-        path: pytorch-job/pytorch-job-crds
-    name: pytorch-job-crds
+        path: knative/installs/generic
+    name: knative
   - kustomizeConfig:
-      overlays:
-      - application
       repoRef:
         name: manifests
-        path: pytorch-job/pytorch-operator
-    name: pytorch-operator
+        path: kfserving/installs/generic
+    name: kfserving
   - kustomizeConfig:
-      overlays:
-      - application
-      parameters:
-      - name: namespace
-        value: knative-serving
-      repoRef:
-        name: manifests
-        path: knative/knative-serving-crds
-    name: knative-crds
-  - kustomizeConfig:
-      overlays:
-      - application
-      parameters:
-      - name: namespace
-        value: knative-serving
-      repoRef:
-        name: manifests
-        path: knative/knative-serving-install
-    name: knative-install
-  - kustomizeConfig:
-      overlays:
-      - application
-      repoRef:
-        name: manifests
-        path: kfserving/kfserving-crds
-    name: kfserving-crds
-  - kustomizeConfig:
-      overlays:
-      - application
-      repoRef:
-        name: manifests
-        path: kfserving/kfserving-install
-    name: kfserving-install
-  - kustomizeConfig:
+<<<<<<< HEAD
 <<<<<<< HEAD
       parameters:
       - name: namespace
@@ -310,10 +196,13 @@ spec:
         value: <randomly-generated-id>
       - name: reportUsage
         value: 'true'
+=======
+>>>>>>> upstream/master
       repoRef:
         name: manifests
-        path: common/spartakus
+        path: stacks/aws/application/spartakus
     name: spartakus
+<<<<<<< HEAD
   - kustomizeConfig:
       overlays:
       - istio
@@ -469,6 +358,8 @@ spec:
         name: manifests
         path: aws/nvidia-device-plugin
     name: nvidia-device-plugin
+=======
+>>>>>>> upstream/master
   plugins:
   - kind: KfAwsPlugin
     metadata:

@@ -9,12 +9,20 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
+<<<<<<< HEAD
         path: stacks/ibm/application/istio-stack
+=======
+        path: stacks/ibm/application/istio-1-3-1-stack
+>>>>>>> upstream/master
     name: istio-stack
   - kustomizeConfig:
       repoRef:
         name: manifests
+<<<<<<< HEAD
         path: stacks/ibm/application/cluster-local-gateway
+=======
+        path: stacks/ibm/application/cluster-local-gateway-1-3-1
+>>>>>>> upstream/master
     name: cluster-local-gateway
   - kustomizeConfig:
       repoRef:

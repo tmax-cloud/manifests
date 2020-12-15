@@ -5,6 +5,7 @@ metadata:
     app: centraldashboard
     app.kubernetes.io/component: centraldashboard
     app.kubernetes.io/name: centraldashboard
+    kustomize.component: centraldashboard
   name: centraldashboard
   namespace: kubeflow
 spec:
@@ -14,6 +15,7 @@ spec:
       app: centraldashboard
       app.kubernetes.io/component: centraldashboard
       app.kubernetes.io/name: centraldashboard
+      kustomize.component: centraldashboard
   template:
     metadata:
       annotations:
@@ -22,6 +24,7 @@ spec:
         app: centraldashboard
         app.kubernetes.io/component: centraldashboard
         app.kubernetes.io/name: centraldashboard
+        kustomize.component: centraldashboard
     spec:
       containers:
       - env:
@@ -30,14 +33,19 @@ spec:
             configMapKeyRef:
               key: userid-header
 <<<<<<< HEAD
+<<<<<<< HEAD
               name: kubeflow-config-c644m77455
 =======
               name: kubeflow-config-988m2m9m87
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+              name: kubeflow-config-c644m77455
+>>>>>>> upstream/master
         - name: USERID_PREFIX
           valueFrom:
             configMapKeyRef:
               key: userid-prefix
+<<<<<<< HEAD
 <<<<<<< HEAD
               name: kubeflow-config-c644m77455
         image: gcr.io/kubeflow-images-public/centraldashboard:vmaster-gd601b2d0
@@ -45,6 +53,12 @@ spec:
               name: kubeflow-config-988m2m9m87
         image: gcr.io/kubeflow-images-public/centraldashboard:vmaster-gf39279c0
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+              name: kubeflow-config-c644m77455
+        - name: DASHBOARD_LINKS_CONFIGMAP
+          value: centraldashboard-links-config
+        image: gcr.io/kubeflow-images-public/centraldashboard:vmaster-g8097cfeb
+>>>>>>> upstream/master
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:

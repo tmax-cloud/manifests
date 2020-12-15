@@ -16,6 +16,7 @@ spec:
   - group: apps
     kind: Deployment
   - group: rbac.authorization.k8s.io
+<<<<<<< HEAD
     kind: RoleBinding
   - group: rbac.authorization.k8s.io
     kind: Role
@@ -23,6 +24,15 @@ spec:
     kind: ServiceAccount
   - group: core
     kind: Service
+=======
+    kind: Role
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+  - group: core
+    kind: Service
+  - group: core
+    kind: ServiceAccount
+>>>>>>> upstream/master
   - group: networking.istio.io
     kind: VirtualService
   descriptor:
@@ -48,8 +58,12 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: jupyter-web-app
+<<<<<<< HEAD
       app.kubernetes.io/instance: jupyter-web-app-v0.7.0
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: jupyter-web-app
       app.kubernetes.io/part-of: kubeflow
       app.kubernetes.io/version: v0.7.0
+=======
+      app.kubernetes.io/name: jupyter-web-app
+>>>>>>> upstream/master

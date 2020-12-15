@@ -18,10 +18,14 @@ rules:
   - delete
 - apiGroups:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - xgboostjob.kubeflow.org
 =======
   - kubeflow.org
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  - xgboostjob.kubeflow.org
+>>>>>>> upstream/master
   resources:
   - xgboostjobs
   - xgboostjobs/status

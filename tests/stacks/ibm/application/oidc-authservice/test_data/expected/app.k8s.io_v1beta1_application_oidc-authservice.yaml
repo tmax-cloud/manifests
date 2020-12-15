@@ -1,9 +1,12 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
+<<<<<<< HEAD
   labels:
     app.kubernetes.io/component: oidc-authservice
     app.kubernetes.io/name: oidc-authservice
+=======
+>>>>>>> upstream/master
   name: oidc-authservice
   namespace: istio-system
 spec:

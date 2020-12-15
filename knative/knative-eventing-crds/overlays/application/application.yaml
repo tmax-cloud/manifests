@@ -6,11 +6,15 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: knative-eventing-crds
+<<<<<<< HEAD
       app.kubernetes.io/instance: knative-eventing-crds
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/component: knative-eventing-crds
       app.kubernetes.io/part-of: kubeflow
       app.kubernetes.io/version: v0.11.0
+=======
+      app.kubernetes.io/component: knative-eventing-crds
+>>>>>>> upstream/master
   componentKinds:
   - group: core
     kind: ConfigMap

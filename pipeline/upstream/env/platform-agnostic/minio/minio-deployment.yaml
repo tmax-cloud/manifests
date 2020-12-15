@@ -22,10 +22,14 @@ spec:
         env:
         - name: MINIO_ACCESS_KEY
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
           valueFrom:
             secretKeyRef:
               name: mlpipeline-minio-artifact
               key: accesskey
+<<<<<<< HEAD
         - name: MINIO_SECRET_KEY
           valueFrom:
             secretKeyRef:
@@ -36,6 +40,13 @@ spec:
         - name: MINIO_SECRET_KEY
           value: minio123
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        - name: MINIO_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: mlpipeline-minio-artifact
+              key: secretkey
+>>>>>>> upstream/master
         image: gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance
         name: minio
         ports:
@@ -48,7 +59,11 @@ spec:
       - name: data
         persistentVolumeClaim:
 <<<<<<< HEAD
+<<<<<<< HEAD
           claimName: minio-pvc
 =======
           claimName: minio-pvc
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+          claimName: minio-pvc
+>>>>>>> upstream/master

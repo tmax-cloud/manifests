@@ -4,6 +4,9 @@ kind: Kustomization
 resources:
 - minio-gcs-gateway-deployment.yaml
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
 - minio-gcs-gateway-sa.yaml
 - minio-gcs-gateway-service.yaml
 
@@ -13,6 +16,9 @@ secretGenerator:
 generatorOptions:
   # mlpipeline-minio-artifact needs to be referred by exact name
   disableNameSuffixHash: true
+<<<<<<< HEAD
 =======
 - minio-gcs-gateway-service.yaml
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master

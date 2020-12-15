@@ -13,7 +13,11 @@ images:
 - name: gcr.io/kubeflow-images-public/pytorch-operator
   newName: gcr.io/kubeflow-images-public/pytorch-operator
 <<<<<<< HEAD
+<<<<<<< HEAD
   newTag: v1.0.0-g047cf0f
 =======
   newTag: vmaster-gd596e904
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  newTag: vmaster-g518f9c76
+>>>>>>> upstream/master

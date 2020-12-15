@@ -16,6 +16,7 @@ apiVersion: container.cnrm.cloud.google.com/v1beta1
 kind: ContainerNodePool
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   clusterName: "project-id/location/name" # {"$kpt-set":"cluster-name"}
   name: name-cpu-pool-v1 # {"$kpt-set":"node-pool-cpu"}
 =======
@@ -23,21 +24,30 @@ metadata:
   name: name-cpu-pool-v1 # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
   namespace: "project-id" # {"type":"string","x-kustomize":{"setter":{"name":"gcloud.core.project","value":"project-id"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  clusterName: "project-id/location/name" # {"$kpt-set":"cluster-name"}
+  name: name-cpu-pool-v1 # {"$kpt-set":"node-pool-cpu"}
+>>>>>>> upstream/master
 spec:
   initialNodeCount: 2
   autoscaling:
     minNodeCount: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     maxNodeCount: 8
 =======
     maxNodeCount: 8 # {"type":"integer","x-kustomize":{"setter":{"name":"max-nodes","value":"8"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    maxNodeCount: 8
+>>>>>>> upstream/master
   nodeConfig:
     machineType: n1-standard-8
     minCpuPlatform: 'Intel Broadwell'
     metadata:
       disable-legacy-endpoints: "true"
     serviceAccountRef:
+<<<<<<< HEAD
 <<<<<<< HEAD
       name: name-vm@project-id.iam.gserviceaccount.com # {"$kpt-set":"vm-sa-ref"}
     workloadMetadataConfig:
@@ -51,3 +61,10 @@ spec:
   clusterRef:
     name: name # {"type":"string","x-kustomize":{"setter":{"name":"name","value":"name"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+      name: name-vm@project-id.iam.gserviceaccount.com # {"$kpt-set":"vm-sa-ref"}
+    workloadMetadataConfig:
+      nodeMetadata: GKE_METADATA_SERVER
+  clusterRef:
+    name: name # {"$kpt-set":"name"}
+>>>>>>> upstream/master

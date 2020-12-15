@@ -4,10 +4,15 @@ metadata:
   labels:
     app: ml-pipeline-persistenceagent
 <<<<<<< HEAD
+<<<<<<< HEAD
     app.kubernetes.io/component: ml-pipeline
     app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    app.kubernetes.io/component: ml-pipeline
+    app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
   name: ml-pipeline-persistenceagent
   namespace: kubeflow
 spec:
@@ -15,19 +20,29 @@ spec:
     matchLabels:
       app: ml-pipeline-persistenceagent
 <<<<<<< HEAD
+<<<<<<< HEAD
       app.kubernetes.io/component: ml-pipeline
       app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+      app.kubernetes.io/component: ml-pipeline
+      app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
   template:
     metadata:
       labels:
         app: ml-pipeline-persistenceagent
 <<<<<<< HEAD
+<<<<<<< HEAD
         app.kubernetes.io/component: ml-pipeline
         app.kubernetes.io/name: kubeflow-pipelines
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        app.kubernetes.io/component: ml-pipeline
+        app.kubernetes.io/name: kubeflow-pipelines
+>>>>>>> upstream/master
     spec:
       containers:
       - env:
@@ -36,10 +51,16 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
 <<<<<<< HEAD
+<<<<<<< HEAD
         image: gcr.io/ml-pipeline/persistenceagent:1.0.0
 =======
         image: gcr.io/ml-pipeline/persistenceagent:1.0.0-rc.2
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        - name: TTL_SECONDS_AFTER_WORKFLOW_FINISH
+          value: "86400"
+        image: gcr.io/ml-pipeline/persistenceagent:1.0.4
+>>>>>>> upstream/master
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-persistenceagent
       serviceAccountName: ml-pipeline-persistenceagent

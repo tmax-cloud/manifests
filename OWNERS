@@ -1,11 +1,23 @@
 approvers:
   - animeshsingh
   - Bobgy
+<<<<<<< HEAD
   - jlewi
+=======
+  - elikatsis
+  - jlewi
+  - PatrickXYS
+  - StefanoFioravanzo
+>>>>>>> upstream/master
   - swiftdiaries
   - terrytangyuan
+  - vkoukis
   - yanniszark
   - zhenghuiwang
 reviewers:
   - krishnadurai
+<<<<<<< HEAD
   - PatrickXYS
+=======
+  - pvaneck
+>>>>>>> upstream/master

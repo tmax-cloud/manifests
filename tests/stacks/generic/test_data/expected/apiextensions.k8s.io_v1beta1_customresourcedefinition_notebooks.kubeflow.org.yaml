@@ -3,8 +3,6 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app: notebook-controller
-    app.kubernetes.io/component: notebook-controller
-    app.kubernetes.io/name: notebook-controller
     kustomize.component: notebook-controller
   name: notebooks.kubeflow.org
 spec:
@@ -39,6 +37,9 @@ spec:
               properties:
                 spec:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
                   properties:
                     containers:
                       items:
@@ -66,8 +67,11 @@ spec:
                             type: object
                         type: object
                       type: array
+<<<<<<< HEAD
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+>>>>>>> upstream/master
                   type: object
               type: object
           type: object

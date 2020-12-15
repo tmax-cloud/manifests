@@ -2,10 +2,14 @@ apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-deny-egress # {"$kpt-set":"name-deny-egress"}
 =======
   name: name-deny-egress # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-deny-egress # {"$kpt-set":"name-deny-egress"}
+>>>>>>> upstream/master
 spec:
   description: "Deny all internet traffic by default"
   deny:
@@ -18,6 +22,7 @@ spec:
   priority: 1100
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -26,15 +31,24 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-health-ingress # {"$kpt-set":"name-health-ingress"}
 =======
   name: name-health-ingress # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-health-ingress # {"$kpt-set":"name-health-ingress"}
+>>>>>>> upstream/master
 spec:
   description: "Allow health check ingress"
   allow:
@@ -50,6 +64,7 @@ spec:
   direction: INGRESS
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -58,15 +73,24 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-health-egress # {"$kpt-set":"name-health-egress"}
 =======
   name: name-health-egress # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-health-egress # {"$kpt-set":"name-health-egress"}
+>>>>>>> upstream/master
 spec:
   description: "Allow health check egress"
   allow:
@@ -82,6 +106,7 @@ spec:
   direction: EGRESS
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -90,15 +115,24 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-apis-egress # {"$kpt-set":"name-apis-egress"}
 =======
   name: name-apis-egress # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-apis-egress # {"$kpt-set":"name-apis-egress"}
+>>>>>>> upstream/master
 spec:
   description: "Allow egress to google APIs"
   allow:
@@ -110,6 +144,7 @@ spec:
   direction: EGRESS
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -118,15 +153,24 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-master-egress # {"$kpt-set":"name-master-egress"}
 =======
   name: name-master-egress # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-master-egress # {"$kpt-set":"name-master-egress"}
+>>>>>>> upstream/master
 spec:
   description: "Allow master node egress"
   allow:
@@ -144,6 +188,7 @@ spec:
   direction: EGRESS
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -152,15 +197,24 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-int-egress # {"$kpt-set":"name-int-egress"}
 =======
   name: name-int-egress # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-int-egress # {"$kpt-set":"name-int-egress"}
+>>>>>>> upstream/master
 spec:
   description: "Allow traffic to internal ips"
   allow:
@@ -174,6 +228,7 @@ spec:
   direction: EGRESS
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -182,6 +237,11 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master
 ---
 # Per https://istio.io/docs/setup/platform-setup/gke/
 # GKE will not automatically create a rule allowing traffic to the istio side car
@@ -190,10 +250,14 @@ apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-istio # {"$kpt-set":"name-istio"}
 =======
   name: name-istio # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-istio # {"$kpt-set":"name-istio"}
+>>>>>>> upstream/master
 spec:
   description: "Allow traffic to ISTIO webhook"
   allow:
@@ -207,6 +271,7 @@ spec:
   direction: INGRESS
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -215,6 +280,11 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master
 ---
 # Per https://docs.cert-manager.io/en/release-0.11/getting-started/webhook.html#running-on-private-gke-clusters
 # We need an extra firewall rule to allow certmanager webhooks.
@@ -222,10 +292,14 @@ apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-cm # {"$kpt-set":"name-cm"}
 =======
   name: name-cm # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-cm # {"$kpt-set":"name-cm"}
+>>>>>>> upstream/master
 spec:
   description: "Allow traffic to cert manager webhook"
   allow:
@@ -238,6 +312,7 @@ spec:
   direction: INGRESS
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -246,6 +321,11 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master
 ---
 # Allow traffic to DockerHub so we can pull docker images.
 #
@@ -257,10 +337,14 @@ apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-dockerhub # {"$kpt-set":"name-dockerhub"}
 =======
   name: name-dockerhub # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-dockerhub # {"$kpt-set":"name-dockerhub"}
+>>>>>>> upstream/master
 spec:
   description: "Allow egress to dockerhub and quay.io"
   allow:
@@ -304,6 +388,7 @@ spec:
   direction: EGRESS
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -312,15 +397,24 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeFirewall
 metadata:
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: name-iap-jwks # {"$kpt-set":"name-iap-jwks"}
 =======
   name: name-iap-jwks # {"type":"string","x-kustomize":{"setBy":"kpt","partialSetters":[{"name":"name","value":"name"}]}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  name: name-iap-jwks # {"$kpt-set":"name-iap-jwks"}
+>>>>>>> upstream/master
 spec:
   description: "Allow traffic to www.gstatic.com to get IAP JWKs"
   allow:
@@ -345,6 +439,7 @@ spec:
   direction: EGRESS
   networkRef:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: name # {"$kpt-set":"name"}
   # Enable logging to help debugging
   enableLogging: false # {"$kpt-set":"log-firewalls"}
@@ -353,3 +448,8 @@ spec:
   # Enable logging to help debugging
   enableLogging: false # {"type":"bool","x-kustomize":{"setter":{"name":"log-firewalls","value":"false"}}}
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+    name: name # {"$kpt-set":"name"}
+  # Enable logging to help debugging
+  enableLogging: false # {"$kpt-set":"log-firewalls"}
+>>>>>>> upstream/master

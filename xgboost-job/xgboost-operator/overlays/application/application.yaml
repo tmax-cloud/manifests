@@ -18,10 +18,14 @@ spec:
   - group: core
     kind: ServiceAccount
 <<<<<<< HEAD
+<<<<<<< HEAD
   - group: xgboostjob.kubeflow.org
 =======
   - group: kubeflow.org
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+  - group: xgboostjob.kubeflow.org
+>>>>>>> upstream/master
     kind: XGBoostJob
   descriptor: 
     type: xgboostjob

@@ -3,6 +3,7 @@ kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/component: knative-eventing-install
+<<<<<<< HEAD
     app.kubernetes.io/instance: knative-eventing-install
     app.kubernetes.io/managed-by: kfctl
     app.kubernetes.io/name: knative-eventing-install
@@ -11,6 +12,11 @@ metadata:
     eventing.knative.dev/release: v0.11.0
     kustomize.component: knative
     serving.knative.dev/release: v0.11.0
+=======
+    app.kubernetes.io/name: knative-eventing-install
+    eventing.knative.dev/release: v0.14.2
+    kustomize.component: knative
+>>>>>>> upstream/master
   name: imc-controller
 rules:
 - apiGroups:
@@ -33,6 +39,10 @@ rules:
   - ""
   resources:
   - services
+<<<<<<< HEAD
+=======
+  - serviceaccounts
+>>>>>>> upstream/master
   verbs:
   - get
   - list
@@ -49,9 +59,36 @@ rules:
   - list
   - watch
 - apiGroups:
+<<<<<<< HEAD
   - apps
   resources:
   - deployments
+=======
+  - rbac.authorization.k8s.io
+  resources:
+  - rolebindings
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+- apiGroups:
+  - apps
+  resources:
+>>>>>>> upstream/master
   - deployments/status
   verbs:
   - get
@@ -72,3 +109,17 @@ rules:
   verbs:
   - create
   - patch
+<<<<<<< HEAD
+=======
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+>>>>>>> upstream/master

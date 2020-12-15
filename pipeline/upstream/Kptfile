@@ -6,6 +6,7 @@ upstream:
     type: git
     git:
 <<<<<<< HEAD
+<<<<<<< HEAD
         commit: 181c35002490cf7f1b5af8c88cb8b7cf29332f2b
         repo: https://github.com/kubeflow/pipelines
         directory: /manifests/kustomize
@@ -16,3 +17,9 @@ upstream:
         directory: /manifests/kustomize
         ref: 1.0.0-rc.2
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+        commit: b604c6171244cc1cd80bfdc46248eaebf5f985d6
+        repo: https://github.com/kubeflow/pipelines
+        directory: /manifests/kustomize
+        ref: 1.0.4
+>>>>>>> upstream/master

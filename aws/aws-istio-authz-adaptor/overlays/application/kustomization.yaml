@@ -1,5 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 <<<<<<< HEAD
+<<<<<<< HEAD
 kind: Kustomization
 bases:
 - ../../base
@@ -15,6 +16,8 @@ commonLabels:
 =======
 bases:
 - ../../base
+=======
+>>>>>>> upstream/master
 commonLabels:
   app.kubernetes.io/component: aws-istio-authz-adaptor
   app.kubernetes.io/name: aws-istio-authz-adaptor

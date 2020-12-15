@@ -28,4 +28,8 @@ spec:
   scope: Namespaced
   subresources:
     status: {}
+<<<<<<< HEAD
   version: v1alpha3
+=======
+  version: v1beta1
+>>>>>>> upstream/master

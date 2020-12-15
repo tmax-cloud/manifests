@@ -11,10 +11,10 @@ resources:
   - ../../katib-controller/base/katib-ui-rbac.yaml
   - ../../katib-controller/base/katib-ui-service.yaml
   - ../../katib-controller/base/trial-template-configmap.yaml
-  - ../../katib-controller/base/trial-template-configmap-labeled.yaml
   - ../../katib-controller/overlays/application/application.yaml
   - ../../katib-controller/overlays/istio/katib-ui-virtual-service.yaml
 images:
+<<<<<<< HEAD
   - name: gcr.io/kubeflow-images-public/katib/v1alpha3/katib-controller
 <<<<<<< HEAD
     newTag: ce89cbf
@@ -28,6 +28,14 @@ images:
     newTag: 917164a
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
     newName: gcr.io/kubeflow-images-public/katib/v1alpha3/katib-ui
+=======
+  - name: docker.io/kubeflowkatib/katib-controller
+    newTag: v1beta1-a96ff59
+    newName: docker.io/kubeflowkatib/katib-controller
+  - name: docker.io/kubeflowkatib/katib-ui
+    newTag: v1beta1-a96ff59
+    newName: docker.io/kubeflowkatib/katib-ui
+>>>>>>> upstream/master
 commonLabels:
   app.kubernetes.io/component: katib
   app.kubernetes.io/name: katib-controller

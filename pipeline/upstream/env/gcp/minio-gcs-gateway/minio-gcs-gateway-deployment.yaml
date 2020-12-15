@@ -16,9 +16,13 @@ spec:
         app: minio
     spec:
 <<<<<<< HEAD
+<<<<<<< HEAD
       serviceAccountName: kubeflow-pipelines-minio-gcs-gateway
 =======
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+      serviceAccountName: kubeflow-pipelines-minio-gcs-gateway
+>>>>>>> upstream/master
       containers:
         - name: minio
           image: gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance
@@ -34,10 +38,14 @@ spec:
                   key: gcsProjectId
             - name: MINIO_ACCESS_KEY
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/master
               valueFrom:
                 secretKeyRef:
                   name: mlpipeline-minio-artifact
                   key: accesskey
+<<<<<<< HEAD
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
@@ -48,5 +56,12 @@ spec:
             - name: MINIO_SECRET_KEY
               value: "minio123"
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: mlpipeline-minio-artifact
+                  key: secretkey
+>>>>>>> upstream/master
           ports:
             - containerPort: 9000

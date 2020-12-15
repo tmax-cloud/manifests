@@ -2,7 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: istio-system
 resources:
+<<<<<<< HEAD
 - ../../../../istio/oidc-authservice/overlays/application
+=======
+- ../../../../istio/oidc-authservice/base_v3
+>>>>>>> upstream/master
 images:
 - name: busybox
   newTag: "latest"
@@ -10,7 +14,11 @@ images:
 patchesStrategicMerge:
 - statefulset-patch.yaml
 configMapGenerator:
+<<<<<<< HEAD
 - name: oidc-authservice-parameters
+=======
+- name: oidc-authservice-config
+>>>>>>> upstream/master
   behavior: merge
   literals:
   - client_id=kubeflow-oidc-authservice

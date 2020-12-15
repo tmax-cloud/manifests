@@ -2,11 +2,17 @@ apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
   labels:
+<<<<<<< HEAD:tests/stacks/gcp/test_data/expected/app.k8s.io_v1beta1_application_kfserving-crds.yaml
     app: kfserving
     app.kubernetes.io/component: kfserving-install
     app.kubernetes.io/name: kfserving-install
     kustomize.component: kfserving
   name: kfserving-crds
+=======
+    app.kubernetes.io/component: spartakus
+    app.kubernetes.io/name: spartakus
+  name: spartakus
+>>>>>>> upstream/master:tests/stacks/kubernetes/application/spartakus/test_data/expected/app.k8s.io_v1beta1_application_spartakus.yaml
   namespace: kubeflow
 spec:
   addOwnerRef: true
@@ -15,16 +21,23 @@ spec:
     kind: ConfigMap
   - group: apps
     kind: Deployment
+  - group: core
+    kind: ServiceAccount
   descriptor:
     description: ""
     keywords:
+<<<<<<< HEAD:tests/stacks/gcp/test_data/expected/app.k8s.io_v1beta1_application_kfserving-crds.yaml
     - kfserving-crds
+=======
+    - spartakus
+>>>>>>> upstream/master:tests/stacks/kubernetes/application/spartakus/test_data/expected/app.k8s.io_v1beta1_application_spartakus.yaml
     - kubeflow
     links:
     - description: About
       url: ""
     maintainers: []
     owners: []
+<<<<<<< HEAD:tests/stacks/gcp/test_data/expected/app.k8s.io_v1beta1_application_kfserving-crds.yaml
     type: kfserving-crds
     version: v1beta1
   selector:
@@ -33,5 +46,15 @@ spec:
       app.kubernetes.io/instance: kfserving-crds-v0.7.0
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: kfserving-crds
+=======
+    type: spartakus
+    version: v1beta1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: spartakus
+      app.kubernetes.io/instance: spartakus-v0.7.0
+      app.kubernetes.io/managed-by: kfctl
+      app.kubernetes.io/name: spartakus
+>>>>>>> upstream/master:tests/stacks/kubernetes/application/spartakus/test_data/expected/app.k8s.io_v1beta1_application_spartakus.yaml
       app.kubernetes.io/part-of: kubeflow
       app.kubernetes.io/version: v0.7.0

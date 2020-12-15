@@ -14,10 +14,13 @@ data:
         {
           "link": "/katib/",
           "text": "Katib"
+<<<<<<< HEAD
         },
         {
           "link": "/metadata/",
           "text": "Artifact Store"
+=======
+>>>>>>> upstream/master
         }
       ],
       "externalLinks": [],
@@ -41,11 +44,14 @@ data:
           "text": "View Katib Experiments",
           "desc": "Katib",
           "link": "/katib/"
+<<<<<<< HEAD
         },
         {
           "text": "View Metadata Artifacts",
           "desc": "Artifact Store",
           "link": "/metadata/"
+=======
+>>>>>>> upstream/master
         }
       ],
       "documentationItems": [
@@ -88,4 +94,8 @@ data:
     }
 kind: ConfigMap
 metadata:
+<<<<<<< HEAD
   name: centraldashboard-links-config
+=======
+  name: centraldashboard-links-config
+>>>>>>> upstream/master

@@ -6,6 +6,7 @@ commonLabels:
 resources:
 - ../../../upstream/env/platform-agnostic/minio/
 <<<<<<< HEAD
+<<<<<<< HEAD
 - ../../overlays/application/application.yaml
 patchesStrategicMerge:
 - deployment-patch.yaml
@@ -13,3 +14,8 @@ patchesStrategicMerge:
 - ../../../upstream/base/argo/minio-artifact-secret.yaml # TODO: move it to minio/ folder
 - ../../overlays/application/application.yaml
 >>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
+=======
+- ../../overlays/application/application.yaml
+patchesStrategicMerge:
+- deployment-patch.yaml
+>>>>>>> upstream/master
