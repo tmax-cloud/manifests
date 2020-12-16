@@ -1,17 +1,19 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- cluster-role-binding.yaml
-- cluster-role.yaml
-- config-map.yaml
-- crd.yaml
-- deployment.yaml
-- service-account.yaml
-- service.yaml
-- role.yaml
-- role-binding.yaml
+- ../base/cluster-role-binding.yaml
+- ../base/cluster-role.yaml
+- ../base/config-map.yaml
+- ../base/crd.yaml
+- ../base/deployment.yaml
+- ../base/service-account.yaml
+- ../base/service.yaml
+- ../overlays/istio/virtual-service.yaml
+- ../overlays/application/application.yaml
 commonLabels:
   kustomize.component: argo
+  app.kubernetes.io/component: argo
+  app.kubernetes.io/name: argo
 images:
 - name: argoproj/argoui
   newName: argoproj/argoui
@@ -22,7 +24,7 @@ images:
 configMapGenerator:
 - name: workflow-controller-parameters
   envs:
-  - params.env
+  - ../base/params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:
@@ -96,19 +98,5 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.artifactRepositorySecretKeySecretKey
-- name: namespace
-  objref:
-    kind: ConfigMap
-    name: workflow-controller-parameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.namespace
-- name: clusterDomain
-  objref:
-    kind: ConfigMap
-    name: workflow-controller-parameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.clusterDomain
 configurations:
 - params.yaml
