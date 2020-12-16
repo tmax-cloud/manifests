@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+    name: deployment
 spec:
   template:
     spec:
       containers:
       - name: notebook-controller
-        env:
-          - name: ISTIO_GATEWAY
-            value: $(ISTIO_GATEWAY)
+      env:
+      - name: ISTIO_GATEWAY
+        value: $(ISTIO_GATEWAY)
