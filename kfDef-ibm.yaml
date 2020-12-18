@@ -86,24 +86,24 @@ spec:
         name: manifests
         path: stacks/ibm/application/katib
     name: katib
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: stacks/ibm/application/kfp-tekton
-    name: kfp-tekton
+#   - kustomizeConfig:
+#       repoRef:
+#         name: manifests
+#         path: stacks/ibm/application/kfp-tekton
+#     name: kfp-tekton
   # Default on IBM Cloud is Kubeflow Pipelines with Tekton. Switch the above kfp-tekton to
   # the below applications if you want to
   # run Kubeflow Pipelines with Argo
-  # - kustomizeConfig:
-  #     repoRef:
-  #       name: manifests
-  #       path: stacks/ibm/application/argo
-  #   name: argo
-  # - kustomizeConfig:
-  #     repoRef:
-  #       name: manifests
-  #       path: stacks/ibm/application/kfp-argo
-  #   name: kfp-argo
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: stacks/ibm/application/argo
+    name: argo
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: stacks/ibm/application/kfp-argo
+    name: kfp-argo
   - kustomizeConfig:
       repoRef:
         name: manifests
