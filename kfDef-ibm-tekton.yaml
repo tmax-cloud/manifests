@@ -55,16 +55,16 @@ spec:
         path: stacks/ibm/application/cert-manager
     name: cert-manager
   # Tekton
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: tektoncd/tektoncd-install/base
-    name: tektoncd-install
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: tektoncd/tektoncd-dashboard/base
-    name: tektoncd-dashboard
+#  - kustomizeConfig:
+#      repoRef:
+#        name: manifests
+#        path: tektoncd/tektoncd-install/base
+#    name: tektoncd-install
+#  - kustomizeConfig:
+#      repoRef:
+#        name: manifests
+#        path: tektoncd/tektoncd-dashboard/base
+#    name: tektoncd-dashboard
   # Kubeflow components
   - kustomizeConfig:
       repoRef:
