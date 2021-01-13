@@ -8,7 +8,6 @@ configMapGenerator:
   envs:
   - ../base/params.env
 resources:
-- ../base/namespace.yaml
 - ../base/cluster-role-binding.yaml
 - ../base/cluster-role.yaml
 - ../base/deployment.yaml
