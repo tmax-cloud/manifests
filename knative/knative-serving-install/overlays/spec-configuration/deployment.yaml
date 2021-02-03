@@ -1,0 +1,101 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: activator
+spec:
+  template:
+    spec:
+      containers:
+      - name: activator
+        resources:
+          requests:
+            cpu: 400m
+            memory: 188Mi
+          limits:
+            cpu: 3
+            memory: 1624Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autoscaler-hpa
+spec:
+  template:
+    spec:
+      containers:
+      - name: autoscaler-hpa
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 1
+            memory: 1000Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autoscaler
+spec:
+  template:
+    spec:
+      containers:
+      - name: autoscaler
+        resources:
+          requests:
+            cpu: 130m
+            memory: 168Mi
+          limits:
+            cpu: 2300m
+            memory: 1424Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: networking-istio
+spec:
+  template:
+    spec:
+      containers:
+      - name: networking-istio
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 1
+            memory: 1000Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhook
+spec:
+  template:
+    spec:
+      containers:
+      - name: webhook
+        resources:
+          requests:
+            cpu: 20m
+            memory: 20Mi
+          limits:
+            cpu: 200m
+            memory: 200Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controller
+spec:
+  template:
+    spec:
+      containers:
+      - name: controller
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 1
+            memory: 1000Mi
