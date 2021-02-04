@@ -1,10 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    serving.knative.dev/release: "v0.11.1"
-  name: activator
-  namespace: knative-serving
+  name: activator  
 spec:
   template:
     spec:
@@ -21,11 +18,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    autoscaling.knative.dev/autoscaler-provider: hpa
-    serving.knative.dev/release: "v0.11.1"
   name: autoscaler-hpa
-  namespace: knative-serving
 spec:
   template:
     spec:
@@ -42,10 +35,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    serving.knative.dev/release: "v0.11.1"
   name: autoscaler
-  namespace: knative-serving
 spec:
   template:
     spec:
@@ -62,11 +52,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    networking.knative.dev/ingress-provider: istio
-    serving.knative.dev/release: "v0.11.1"
   name: networking-istio
-  namespace: knative-serving
 spec:
   template:
     spec:
@@ -83,11 +69,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    serving.knative.dev/release: "v0.11.1"
   name: webhook
-  name: webhook
-  namespace: knative-serving
 spec:
   template:
     spec:
@@ -104,10 +86,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    serving.knative.dev/release: "v0.11.1"
   name: controller
-  namespace: knative-serving
 spec:
   template:
     spec:
