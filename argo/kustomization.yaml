@@ -15,4 +15,3 @@ namespace: kubeflow
 resources:
 - overlays/istio/virtual-service.yaml
 - overlays/application/application.yaml
-- overlays/spec-configuration/deployment.yaml
