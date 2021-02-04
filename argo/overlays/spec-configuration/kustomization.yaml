@@ -3,4 +3,5 @@ kind: Kustomization
 bases:
 - ../../base
 patchesStrategicMerge:
-- deployment.yaml
+- deployment-argo-ui.yaml
+- deployment-workflow-controller.yaml
