@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: activator
+  namespace: knative-serving
 spec:
   template:
     spec:
@@ -19,6 +20,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: autoscaler-hpa
+  namespace: knative-serving
 spec:
   template:
     spec:
@@ -36,6 +38,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: autoscaler
+  namespace: knative-serving
 spec:
   template:
     spec:
@@ -53,6 +56,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: networking-istio
+  namespace: knative-serving
 spec:
   template:
     spec:
@@ -70,6 +74,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webhook
+  namespace: knative-serving
 spec:
   template:
     spec:
@@ -87,6 +92,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: controller
+  namespace: knative-serving
 spec:
   template:
     spec:
