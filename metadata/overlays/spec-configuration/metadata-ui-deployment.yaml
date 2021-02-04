@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui
+spec:
+  template:
+    spec:
+      containers:
+      - name: metadata-ui
+        resources:
+          requests:
+            cpu: 20m
+            memory: 200Mi
+          limits:
+            cpu: 1
+            memory: 2Gi

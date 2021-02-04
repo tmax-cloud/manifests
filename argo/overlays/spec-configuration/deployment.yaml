@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-ui
+spec:
+  template:
+    spec:
+      containers:
+      - name: argo-ui
+        resources:
+          requests:
+            cpu: 20m
+            memory: 200Mi
+          limits:
+            cpu: 1
+            memory: 2Gi
+---            
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workflow-controller
+spec:
+  template:
+    spec:
+      containers:
+      - name: workflow-controller
+        resources:
+          requests:
+            cpu: 20m
+            memory: 200Mi
+          limits:
+            cpu: 1
+            memory: 2Gi            

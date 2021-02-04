@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  template:
+    spec:
+      containers:
+      - name: jupyter-web-app
+        resources:
+          requests:
+            cpu: 20m
+            memory: 400Mi
+          limits:
+            cpu: 1
+            memory: 4Gi
