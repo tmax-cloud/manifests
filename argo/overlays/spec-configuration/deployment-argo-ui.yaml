@@ -1,7 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: argo-ui
   name: argo-ui
+  namespace: kubeflow
 spec:
   template:
     spec:
