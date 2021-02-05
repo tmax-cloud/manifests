@@ -90,6 +90,7 @@ spec:
       overlays:
       - self-signed
       - application
+      - spec-configuration
       parameters:
       - name: namespace
         value: cert-manager
@@ -158,6 +159,7 @@ spec:
   - kustomizeConfig:
       overlays:
       - application
+      - spec-configuration
       repoRef:
         name: manifests
         path: spark/spark-operator
