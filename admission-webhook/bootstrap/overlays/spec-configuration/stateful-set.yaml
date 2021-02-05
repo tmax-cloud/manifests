@@ -9,8 +9,8 @@ spec:
       - name: bootstrap
         resources:
           requests:
-            cpu: 1  
-            memory: 2Gi
+            cpu: 20m  
+            memory: 100Mi
           limits:
             cpu: 1
-            memory: 4Gi
+            memory: 1Gi
