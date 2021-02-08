@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argo-ui
+  name: argo-ui
+  namespace: kubeflow
+spec:
+  template:
+    spec:
+      containers:
+      - name: argo-ui
+        resources:
+          requests:
+            cpu: 20m
+            memory: 200Mi
+          limits:
+            cpu: 1
+            memory: 2Gi

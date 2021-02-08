@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  template:
+    spec:
+      containers:
+      - name: manager
+        resources:
+          requests:
+            cpu: 20m
+            memory: 250Mi
+          limits:
+            cpu: 1
+            memory: 2.5Gi
+      - name: kfam
+        resources:
+          requests:
+            cpu: 20m
+            memory: 250Mi
+          limits:
+            cpu: 1
+            memory: 2.5Gi

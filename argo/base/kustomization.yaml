@@ -5,7 +5,8 @@ resources:
 - cluster-role.yaml
 - config-map.yaml
 - crd.yaml
-- deployment.yaml
+- deployment-argo-ui.yaml
+- deployment-workflow-controller.yaml
 - service-account.yaml
 - service.yaml
 commonLabels:
