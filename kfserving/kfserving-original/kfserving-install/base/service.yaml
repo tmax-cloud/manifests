@@ -6,7 +6,7 @@ metadata:
     prometheus.io/scheme: https
     prometheus.io/scrape: "true"
   labels:
-    control-plane: kfserving-controller-manager
+    control-plane: controller-manager
     controller-tools.k8s.io: "1.0"
   name: kfserving-controller-manager-metrics-service
   namespace: kubeflow
@@ -16,7 +16,7 @@ spec:
     port: 8443
     targetPort: https
   selector:
-    control-plane: kfserving-controller-manager
+    control-plane: controller-manager
     controller-tools.k8s.io: "1.0"
 ---
 apiVersion: v1
@@ -26,7 +26,6 @@ metadata:
     control-plane: kfserving-controller-manager
     controller-tools.k8s.io: "1.0"
   name: kfserving-controller-manager-service
-  namespace: kubeflow
 spec:
   ports:
   - port: 443
@@ -38,10 +37,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kfserving-webhook-server-service
-  namespace: kubeflow
 spec:
   ports:
   - port: 443
-    targetPort: webhook-server
+    targetPort: 443
   selector:
     control-plane: kfserving-controller-manager
