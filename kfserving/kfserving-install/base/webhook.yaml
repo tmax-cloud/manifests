@@ -11,7 +11,7 @@ webhooks:
     service:
       name: kfserving-webhook-server-service
       namespace: kubeflow
-      path: /mutate-inferenceservices
+      path: /mutate-serving-kubeflow-org-v1alpha2-inferenceservice
   failurePolicy: Fail
   name: inferenceservice.kfserving-webhook-server.defaulter
   rules:
@@ -29,6 +29,24 @@ webhooks:
     service:
       name: kfserving-webhook-server-service
       namespace: kubeflow
+      path: /mutate-serving-kubeflow-org-v1beta1-inferenceservice
+  failurePolicy: Fail
+  name: inferenceservice.kfserving-webhook-server.v1beta1.defaulter
+  rules:
+  - apiGroups:
+    - serving.kubeflow.org
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - inferenceservices
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: kfserving-webhook-server-service
+      namespace: kubeflow
       path: /mutate-pods
   failurePolicy: Fail
   name: inferenceservice.kfserving-webhook-server.pod-mutator
@@ -36,13 +54,10 @@ webhooks:
     matchExpressions:
     - key: control-plane
       operator: DoesNotExist
-<<<<<<< HEAD
   objectSelector:
     matchExpressions:
     - key: serving.kubeflow.org/inferenceservice
       operator: Exists
-=======
->>>>>>> 0dd7b24f049aaff540231bf73fe153c2397be890
   rules:
   - apiGroups:
     - ""
@@ -67,7 +82,7 @@ webhooks:
     service:
       name: kfserving-webhook-server-service
       namespace: kubeflow
-      path: /validate-inferenceservices
+      path: /validate-serving-kubeflow-org-v1alpha2-inferenceservice
   failurePolicy: Fail
   name: inferenceservice.kfserving-webhook-server.validator
   rules:
@@ -75,6 +90,24 @@ webhooks:
     - serving.kubeflow.org
     apiVersions:
     - v1alpha2
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - inferenceservices
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: kfserving-webhook-server-service
+      namespace: kubeflow
+      path: /validate-serving-kubeflow-org-v1beta1-inferenceservice
+  failurePolicy: Fail
+  name: inferenceservice.kfserving-webhook-server.v1beta1.validator
+  rules:
+  - apiGroups:
+    - serving.kubeflow.org
+    apiVersions:
+    - v1beta1
     operations:
     - CREATE
     - UPDATE
