@@ -300,6 +300,8 @@ metadata:
 ---
 apiVersion: v1
 data:
+  registriesSkippingTagResolving: "nvcr.io"
+  progressDeadline: "600s"
   _example: |
     ################################
     #                              #
