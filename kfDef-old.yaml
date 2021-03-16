@@ -96,5 +96,5 @@ spec:
     name: monitoring-resource
   repos:
   - name: manifests
-    uri: https://github.com/tmax-cloud/kubeflow-manifests/archive/v1.2-branch.tar.gz
-  version: v1.2-branch
+    uri: https://github.com/tmax-cloud/kubeflow-manifests/archive/ck-v1.2-patch.tar.gz
+  version: ck-v1.2-patch
