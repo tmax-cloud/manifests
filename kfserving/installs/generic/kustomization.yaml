@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: kubeflow
 resources:
 - ../../upstream/kfserving.yaml
-- cluster-role.yaml
 - application.yaml
 commonLabels:
   app: kfserving
