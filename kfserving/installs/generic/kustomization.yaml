@@ -11,5 +11,4 @@ commonLabels:
 generatorOptions:
  disableNameSuffixHash: true
 patchesStrategicMerge:
-- configmap-patch.yaml
 - statefulset-patch.yaml
