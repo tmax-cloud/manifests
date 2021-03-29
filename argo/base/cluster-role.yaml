@@ -10,6 +10,8 @@ rules:
   resources:
   - workflows
   - workflows/finalizers
+  - workfloweventbindings
+  - workfloweventbindings/finalizers
   - workflowtemplates
   - workflowtemplates/finalizers
   - cronworkflows
@@ -38,6 +40,8 @@ rules:
   resources:
   - workflows
   - workflows/finalizers
+  - workfloweventbindings
+  - workfloweventbindings/finalizers
   - workflowtemplates
   - workflowtemplates/finalizers
   - cronworkflows
@@ -66,6 +70,8 @@ rules:
   resources:
   - workflows
   - workflows/finalizers
+  - workfloweventbindings
+  - workfloweventbindings/finalizers
   - workflowtemplates
   - workflowtemplates/finalizers
   - cronworkflows
@@ -110,6 +116,7 @@ rules:
   verbs:
   - create
   - delete
+  - get
 - apiGroups:
   - argoproj.io
   resources:
@@ -188,6 +195,7 @@ rules:
   - secrets
   verbs:
   - get
+  - create
 - apiGroups:
   - ""
   resources:
@@ -210,10 +218,10 @@ rules:
 - apiGroups:
   - ""
   resources:
-  - secrets
   - serviceaccounts
   verbs:
   - get
+  - list
 - apiGroups:
   - argoproj.io
   resources:

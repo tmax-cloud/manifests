@@ -2,18 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: argo-server
+  namespace: kubeflow
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 1
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: argo-server
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -24,7 +17,7 @@ spec:
       containers:
       - args:
         - server
-        image: argoproj/argocli:v2.11.8
+        image: argoproj/argocli:v2.12.10
         name: argo-server
         ports:
         - containerPort: 2746
@@ -41,6 +34,8 @@ spec:
           name: tmp
       nodeSelector:
         kubernetes.io/os: linux
+      securityContext:
+        runAsNonRoot: true
       serviceAccountName: argo-server
       volumes:
       - emptyDir: {}
@@ -50,21 +45,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: workflow-controller
-  labels:
-    app: workflow-controller
   namespace: kubeflow
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 1
-  revisionHistoryLimit: 10  
   selector:
     matchLabels:
       app: workflow-controller
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -77,11 +62,22 @@ spec:
         - --configmap
         - workflow-controller-configmap
         - --executor-image
-        - argoproj/argoexec:v2.11.8
+        - argoproj/argoexec:v2.12.10
         command:
         - workflow-controller
-        image: argoproj/workflow-controller:v2.11.8
+        image: argoproj/workflow-controller:v2.12.10
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: metrics
+          initialDelaySeconds: 30
+          periodSeconds: 30
         name: workflow-controller
+        ports:
+        - containerPort: 9090
+          name: metrics
       nodeSelector:
         kubernetes.io/os: linux
+      securityContext:
+        runAsNonRoot: true
       serviceAccountName: argo
