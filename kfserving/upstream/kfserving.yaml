@@ -32,8 +32,7 @@ spec:
   preserveUnknownFields: false
   scope: Namespaced
   subresources:
-    status: {}
-  version: v1alpha2
+    status: {}  
   versions:  
   - additionalPrinterColumns:
     - JSONPath: .status.url

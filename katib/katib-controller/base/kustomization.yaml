@@ -1,6 +1,5 @@
 namespace: kubeflow
-resources:
-  - certificate.yaml
+resources:  
   - katib-cert-generator-rbac.yaml
   - katib-cert-generator.yaml
   - katib-configmap.yaml
