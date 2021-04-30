@@ -1,5 +1,8 @@
 namespace: kubeflow
 resources:
+  - certificate.yaml
+  - katib-cert-generator-rbac.yaml
+  - katib-cert-generator.yaml
   - katib-configmap.yaml
   - katib-controller-deployment.yaml
   - katib-controller-rbac.yaml
@@ -14,6 +17,7 @@ resources:
   - katib-ui-deployment.yaml
   - katib-ui-rbac.yaml
   - katib-ui-service.yaml
+  - katib-webhooks.yaml
   - trial-template-configmap.yaml
 configMapGenerator:
   - name: katib-parameters
@@ -23,17 +27,20 @@ generatorOptions:
   disableNameSuffixHash: true
 images:
   - name: docker.io/kubeflowkatib/katib-controller
-    newTag: v1beta1-a96ff59
+    newTag: v0.11.0
     newName: docker.io/kubeflowkatib/katib-controller
   - name: docker.io/kubeflowkatib/katib-db-manager
-    newTag: v1beta1-a96ff59
+    newTag: v0.11.0
     newName: docker.io/kubeflowkatib/katib-db-manager
   - name: docker.io/kubeflowkatib/katib-ui
-    newTag: v1beta1-a96ff59
+    newTag: v0.11.0
     newName: docker.io/kubeflowkatib/katib-ui
   - name: mysql
     newTag: "8"
     newName: mysql
+  - name: docker.io/kubeflowkatib/cert-generator
+    newName: docker.io/kubeflowkatib/cert-generator
+    newTag: v0.11.0
 vars:
   - name: clusterDomain
     objref:
@@ -49,5 +56,27 @@ vars:
       apiVersion: v1
     fieldref:
       fieldpath: metadata.namespace
+  - name: KATIB_NAMESPACE
+    objref:
+      apiVersion: v1
+      kind: Service
+      name: katib-controller
+    fieldref:
+      fieldPath: metadata.namespace
+  - name: KATIB_SERVICE_NAME
+    objref:
+      apiVersion: v1
+      kind: Service
+      name: katib-controller 
+    fieldref:
+      fieldPath: metadata.name
+  - name: KATIB_CERT_NAME
+    objref:
+      kind: Certificate
+      group: cert-manager.io
+      version: v1alpha2
+      name: katib-webhook-cert
+    fieldref:
+      fieldpath: metadata.name   
 configurations:
   - params.yaml

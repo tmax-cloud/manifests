@@ -5,4 +5,4 @@ resources:
   - ../../components/katib-crds
   - ../../components/katib-controller
   - ../../components/katib-db-manager
-  - ../../components/katib-db-mysql
+  - ../../components/katib-db-mysql  

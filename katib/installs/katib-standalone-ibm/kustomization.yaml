@@ -4,6 +4,7 @@ bases:
   - ../katib-standalone
 patchesStrategicMerge:
   - ../../katib-controller/overlays/ibm-storage-config/katib-mysql-deployment.yaml
+  - ../../katib-controller/overlays/katib-cert-injection/katib-cert-injection.yaml
 images:
   - name: mysql
     newTag: "5.6"
