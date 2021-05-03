@@ -4,3 +4,4 @@ kind: Kustomization
 namespace: cert-manager
 resources:
 - ../overlays/self-signed/cluster-issuer.yaml 
+- ../overlays/self-signed/ck-cluster-issuer.yaml 

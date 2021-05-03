@@ -7,5 +7,6 @@ bases:
 - ../../base
 resources:
 - cluster-issuer.yaml
+- ck-cluster-issuer.yaml
 commonLabels:
   kustomize.component: cert-manager
