@@ -7,7 +7,6 @@ resources:
   - ../../katib-controller/base/katib-configmap.yaml
   - ../../katib-controller/base/katib-controller-deployment.yaml
   - ../../katib-controller/base/katib-controller-rbac.yaml
-  - ../../katib-controller/base/katib-controller-secret.yaml
   - ../../katib-controller/base/katib-controller-service.yaml
   - ../../katib-controller/base/katib-ui-deployment.yaml
   - ../../katib-controller/base/katib-ui-rbac.yaml
