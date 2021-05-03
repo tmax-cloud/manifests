@@ -7,16 +7,6 @@ metadata:
     controller-gen.kubebuilder.io/version: v0.3.1-0.20200528125929-5c0c6ae3b64b
   name: inferenceservices.serving.kubeflow.org
 spec:
-  conversion:
-    conversionReviewVersions:    
-    - v1beta1
-    strategy: Webhook
-    webhookClientConfig:
-      caBundle: Cg==
-      service:
-        name: kfserving-webhook-server-service
-        namespace: kubeflow 
-        path: /convert
   group: serving.kubeflow.org
   names:
     kind: InferenceService
@@ -29,8 +19,7 @@ spec:
   scope: Namespaced
   subresources:
     status: {}  
-  versions:
-  - additionalPrinterColumns:
+  additionalPrinterColumns:
     - JSONPath: .status.url
       name: URL
       type: string
@@ -51,8 +40,7 @@ spec:
       type: string
     - JSONPath: .metadata.creationTimestamp
       name: Age
-      type: date
-    name: v1beta1
+      type: date    
     schema:
       openAPIV3Schema:
         properties:
