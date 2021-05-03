@@ -1,23 +1,27 @@
-apiVersion: apiextensions.k8s.io/v1
+apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   annotations:
     cert-manager.io/inject-ca-from: kubeflow/serving-cert
     controller-gen.kubebuilder.io/version: v0.3.1-0.20200528125929-5c0c6ae3b64b
-    kfctl.kubeflow.io/kfdef-instance: kubeflow.kubeflow
+  labels:
+    app: kfserving
+    app.kubernetes.io/component: kfserving
+    app.kubernetes.io/name: kfserving
+    kustomize.component: kfserving
+  name: inferenceservices.serving.kubeflow.org
 spec:
   conversion:
+    conversionReviewVersions:
+    - v1alpha2
+    - v1beta1
     strategy: Webhook
-    webhook:
-      clientConfig:
-        caBundle: Cg==
-        service:
-          name: kfserving-webhook-server-service
-          namespace: kubeflow
-          path: /convert
-          port: 443
-      conversionReviewVersions:
-      - v1beta1
+    webhookClientConfig:
+      caBundle: Cg==
+      service:
+        name: kfserving-webhook-server-service
+        namespace: kubeflow
+        path: /convert
   group: serving.kubeflow.org
   names:
     kind: InferenceService
@@ -26,28 +30,31 @@ spec:
     shortNames:
     - isvc
     singular: inferenceservice
+  preserveUnknownFields: false
   scope: Namespaced
+  subresources:
+    status: {}  
   versions:
   - additionalPrinterColumns:
-    - jsonPath: .status.url
+    - JSONPath: .status.url
       name: URL
       type: string
-    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+    - JSONPath: .status.conditions[?(@.type=='Ready')].status
       name: Ready
       type: string
-    - jsonPath: .status.components.predictor.traffic[?(@.tag=='prev')].percent
+    - JSONPath: .status.components.predictor.traffic[?(@.tag=='prev')].percent
       name: Prev
       type: integer
-    - jsonPath: .status.components.predictor.traffic[?(@.latestRevision==true)].percent
+    - JSONPath: .status.components.predictor.traffic[?(@.latestRevision==true)].percent
       name: Latest
       type: integer
-    - jsonPath: .status.components.predictor.traffic[?(@.tag=='prev')].revisionName
+    - JSONPath: .status.components.predictor.traffic[?(@.tag=='prev')].revisionName
       name: PrevRolledoutRevision
       type: string
-    - jsonPath: .status.components.predictor.traffic[?(@.latestRevision==true)].revisionName
+    - JSONPath: .status.components.predictor.traffic[?(@.latestRevision==true)].revisionName
       name: LatestReadyRevision
       type: string
-    - jsonPath: .metadata.creationTimestamp
+    - JSONPath: .metadata.creationTimestamp
       name: Age
       type: date
     name: v1beta1
@@ -11308,8 +11315,6 @@ spec:
         type: object
     served: true
     storage: true
-    subresources:
-      status: {}
 status:
   acceptedNames:
     kind: ""
