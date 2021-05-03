@@ -18,6 +18,7 @@ spec:
   scope: Namespaced
   subresources:
     status: {}
+  version: v1beta1
   versions:
   - additionalPrinterColumns:
     - JSONPath: .status.url
