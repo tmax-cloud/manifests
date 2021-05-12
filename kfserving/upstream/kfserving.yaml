@@ -16563,3 +16563,12 @@ webhooks:
     - UPDATE
     resources:
     - trainedmodels
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: ck-selfsigned-clusterissuer
+  labels:
+    some-annotation: "true"
+spec:
+  selfSigned: {}    
