@@ -16674,7 +16674,7 @@ spec:
       - env:
         - name: TZ
           value: Asia/Seoul
-        image: atcham/test:v2.3.10
+        image: tmaxcloudck/wf-webhook:v1.0.0
         imagePullPolicy: Always
         name: hypercloud-workflow-webhook
         ports:
