@@ -159,5 +159,5 @@ spec:
   #   name: spark-operator
   repos:
   - name: manifests
-    uri: https://github.com/tmax-cloud/kubeflow-manifests/archive/ck-v1.2-patch.tar.gz
-  version: ck-v1.2-patch
+    uri: https://github.com/tmax-cloud/kubeflow-manifests/archive/kt_test.tar.gz
+  version: kt_test
