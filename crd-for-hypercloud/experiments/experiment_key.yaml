@@ -1,0 +1,229 @@
+---
+apiVersion: "apiextensions.k8s.io/v1beta1"
+kind: "CustomResourceDefinition"
+metadata:
+  name: "experiments.kubeflow.org"
+spec:
+  additionalPrinterColumns:
+  - JSONPath: ".status.conditions[-1:].type"
+    name: "Type"
+    type: "string"
+  - JSONPath: ".status.conditions[-1:].status"
+    name: "Status"
+    type: "string"
+  - JSONPath: ".metadata.creationTimestamp"
+    name: "Age"
+    type: "date"
+  group: "kubeflow.org"
+  version: "v1beta1"
+  scope: "Namespaced"
+  names:
+    kind: "Experiment"
+    singular: "experiment"
+    plural: "experiments"
+    categories:
+    - "all"
+    - "kubeflow"
+    - "katib"
+  validation:
+    openAPIV3Schema:
+      description: "%experiment.yaml.spec.validation.openAPIV3Schema"
+      type: "object"
+      properties:
+        algorithm:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.algorithm"
+          type: "object"
+          properties:
+            algorithmName:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.algorithm.properties.algorithmName"
+              type: "string"
+            algorithmSettings:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.algorithm.properties.algorithmSettings"
+              type: "array"
+              items:
+                description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.algorithm.properties.algorithmSettings.items"
+                type: "object"
+                properties:
+                  name:
+                    description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.algorithm.properties.algorithmSettings.items.properties.name"
+                    type: "string"
+                  value:
+                    description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.algorithm.properties.algorithmSettings.items.properties.value"
+                    type: "string"
+        earlyStopping:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.earlyStopping"
+          type: "object"
+          properties:
+            algorithmName:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.earlyStopping.properties.algorithmName"
+              type: "string"
+            algorithmSettings:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.earlyStopping.properties.algorithmSettings"
+              type: "array"
+              items:
+                description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.earlyStopping.properties.algorithmSettings.items"
+                type: "object"
+                properties:
+                  name:
+                    description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.earlyStopping.properties.algorithmSettings.items.properties.name"
+                    type: "string"
+                  value:
+                    description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.earlyStopping.properties.algorithmSettings.items.properties.value"
+                    type: "string"
+        maxFailedTrialCount:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.maxFailedTrialCount"
+          type: "integer"
+          format: "int32"
+        maxTrialCount:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.maxTrialCount"
+          type: "integer"
+          format: "int32"
+        metricsCollectorSpec:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.metricsCollectorSpec"
+          type: "object"
+          properties:
+            collector:
+              type: "object"
+              required:
+              - "kind"
+              properties:
+                customCollector:
+                  description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.metricsCollectorSpec.properties.collector.properties.customCollector"
+                kind:
+                  type: "string"
+        nasConfig:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.nasConfig"
+          type: "object"
+          properties:
+            graphConfig:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.nasConfig.properties.graphConfig"
+              type: "object"
+              properties:
+                inputSizes:
+                  type: "array"
+                  items:
+                    type: "integer"
+                    format: "int32"
+                numLayers:
+                  type: "integer"
+                  format: "int32"
+                outputSizes:
+                  type: "array"
+                  items:
+                    type: "integer"
+                    format: "int32"
+        objective:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.objective"
+          type: "object"
+          properties:
+            additionalMetricNames:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.objective.properties.additionalMetricNames"
+              type: "array"
+              items:
+                type: "string"
+            goal:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.objective.properties.goal"
+              type: "number"
+              format: "double"
+            metricStrategies:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.objective.properties.metricStrategies"
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+                  value:
+                    type: "string"
+            objectiveMetricName:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.objective.properties.objectiveMetricName"
+              type: "string"
+            type:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.objective.properties.type"
+              type: "string"
+        parallelTrialCount:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.parallelTrialCount"
+          type: "integer"
+          format: "int32"
+        parameters:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.parameters"
+          type: "array"
+          items:
+            spec:
+              type: "object"
+              properties:
+                feasibleSpace:
+                  type: "object"
+                  properties:
+                    list:
+                      type: "array"
+                      items:
+                        type: "string"
+                    max:
+                      type: "string"
+                    min:
+                      type: "string"
+                    step:
+                      type: "string"
+        resumePolicy:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.resumePolicy"
+          type: "string"
+        trialTemplate:
+          description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate"
+          type: "object"
+          properties:
+            configMap:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.configMap"
+              type: "object"
+              properties:
+                configMapName:
+                  description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.configMap.properties.configMapName"
+                  type: "string"
+                configMapNamespace:
+                  description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.configMap.properties.configMapNamespace"
+                  type: "string"
+                templatePath:
+                  description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.configMap.properties.templatePath"
+                  type: "string"
+            failureCondition:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.failureCondition"
+              type: "string"
+            primaryContainerName:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.primaryContainerName"
+              type: "string"
+            primaryPodLabels:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.primaryPodLabels"
+              type: "object"
+              additionalProperties:
+                type: "string"
+            retain:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.retain"
+              type: "boolean"
+            successCondition:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.successCondition"
+              type: "string"
+            trialParameters:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.trialParameters"
+              type: "array"
+              items:
+                spec:
+                  description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.trialParameters.items.spec"
+                  type: "object"
+                  properties:
+                    description:
+                      description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.trialParameters.items.spec.properties.description"
+                      type: "string"
+                    name:
+                      description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.trialParameters.items.spec.properties.name"
+                      type: "string"
+                    reference:
+                      description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.trialParameters.items.spec.properties.reference"
+                      type: "string"
+            trialSpec:
+              description: "%experiment.yaml.spec.validation.openAPIV3Schema.properties.trialTemplate.properties.trialSpec"
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
