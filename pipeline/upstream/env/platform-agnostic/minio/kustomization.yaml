@@ -8,6 +8,7 @@ resources:
 
 secretGenerator:
 - name: mlpipeline-minio-artifact
+  namespace : kubeflow
   envs: ["minio-artifact-secret.env"]
 generatorOptions:
   # mlpipeline-minio-artifact needs to be referred by exact name
