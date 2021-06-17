@@ -25,201 +25,207 @@ spec:
       - kubeflow
       - katib
   validation:
-    openAPIV3Schema:    
-      description: "ExperimentSpec is the specification of an Experiment."
-      type: object
+    openAPIV3Schema:
       properties:
-        algorithm:            
-          description: "AlgorithmSpec is the specification for a HP or NAS algorithm."
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        metadata:
           type: object
+        spec:
           properties:
-            algorithmName:
-              description: "HP or NAS algorithm name."
-              type: string
-            algorithmSettings:
-              description: "Key-value pairs representing settings for suggestion algorithms."
-              type: array
-              items: 
-                description: "AlgorithmSetting represents key-value pair for HP or NAS algorithm settings."
-                type: object
-                properties:
-                  name:
-                    description: "Name is setting name."
-                    type: string
-                  value:
-                    description: "Value is the setting value."
-                    type: string                       
-        earlyStopping:
-          description: "EarlyStoppingSpec is the specification for a early stopping algorithm."
-          type: object
-          properties:
-            algorithmName:
-              description: "Early stopping algorithm name."
-              type: string
-            algorithmSettings:          
-              description: "Key-value pairs representing settings for early stopping algorithm."
-              type: array
-              items:
-                description: "EarlyStoppingSetting represents key-value pair for early stopping algorithm settings."
-                type: object
-                properties:
-                  name:
-                    description: "Name is the setting name."
-                    type: string
-                  value:
-                    description: "Value is the setting value."
-                    type: string    
-        maxFailedTrialCount:
-          description: "Max failed trials to mark experiment as failed."
-          type: integer
-          format: int32
-        maxTrialCount:
-          description: "Max completed trials to mark experiment as succeeded"
-          type: integer
-          format: int32
-        metricsCollectorSpec:
-          description: "Describes the specification of the metrics collector"
-          type: object
-          properties:
-            collector:                
-                type: object
-                required:
-                - kind
-                properties:
-                  customCollector:
-                    description: "When kind is \"customCollector\", this field will be used"
-                  kind:
-                    type: string  
-        nasConfig:
-          description: "NasConfig contains config for NAS job"
-          type: object
-          properties:
-            graphConfig:
-              description: "GraphConfig contains a config of DAG"
+            algorithm:            
+              description: "AlgorithmSpec is the specification for a HP or NAS algorithm."
               type: object
               properties:
-                inputSizes:
+                algorithmName:
+                  description: "HP or NAS algorithm name."
+                  type: string
+                algorithmSettings:
+                  description: "Key-value pairs representing settings for suggestion algorithms."
                   type: array
-                  items:
-                    type: integer
-                    format: int32                      
-                numLayers:
-                  type: integer
-                  format: int32
-                outputSizes:
-                  type: array
-                  items:
-                    type: integer
-                    format: int32                      
-        objective:                   
-          description: "ObjectiveSpec represents Experiment's objective specification."
-          type: object
-          properties:
-            additionalMetricNames:
-              description: "AdditionalMetricNames represents metrics that should be collected from Trials. This can be empty if we only care about the objective metric. Note: If we adopt a push instead of pull mechanism, this can be omitted completely."
-              type: array
-              items:
-                type: string
-            goal:
-              description: "Goal is the Experiment's objective goal that should be reached. In case of empty goal, Experiment is running until MaxTrialCount = TrialsSucceeded."
-              type: number
-              format: double
-            metricStrategies:
-              description: "MetricStrategies defines various rules (min, max or latest) to extract metrics values. This field is allowed to missing, experiment defaulter (webhook) will fill it."
-              type: array
-              items:
-                type: object
-                properties:
-                  name:
-                    type: string
-                  value: 
-                    type: string
-            objectiveMetricName:
-              description: "ObjectiveMetricName represents primary Experiment's metric to optimize."
-              type: string
-            type:
-              description: "Type for Experiment optimization."
-              type: string           
-        parallelTrialCount:
-          description: "How many trials can be processed in parallel. Defaults to 3"
-          type: integer
-          format: int32
-        parameters:
-          description: "List of hyperparameter configurations."
-          type: array
-          items:
-            spec:
+                  items: 
+                    description: "AlgorithmSetting represents key-value pair for HP or NAS algorithm settings."
+                    type: object
+                    properties:
+                      name:
+                        description: "Name is setting name."
+                        type: string
+                      value:
+                        description: "Value is the setting value."
+                        type: string                       
+            earlyStopping:
+              description: "EarlyStoppingSpec is the specification for a early stopping algorithm."
               type: object
               properties:
-                feasibleSpace:
+                algorithmName:
+                  description: "Early stopping algorithm name."
+                  type: string
+                algorithmSettings:          
+                  description: "Key-value pairs representing settings for early stopping algorithm."
+                  type: array
+                  items:
+                    description: "EarlyStoppingSetting represents key-value pair for early stopping algorithm settings."
+                    type: object
+                    properties:
+                      name:
+                        description: "Name is the setting name."
+                        type: string
+                      value:
+                        description: "Value is the setting value."
+                        type: string    
+            maxFailedTrialCount:
+              description: "Max failed trials to mark experiment as failed."
+              type: integer
+              format: int32
+            maxTrialCount:
+              description: "Max completed trials to mark experiment as succeeded"
+              type: integer
+              format: int32
+            metricsCollectorSpec:
+              description: "Describes the specification of the metrics collector"
+              type: object
+              properties:
+                collector:                
+                    type: object
+                    required:
+                    - kind
+                    properties:
+                      customCollector:
+                        description: "When kind is \"customCollector\", this field will be used"
+                      kind:
+                        type: string  
+            nasConfig:
+              description: "NasConfig contains config for NAS job"
+              type: object
+              properties:
+                graphConfig:
+                  description: "GraphConfig contains a config of DAG"
                   type: object
                   properties:
-                    list:
+                    inputSizes:
                       type: array
                       items:
-                        type: string
-                    max:
-                      type: string
-                    min:
-                      type: string
-                    step:
-                      type: string
-        resumePolicy:
-          description: "Describes resuming policy which usually take effect after experiment terminated."
-          type: string
-        trialTemplate:
-          description: "TrialTemplate describes structure of trial template"
-          type: object
-          properties:
-            configMap:                
-              description: "ConfigMapSource references the config map where trial template is located"
+                        type: integer
+                        format: int32                      
+                    numLayers:
+                      type: integer
+                      format: int32
+                    outputSizes:
+                      type: array
+                      items:
+                        type: integer
+                        format: int32                      
+            objective:                   
+              description: "ObjectiveSpec represents Experiment's objective specification."
               type: object
               properties:
-                configMapName:
-                  description: "Name of config map where trial template is located"
+                additionalMetricNames:
+                  description: "AdditionalMetricNames represents metrics that should be collected from Trials. This can be empty if we only care about the objective metric. Note: If we adopt a push instead of pull mechanism, this can be omitted completely."
+                  type: array
+                  items:
+                    type: string
+                goal:
+                  description: "Goal is the Experiment's objective goal that should be reached. In case of empty goal, Experiment is running until MaxTrialCount = TrialsSucceeded."
+                  type: number
+                  format: double
+                metricStrategies:
+                  description: "MetricStrategies defines various rules (min, max or latest) to extract metrics values. This field is allowed to missing, experiment defaulter (webhook) will fill it."
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      value: 
+                        type: string
+                objectiveMetricName:
+                  description: "ObjectiveMetricName represents primary Experiment's metric to optimize."
                   type: string
-                configMapNamespace:
-                  description: "Namespace of config map where trial template is located"
-                  type: string
-                templatePath:
-                  description: "Path in config map where trial template is located"
-                  type: string   
-            failureCondition:
-              description: "Condition when trial custom resource is failed. Condition must be in GJSON format, ref https://github.com/tidwall/gjson. For example for BatchJob: status.conditions.#(type==\"Failed\")#|#(status==\"True\")#"
-              type: string
-            primaryContainerName:
-              description: "Name of training container where actual model training is running"
-              type: string
-            primaryPodLabels:
-              description: "Labels that determines if pod needs to be injected by Katib sidecar container. If PrimaryPodLabels is omitted, metrics collector wraps all Trial's pods."
-              type: object
-              additionalProperties:
-                type: string
-            retain:
-              description: "Retain indicates that trial resources must be not cleanup"
-              type: boolean
-            successCondition:
-              description: "Condition when trial custom resource is succeeded. Condition must be in GJSON format, ref https://github.com/tidwall/gjson. For example for BatchJob: status.conditions.#(type==\"Complete\")#|#(status==\"True\")#"
-              type: string
-            trialParameters:
-              description: "List of parameters that are used in trial template"
+                type:
+                  description: "Type for Experiment optimization."
+                  type: string           
+            parallelTrialCount:
+              description: "How many trials can be processed in parallel. Defaults to 3"
+              type: integer
+              format: int32
+            parameters:
+              description: "List of hyperparameter configurations."
               type: array
               items:
                 spec:
-                  description: "TrialParameterSpec describes parameters that must be replaced in trial template"
                   type: object
                   properties:
-                    description:
-                      description: "Description of the parameter"
+                    feasibleSpace:
+                      type: object
+                      properties:
+                        list:
+                          type: array
+                          items:
+                            type: string
+                        max:
+                          type: string
+                        min:
+                          type: string
+                        step:
+                          type: string
+            resumePolicy:
+              description: "Describes resuming policy which usually take effect after experiment terminated."
+              type: string
+            trialTemplate:
+              description: "TrialTemplate describes structure of trial template"
+              type: object
+              properties:
+                configMap:                
+                  description: "ConfigMapSource references the config map where trial template is located"
+                  type: object
+                  properties:
+                    configMapName:
+                      description: "Name of config map where trial template is located"
                       type: string
-                    name:
-                      description: "Name of the parameter that must be replaced in trial template"   
+                    configMapNamespace:
+                      description: "Namespace of config map where trial template is located"
                       type: string
-                    reference:
-                      description: "Reference to the parameter in search space"
-                      type: string
-            trialSpec:
-              description: "TrialSpec represents trial template in unstructured format"    
+                    templatePath:
+                      description: "Path in config map where trial template is located"
+                      type: string   
+                failureCondition:
+                  description: "Condition when trial custom resource is failed. Condition must be in GJSON format, ref https://github.com/tidwall/gjson. For example for BatchJob: status.conditions.#(type==\"Failed\")#|#(status==\"True\")#"
+                  type: string
+                primaryContainerName:
+                  description: "Name of training container where actual model training is running"
+                  type: string
+                primaryPodLabels:
+                  description: "Labels that determines if pod needs to be injected by Katib sidecar container. If PrimaryPodLabels is omitted, metrics collector wraps all Trial's pods."
+                  type: object
+                  additionalProperties:
+                    type: string
+                retain:
+                  description: "Retain indicates that trial resources must be not cleanup"
+                  type: boolean
+                successCondition:
+                  description: "Condition when trial custom resource is succeeded. Condition must be in GJSON format, ref https://github.com/tidwall/gjson. For example for BatchJob: status.conditions.#(type==\"Complete\")#|#(status==\"True\")#"
+                  type: string
+                trialParameters:
+                  description: "List of parameters that are used in trial template"
+                  type: array
+                  items:
+                    spec:
+                      description: "TrialParameterSpec describes parameters that must be replaced in trial template"
+                      type: object
+                      properties:
+                        description:
+                          description: "Description of the parameter"
+                          type: string
+                        name:
+                          description: "Name of the parameter that must be replaced in trial template"   
+                          type: string
+                        reference:
+                          description: "Reference to the parameter in search space"
+                          type: string
+                trialSpec:
+                  description: "TrialSpec represents trial template in unstructured format"    
 status:
   acceptedNames:
     kind: ""
