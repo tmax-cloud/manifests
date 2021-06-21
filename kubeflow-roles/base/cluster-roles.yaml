@@ -108,6 +108,17 @@ rules:
   verbs:
   - impersonate
 - apiGroups:
+  - tekton.dev
+  resources:
+  - tasks
+  - taskruns
+  - pipelines
+  - pipelineruns
+  - pipelineresources
+  - conditions
+  verbs:
+  - '*' 
+- apiGroups:
   - ""
   resources:
   - pods
