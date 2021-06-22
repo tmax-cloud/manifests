@@ -40,7 +40,7 @@ spec:
           value: 'true'
         - name: BASE_HREF
           value: /
-        image: argoproj/argocli:v2.8.0
+        image: argoproj/argocli:v2.11.7
         imagePullPolicy: IfNotPresent
         name: argo-ui
         ports:
