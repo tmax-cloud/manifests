@@ -16,25 +16,34 @@ spec:
     type: "date"
   group: "kubeflow.org"
   version: "v1beta1"
-  scope: "Namespaced"
   names:
-    kind: "Experiment"
-    singular: "experiment"
-    plural: "experiments"
     categories:
     - "all"
     - "kubeflow"
     - "katib"
+    kind: "Experiment"
+    listKind: "ExperimentList"
+    plural: "experiments"
+    singular: "experiment"
+  scope: "Namespaced"
+  subresources:
+    status: {}
   validation:
     openAPIV3Schema:
+      description: "%experiment_original.yaml.spec.validation.openAPIV3Schema"
+      type: "object"
       properties:
         apiVersion:
+          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.apiVersion"
           type: "string"
         kind:
+          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.kind"
           type: "string"
         metadata:
           type: "object"
         spec:
+          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec"
+          type: "object"
           properties:
             algorithm:
               description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.algorithm"
@@ -95,8 +104,68 @@ spec:
                   properties:
                     customCollector:
                       description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.collector.properties.customCollector"
+                      type: "object"
+                      required:
+                      - "image"
+                      properties:
+                        image:
+                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.collector.properties.customCollector.properties.image"
+                          type: "string"
                     kind:
                       type: "string"
+                source:
+                  type: "object"
+                  properties:
+                    fileSystemPath:
+                      description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.fileSystemPath"
+                      type: "object"
+                      properties:
+                        kind:
+                          type: "string"
+                        path:
+                          type: "string"
+                    filter:
+                      description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.filter"
+                      type: "object"
+                      properties:
+                        metricsFormat:
+                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.filter.properties.metricsFormat"
+                          type: "array"
+                          items:
+                            type: "string"
+                    httpGet:
+                      description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.httpGet"
+                      type: "object"
+                      required:
+                      - "port"
+                      properties:
+                        host:
+                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.httpGet.properties.host"
+                          type: "string"
+                        httpHeaders:
+                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.httpGet.properties.httpHeaders"
+                          type: "array"
+                          items:
+                            type: "object"
+                            required:
+                            - "name"
+                            - "value"
+                            properties:
+                              name:
+                                description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.httpGet.properties.httpHeaders.items.properties.name"
+                                type: "string"
+                              value:
+                                description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.httpGet.properties.httpHeaders.items.properties.value"
+                                type: "string"
+                        path:
+                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.httpGet.properties.path"
+                          type: "string"
+                        port:
+                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.httpGet.properties.port"
+                          type: "string"
+                        scheme:
+                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.metricsCollectorSpec.properties.source.properties.httpGet.properties.scheme"
+                          type: "string"
             nasConfig:
               description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.nasConfig"
               type: "object"
@@ -118,6 +187,36 @@ spec:
                       items:
                         type: "integer"
                         format: "int32"
+                operations:
+                  type: "array"
+                  items:
+                    description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.nasConfig.properties.operations.items"
+                    type: "object"
+                    properties:
+                      operationType:
+                        type: "string"
+                      parameters:
+                        type: "array"
+                        items:
+                          type: "object"
+                          properties:
+                            feasibleSpace:
+                              type: "object"
+                              properties:
+                                list:
+                                  type: "array"
+                                  items:
+                                    type: "string"
+                                max:
+                                  type: "string"
+                                min:
+                                  type: "string"
+                                step:
+                                  type: "string"
+                            name:
+                              type: "string"
+                            parameterType:
+                              type: "string"
             objective:
               description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.objective"
               type: "object"
@@ -155,22 +254,25 @@ spec:
               description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.parameters"
               type: "array"
               items:
-                spec:
-                  type: "object"
-                  properties:
-                    feasibleSpace:
-                      type: "object"
-                      properties:
-                        list:
-                          type: "array"
-                          items:
-                            type: "string"
-                        max:
+                type: "object"
+                properties:
+                  feasibleSpace:
+                    type: "object"
+                    properties:
+                      list:
+                        type: "array"
+                        items:
                           type: "string"
-                        min:
-                          type: "string"
-                        step:
-                          type: "string"
+                      max:
+                        type: "string"
+                      min:
+                        type: "string"
+                      step:
+                        type: "string"
+                  name:
+                    type: "string"
+                  parameterType:
+                    type: "string"
             resumePolicy:
               description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.resumePolicy"
               type: "string"
@@ -212,24 +314,21 @@ spec:
                   description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.trialTemplate.properties.trialParameters"
                   type: "array"
                   items:
-                    spec:
-                      description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.trialTemplate.properties.trialParameters.items.spec"
-                      type: "object"
-                      properties:
-                        description:
-                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.trialTemplate.properties.trialParameters.items.spec.properties.description"
-                          type: "string"
-                        name:
-                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.trialTemplate.properties.trialParameters.items.spec.properties.name"
-                          type: "string"
-                        reference:
-                          description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.trialTemplate.properties.trialParameters.items.spec.properties.reference"
-                          type: "string"
+                    type: "object"
+                    properties:
+                      description:
+                        description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.trialTemplate.properties.trialParameters.items.properties.description"
+                        type: "string"
+                      name:
+                        description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.trialTemplate.properties.trialParameters.items.properties.name"
+                        type: "string"
+                      reference:
+                        description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.trialTemplate.properties.trialParameters.items.properties.reference"
+                        type: "string"
                 trialSpec:
                   description: "%experiment_original.yaml.spec.validation.openAPIV3Schema.properties.spec.properties.trialTemplate.properties.trialSpec"
-status:
-  acceptedNames:
-    kind: ""
-    plural: ""
-  conditions: []
-  storedVersions: []
+                  type: "object"
+  versions:
+  - name: "v1beta1"
+    served: true
+    storage: true
