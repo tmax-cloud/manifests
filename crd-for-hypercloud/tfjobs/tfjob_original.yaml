@@ -22,8 +22,9 @@ spec:
     openAPIV3Schema:
       type: object
       properties:
-        spec:
+        spec:          
           description: TFJobSpec is a desired state description of the TFJob.
+          type: object
           required:
             - tfReplicaSpecs
           properties:
