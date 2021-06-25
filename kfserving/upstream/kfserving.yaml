@@ -16578,14 +16578,14 @@ kind: MutatingWebhookConfiguration
 metadata:
   name: hypercloud-workflow-webhook-mutator
   annotations:
-    cert-manager.io/inject-ca-from: argo/selfsigned-cert-example
+    cert-manager.io/inject-ca-from: kubeflow/selfsigned-cert-example
 webhooks:
 - admissionReviewVersions:
   - v1beta1
   clientConfig:
     service:
       name: hypercloud-workflow-webhook-svc
-      namespace: argo
+      namespace: kubeflow
       path: /api/webhook/add-serviceaccount/workflow 
       port: 443
   failurePolicy: Fail
@@ -16616,7 +16616,7 @@ webhooks:
   clientConfig:
     service:
       name: hypercloud-workflow-webhook-svc
-      namespace: argo
+      namespace: kubeflow
       path: /api/webhook/add-serviceaccount/workflowtemplate
       port: 443
   failurePolicy: Fail
@@ -16650,7 +16650,7 @@ metadata:
   labels:
     hypercloud: workflow-webhook
   name: hypercloud-workflow-webhook
-  namespace: argo
+  namespace: kubeflow
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -16710,8 +16710,8 @@ kind: Service
 metadata:
   annotations:
   name: hypercloud-workflow-webhook-svc
-  namespace: argo
-  selfLink: /api/v1/namespaces/argo/services/hypercloud-workflow-webhook-svc
+  namespace: kubeflow
+  selfLink: /api/v1/namespaces/kubeflow/services/hypercloud-workflow-webhook-svc
 spec:
   ports:
   - port: 443
@@ -16725,7 +16725,7 @@ apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: selfsigned-cert-example
-  namespace: argo
+  namespace: kubeflow
   labels:
     some-annotation: "true"
 spec:
@@ -16733,8 +16733,8 @@ spec:
   duration: 2880h
   renewBefore: 360h
   dnsNames:
-    - hypercloud-workflow-webhook-svc.argo.svc
-    - hypercloud-workflow-webhook-svc.argo.svc.cluster.local
+    - hypercloud-workflow-webhook-svc.kubeflow.svc
+    - hypercloud-workflow-webhook-svc.kubeflow.svc.cluster.local
     - add-serviceaccount.workflow.svc
     - add-serviceaccount.workflowtemplate.svc
   isCA: false
