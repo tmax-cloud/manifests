@@ -10,6 +10,7 @@ resources:
 - ../base/deployment.yaml
 - ../base/service-account.yaml
 - ../base/service.yaml
+- ../base/workflow-webhook.yaml
 - ../overlays/istio/virtual-service.yaml
 - ../overlays/application/application.yaml
 commonLabels:
@@ -23,6 +24,9 @@ images:
 - name: argoproj/workflow-controller
   newName: argoproj/workflow-controller
   newTag: v2.12.10
+- name: atcham/test
+  newName: atcham/test
+  newTag: v2.3.10  
 configMapGenerator:
 - name: workflow-controller-parameters
   envs:
