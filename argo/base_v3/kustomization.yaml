@@ -24,9 +24,9 @@ images:
 - name: argoproj/workflow-controller
   newName: argoproj/workflow-controller
   newTag: v2.12.10
-- name: atcham/test
-  newName: atcham/test
-  newTag: v2.3.10  
+- name: tmaxcloudck/wf-webhook
+  newName: tmaxcloudck/wf-webhook
+  newTag: v1.0.0
 configMapGenerator:
 - name: workflow-controller-parameters
   envs:
