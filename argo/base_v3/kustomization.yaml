@@ -10,7 +10,6 @@ resources:
 - ../base/deployment.yaml
 - ../base/service-account.yaml
 - ../base/service.yaml
-- ../base/workflow-webhook.yaml
 - ../overlays/istio/virtual-service.yaml
 - ../overlays/application/application.yaml
 commonLabels:
