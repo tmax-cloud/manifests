@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: notebook-controller
-        image: tmaxcloudck/notebook-controller-go:b0.0.4 
+        image: tmaxcloudck/notebook-controller-go:b0.1.0 
         imagePullPolicy: Always
       serviceAccountName: service-account
