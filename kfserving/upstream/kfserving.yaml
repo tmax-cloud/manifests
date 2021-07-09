@@ -16571,6 +16571,24 @@ webhooks:
     - UPDATE
     resources:
     - trainedmodels
+---
+apiVersion: "security.istio.io/v1beta1"
+kind: "PeerAuthentication"
+metadata:
+  name: "default"
+  namespace: "istio-system"
+spec:
+  mtls:
+    mode: DISABLE
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: ck-selfsigned-clusterissuer
+  labels:
+    some-annotation: "true"
+spec:
+  selfSigned: {}         
 
 
 
