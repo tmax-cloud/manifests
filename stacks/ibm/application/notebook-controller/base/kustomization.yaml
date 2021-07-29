@@ -27,3 +27,4 @@ resources:
 - ../../../../../jupyter/notebook-controller/base/deployment.yaml
 - ../../../../../jupyter/notebook-controller/base/service-account.yaml
 - ../../../../../jupyter/notebook-controller/base/service.yaml
+- ../../../../../jupyter/notebook-controller/base/console-yaml-sample.yaml

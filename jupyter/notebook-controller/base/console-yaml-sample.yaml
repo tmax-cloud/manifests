@@ -1,0 +1,44 @@
+apiVersion: console.tmax.io/v1
+kind: ConsoleYAMLSample
+metadata:
+  name: kale
+spec:
+  description: An example Notebook with Tmax-KALE
+  targetResource:
+    apiVersion: kubeflow.tmax.io/v1
+    kind: Notebook
+  title: Tmax-KALE Notebook
+  yaml: |
+    apiVersion: kubeflow.tmax.io/v1
+    kind: Notebook
+    metadata:
+      labels:
+        app: kale-notebook
+      name: kale-notebook
+    spec:
+      template:
+        spec:
+          containers:
+          - env: []
+            image: 'tmaxcloudck/jupyterlab-kale:b1.0.0'
+            name: demo
+            resources:
+              requests:
+                cpu: "0.5"
+                memory: 1.0Gi
+            volumeMounts:
+            - mountPath: /home/jovyan
+              name: demo-pvc
+            - mountPath: /dev/shm
+              name: dshm
+          serviceAccountName: default-editor
+          volumes:
+          - name: demo-pvc
+            persistentVolumeClaim:
+              claimName: demo-pvc
+          - emptyDir:
+              medium: Memory
+            name: dshm
+      volumeClaim:
+      - name: demo-pvc
+        size: 10Gi
