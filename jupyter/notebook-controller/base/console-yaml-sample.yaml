@@ -20,7 +20,7 @@ spec:
         spec:
           containers:
           - env: []
-            image: 'tmaxcloudck/jupyterlab-kale:b1.0.0'
+            image: 'tmaxcloudck/jupyterlab-kale:b1.0.1'
             name: demo
             resources:
               requests:
