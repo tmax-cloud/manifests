@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: katib-db-manager
+  name: kubeflow-service-account
   namespace: kubeflow
 ---
 apiVersion: apps/v1
@@ -47,4 +47,4 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 60
             failureThreshold: 5
-      serviceAccountName: katib-db-manager   
+      serviceAccountName: kubeflow-service-account
