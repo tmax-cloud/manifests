@@ -1,3 +1,10 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: minio-service-account
+  namespace: kubeflow
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -39,6 +46,7 @@ spec:
         - mountPath: /data
           name: data
           subPath: minio
+      serviceAccountName: minio-service-account    
       volumes:
       - name: data
         persistentVolumeClaim:
