@@ -16392,7 +16392,7 @@ spec:
       app.kubernetes.io/component: kfserving
       app.kubernetes.io/name: kfserving
 ---
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   labels:
@@ -16411,7 +16411,7 @@ spec:
     name: selfsigned-issuer
   secretName: kfserving-webhook-server-cert
 ---
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   labels:
@@ -16587,15 +16587,7 @@ metadata:
 spec:
   mtls:
     mode: DISABLE
----
-apiVersion: cert-manager.io/v1alpha2
-kind: ClusterIssuer
-metadata:
-  name: ck-selfsigned-clusterissuer
-  labels:
-    some-annotation: "true"
-spec:
-  selfSigned: {}         
+
 
 
 
