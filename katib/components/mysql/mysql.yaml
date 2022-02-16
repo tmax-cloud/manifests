@@ -65,6 +65,7 @@ spec:
                 - "mysqladmin ping -u root -p${MYSQL_ROOT_PASSWORD}"
             periodSeconds: 15
             failureThreshold: 60
+            initialDelaySeconds: 300
           volumeMounts:
             - name: katib-mysql
               mountPath: /var/lib/mysql

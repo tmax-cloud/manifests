@@ -37,11 +37,6 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: stacks/ibm/application/argo
-    name: argo  
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
         path: pipeline/minio/installs/generic
     name: minio
   - kustomizeConfig:
