@@ -69,8 +69,16 @@ spec:
             memory: 60Mi
         securityContext:
           allowPrivilegeEscalation: false
-      serviceAccountName: controller
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: controller-token
+          readOnly: true
       terminationGracePeriodSeconds: 300
+      volumes:
+      - name: controller-token
+        secret:
+          defaultMode: 420
+          secretName: controller-token
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -134,7 +142,15 @@ spec:
             memory: 40Mi
         securityContext:
           allowPrivilegeEscalation: false
-      serviceAccountName: controller
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: controller-token
+          readOnly: true
+      volumes:
+      - name: controller-token
+        secret:
+          defaultMode: 420
+          secretName: controller-token       
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -185,7 +201,15 @@ spec:
             memory: 40Mi
         securityContext:
           allowPrivilegeEscalation: false
-      serviceAccountName: controller
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: controller-token
+          readOnly: true
+      volumes:
+      - name: controller-token
+        secret:
+          defaultMode: 420
+          secretName: controller-token 
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -238,7 +262,15 @@ spec:
             memory: 20Mi
         securityContext:
           allowPrivilegeEscalation: false
-      serviceAccountName: controller
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: controller-token
+          readOnly: true
+      volumes:
+      - name: controller-token
+        secret:
+          defaultMode: 420
+          secretName: controller-token 
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -287,7 +319,15 @@ spec:
             memory: 100Mi
         securityContext:
           allowPrivilegeEscalation: false
-      serviceAccountName: controller
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: controller-token
+          readOnly: true
+      volumes:
+      - name: controller-token
+        secret:
+          defaultMode: 420
+          secretName: controller-token      
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -342,4 +382,12 @@ spec:
             memory: 20Mi
         securityContext:
           allowPrivilegeEscalation: false
-      serviceAccountName: controller
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: controller-token
+          readOnly: true
+      volumes:
+      - name: controller-token
+        secret:
+          defaultMode: 420
+          secretName: controller-token 

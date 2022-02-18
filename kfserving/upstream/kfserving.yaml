@@ -16328,6 +16328,9 @@ spec:
         - mountPath: /tmp/k8s-webhook-server/serving-certs
           name: cert
           readOnly: true
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kfserving-controller-manager-token
+          readOnly: true  
       - args:
         - --secure-listen-address=0.0.0.0:8443
         - --upstream=http://127.0.0.1:8080/
@@ -16338,13 +16341,16 @@ spec:
         ports:
         - containerPort: 8443
           name: https
-      terminationGracePeriodSeconds: 10
-      serviceAccountName: kfserving-controller-manager
+      terminationGracePeriodSeconds: 10      
       volumes:
       - name: cert
         secret:
           defaultMode: 420
           secretName: kfserving-webhook-server-cert
+      - name: kfserving-controller-manager-token
+        secret:
+          defaultMode: 420
+          secretName: kfserving-controller-manager-token    
 ---
 apiVersion: app.k8s.io/v1beta1
 kind: Application
@@ -16587,7 +16593,14 @@ metadata:
 spec:
   mtls:
     mode: DISABLE
-
-
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kfserving-controller-manager-token
+  namespace: kubeflow
+  annotations:
+    kubernetes.io/service-account.name: kfserving-controller-manager
+type: kubernetes.io/service-account-token
 
 

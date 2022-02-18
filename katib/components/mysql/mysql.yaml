@@ -68,8 +68,7 @@ spec:
             failureThreshold: 60            
           volumeMounts:
             - name: katib-mysql
-              mountPath: /var/lib/mysql
-      serviceAccountName: kubeflow-service-account         
+              mountPath: /var/lib/mysql          
       volumes:
         - name: katib-mysql
           persistentVolumeClaim:

@@ -19,5 +19,14 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
+          volumeMounts:
+          - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+            name: katib-cert-generator-token
+            readOnly: true        
       restartPolicy: Never
+      volumes:
+      - name: katib-cert-generator-token
+        secret:
+          defaultMode: 420
+          secretName: katib-cert-generator-token
   backoffLimit: 4

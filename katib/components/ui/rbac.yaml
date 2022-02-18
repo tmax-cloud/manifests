@@ -37,3 +37,12 @@ subjects:
   - kind: ServiceAccount
     name: katib-ui
     namespace: kubeflow
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: katib-ui-token
+  namespace: kubeflow
+  annotations:
+    kubernetes.io/service-account.name: katib-ui
+type: kubernetes.io/service-account-token  

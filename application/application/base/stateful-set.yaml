@@ -25,5 +25,13 @@ spec:
         # Do we really need this?
         - name: project
           value: $(project)
-      serviceAccountName: service-account
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: application-controller-service-account-token
+          readOnly: true
+      volumes:
+      - name: application-controller-service-account-token
+        secret:
+          defaultMode: 420
+          secretName: application-controller-service-account-token    
   volumeClaimTemplates: []

@@ -66,3 +66,12 @@ subjects:
   - kind: ServiceAccount
     name: katib-cert-generator
     namespace: kubeflow
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: katib-cert-generator-token
+  namespace: kubeflow
+  annotations:
+    kubernetes.io/service-account.name: katib-cert-generator
+type: kubernetes.io/service-account-token     

@@ -39,8 +39,7 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: data
-          subPath: minio
-      serviceAccountName: kubeflow-service-account  
+          subPath: minio        
       volumes:
       - name: data
         persistentVolumeClaim:

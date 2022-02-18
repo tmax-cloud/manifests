@@ -22,4 +22,12 @@ spec:
       - name: notebook-controller
         image: tmaxcloudck/notebook-controller-go:b0.1.0 
         imagePullPolicy: Always
-      serviceAccountName: service-account
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: notebook-controller-service-account-token
+          readOnly: true
+      volumes:
+      - name: notebook-controller-service-account-token
+        secret:
+          defaultMode: 420
+          secretName: notebook-controller-service-account-token      

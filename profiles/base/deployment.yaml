@@ -54,4 +54,12 @@ spec:
         - containerPort: 8081
           name: kfam-http
           protocol: TCP
-      serviceAccountName: controller-service-account
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: profiles-controller-service-account-token
+          readOnly: true
+      volumes:
+      - name: profiles-controller-service-account-token
+        secret:
+          defaultMode: 420
+          secretName: profiles-controller-service-account-token

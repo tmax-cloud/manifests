@@ -1,10 +1,4 @@
 ---
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: kubeflow-service-account
-  namespace: kubeflow
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -47,4 +41,4 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 60
             failureThreshold: 5
-      serviceAccountName: kubeflow-service-account
+      

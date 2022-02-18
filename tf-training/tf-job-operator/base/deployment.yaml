@@ -28,4 +28,12 @@ spec:
               fieldPath: metadata.name
         image: gcr.io/kubeflow-images-public/tf_operator:kubeflow-tf-operator-postsubmit-v1-5adee6f-6109-a25c
         name: tf-job-operator
-      serviceAccountName: tf-job-operator
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: tf-job-operator-token
+          readOnly: true          
+      volumes:
+      - name: tf-job-operator-token
+        secret:
+          defaultMode: 420
+          secretName: tf-job-operator-token   
