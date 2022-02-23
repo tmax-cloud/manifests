@@ -56,10 +56,10 @@ spec:
           protocol: TCP
         volumeMounts:
         - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-          name: profiles-controller-service-account-token
+          name: profiles-service-account-token
           readOnly: true
       volumes:
-      - name: profiles-controller-service-account-token
+      - name: profiles-service-account-token
         secret:
           defaultMode: 420
-          secretName: profiles-controller-service-account-token
+          secretName: profiles-service-account-token
