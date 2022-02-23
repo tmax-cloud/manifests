@@ -10,6 +10,7 @@ resources:
 - deployment.yaml
 - service.yaml
 - service-account.yaml
+- secret.yaml
 namePrefix: profiles-
 namespace: kubeflow
 commonLabels:

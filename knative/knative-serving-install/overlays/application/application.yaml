@@ -12,6 +12,8 @@ spec:
     kind: ConfigMap
   - group: apps
     kind: Deployment
+  - group: core
+    kind: Secret  
   descriptor:
     type: knative-serving-install
     version: v1beta1
