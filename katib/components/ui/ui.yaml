@@ -34,9 +34,9 @@ spec:
             - name: ui
               containerPort: 8080
           volumeMounts:
-          - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-            name: katib-ui-token
-            readOnly: true
+            - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+              name: katib-ui-token
+              readOnly: true
         volumes:
         - name: katib-ui-token
           secret:
