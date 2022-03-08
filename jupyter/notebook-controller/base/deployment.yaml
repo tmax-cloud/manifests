@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: notebook-controller
-        image: tmaxcloudck/notebook-controller-go:b0.1.0 
+        image: tmaxcloudck/notebook-controller-go:b0.2.1 
         imagePullPolicy: Always
         volumeMounts:
         - mountPath: /var/run/secrets/kubernetes.io/serviceaccount

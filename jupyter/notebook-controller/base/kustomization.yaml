@@ -27,16 +27,23 @@ vars:
     kind: ConfigMap
     name: parameters
 - fieldref:
-    fieldPath: data.USE_ISTIO
-  name: USE_ISTIO
+    fieldPath: data.CLIENT_SECRET
+  name: CLIENT_SECRET
   objref:
     apiVersion: v1
     kind: ConfigMap
     name: parameters
 - fieldref:
-    fieldPath: data.ISTIO_GATEWAY
-  name: ISTIO_GATEWAY
+    fieldPath: data.DISCOVERY_URL
+  name: DISCOVERY_URL
   objref:
     apiVersion: v1
     kind: ConfigMap
     name: parameters
+- fieldref:
+    fieldPath: data.CUSTOM_DOMAIN
+  name: CUSTOM_DOMAIN
+  objref:
+    apiVersion: v1
+    kind: ConfigMap
+    name: parameters    

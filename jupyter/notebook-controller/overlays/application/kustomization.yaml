@@ -6,8 +6,8 @@ resources:
 - application.yaml
 commonLabels:
   app.kubernetes.io/name: notebook-controller
-  app.kubernetes.io/instance: notebook-controller-go-b0.0.2
+  app.kubernetes.io/instance: notebook-controller-go-b0.2.1
   app.kubernetes.io/managed-by: kfctl
   app.kubernetes.io/component: notebook-controller-go
-  app.kubernetes.io/part-of: hyperflow
-  app.kubernetes.io/version: b0.0.2
+  app.kubernetes.io/part-of: kubeflow
+  app.kubernetes.io/version: b0.2.1
